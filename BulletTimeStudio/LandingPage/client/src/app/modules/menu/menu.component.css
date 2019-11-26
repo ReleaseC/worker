@@ -1,0 +1,48 @@
+.sidenav-container {
+  height: 100vh;
+  z-index:1000;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+  z-index:10001;
+}
+/* .sidenav_content{
+  width:100%;
+  height:100%;
+} */
+.chooseId{
+  position: absolute;left:30%;
+}
+select{
+  position: absolute;
+  /* width:32%;
+  height:32%; */
+  left:43%;
+}
+.light_red{
+  position: absolute;
+  left:80%;
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+  background: red;
+}
+.light_green{
+  position: absolute;
+  left:80%;
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+  background: green;
+}
+
+.nav_left{
+  display: flex;
+  align-items: center;
+}
+.navBar{
+  display: flex;
+  justify-content: space-between;
+}

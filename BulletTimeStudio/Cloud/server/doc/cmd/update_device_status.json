@@ -1,0 +1,8 @@
+
+// mome收到该指令, 更新一次自己的device_status
+{
+  "deviceId": "deviceId",
+  "param": {
+    "action": "update_device_status"
+  }
+}

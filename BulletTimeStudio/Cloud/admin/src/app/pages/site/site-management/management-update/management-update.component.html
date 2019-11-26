@@ -1,0 +1,32 @@
+<div>
+  類型：
+  <select [(ngModel)]="selectType" (change)="onSelect()">
+    <option value="">請選擇類型</option>
+    <option value="BT">BT</option>
+    <option value="Soccer">Soccer</option>
+    <option value="Basketball">Basketball</option>
+  </select>
+</div>
+<div *ngIf="selectType === 'BT'">
+  <select (change)="onSelectSetting($event.target.value)">
+    <option value="">請選擇setting</option>
+    <option *ngFor="let arr of siteSettingArr, let i = index" value="{{i}}">{{arr.siteId}}_{{arr.name}}</option>
+  </select>
+</div>
+<div *ngIf="(selectType === 'Soccer') || (selectType === 'Basketball')">
+  <select (change)="onSelectSetting($event.target.value)">
+    <option value="">請選擇請選擇setting</option>
+    <option *ngFor="let arr of siteSettingArr, let i = index" value="{{i}}">{{arr.siteName}}</option>
+  </select>
+</div>
+<table border="1" *ngIf="selectType">
+  <tr>
+    <td>
+      <textarea rows="20" cols="100" [(ngModel)]="inputSetting"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <button (click)="updateSiteSetting()">更新</button>
+    <p class="siteMsg">{{siteMsg}}</p>
+  </tr>
+</table>

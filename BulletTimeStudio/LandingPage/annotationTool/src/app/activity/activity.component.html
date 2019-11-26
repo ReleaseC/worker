@@ -1,0 +1,8 @@
+<div>
+  <select
+    (change)="onSelectSetting($event.target.value)"
+    [(ngModel)]="initSiteSetting">
+    <option value="-1">請選擇場次</option>
+    <option *ngFor="let arr of siteArr, let i = index" value="{{i}}">{{arr.siteName}}</option>
+  </select>
+</div>

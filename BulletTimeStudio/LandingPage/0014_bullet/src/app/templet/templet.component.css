@@ -1,0 +1,320 @@
+@media screen and (max-width:768px){
+*{
+    margin:0;
+    padding:0;
+}
+.templet{
+    position: absolute;
+    text-align: center;
+    width:100%;
+    height:100%;
+    left:0%;
+    top:0%;
+    background-color: #E8E8E8;
+}
+.top_nav{
+    position: absolute;
+    width:100%;
+    height:8%;
+    background-color: #ff7ea2;
+}
+.title{
+    position: absolute;
+    top:50%;
+    left:50%;
+    font-size: 140%;
+    color:white;
+    transform: translate(-50%,-50%);
+}
+input{
+    margin-right:10px;
+}
+.templet_body{
+    position: absolute;
+    width:100%;
+    height:82%;
+    top:8%;
+    background-color: #f2f2f2;
+}
+.bottom_nav{
+    position: absolute;
+    width:100%;
+    height:10%;
+    bottom:0%;
+    /* background-image: url("../../assets/images/templet_bottom.png"); */
+    background-color: white;
+}
+.templet1{
+    position: absolute;
+    width:32%;
+    left:10%;
+    top:1%;
+}
+.border_button{
+    position:absolute;
+    width:80%;
+    height:35px;
+    line-height: 35px;
+    left:10%;
+    border-radius: 20px;
+    background:	white;
+    top:25%; 
+    font-size:14px;
+}
+.money{
+    position:absolute;
+    left:68%;
+    top:84%; 
+    font-size:17px;
+    font-weight: bold;
+    color:#e4783b;
+}
+.templet_picture{
+   width:100%;
+}
+.templet_picture_free{
+    position: absolute;
+    width:50%;
+    left:50%;
+    top:0%;
+}
+.templet_picture_pay{
+    position: absolute;
+    width:50%;
+    left:50%;
+    top:0%;
+}
+.templet2{
+    position: absolute;
+    width:32%;
+    left:58%;
+    top:1%;
+}
+.templet3{
+    position: absolute;
+    width:32%;
+    left:10%;
+    top:34%;
+}
+.templet4{
+    position: absolute;
+    width:32%;
+    left:58%;
+    top:34%;
+}
+.templet5{
+    position: absolute;
+    width:32%;
+    left:10%;
+    top:67%;
+}
+.templet6{
+    position: absolute;
+    width:32%;
+    left:58%;
+    top:67%;
+}
+.templet_checkbox{
+    position:relative;
+    margin-top:3px;
+    color:#7d7d7d;
+    left:-15%;
+}
+.pay_btn{
+    position:absolute;
+    width:27%;
+    height:40px;
+    line-height: 40px;
+    left:68%;
+    border-radius: 20px;
+    background:	#ff7ea2;
+    color:white;
+    top:50%;
+    transform: translateY(-50%)
+}
+.p6{
+    position: absolute;
+    top:30%;
+    left:5%; 
+    color:#7d7d7d;
+}
+.p7{
+    position: absolute;
+    top:32%;
+    left:33%;
+    font-size:13px;
+    color: #e4783b;
+    font-family: '微软雅黑';
+}
+.ticket{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top:50%;
+    transform: translateY(-50%);
+    /* top:32%; */
+    /* left:33%; */
+    font-size:15px;
+    color: #e4783b;
+    font-family: '微软雅黑';
+}
+}
+
+@media screen and (min-width:768px){
+    .templet{
+        position: absolute;
+        width:26%;
+        height:100%;
+        left:37%;
+        text-align: center;
+    }
+    *{
+        margin:0;
+        padding:0;
+    }
+    .top_nav{
+        position: absolute;
+        width:100%;
+        height:8%;
+        background-color: #ff7ea2;
+    }
+    .title{
+        position: absolute;
+        top:50%;
+        left:50%;
+        font-size: 140%;
+        color:white;
+        transform: translate(-50%,-50%);
+    }
+    input{
+        margin-right:10px;
+    }
+    .templet_body{
+        position: absolute;
+        width:100%;
+        height:82%;
+        top:8%;
+        background-color: #f2f2f2;
+    }
+    .bottom_nav{
+        position: absolute;
+        width:100%;
+        height:10%;
+        bottom:0%;
+        background-color: white;
+    }
+    .templet1{
+        position: absolute;
+        width:32%;
+        left:10%;
+        top:1%;
+    }
+    .border_button{
+        position:absolute;
+        width:80%;
+        height:35px;
+        line-height: 35px;
+        left:10%;
+        border-radius: 20px;
+        background:	white;
+        top:25%; 
+        font-size:14px;
+    }
+    .money{
+        position:absolute;
+        left:68%;
+        top:84%; 
+        font-size:17px;
+        font-weight: bold;
+        color:#e4783b;
+    }
+    .templet_picture{
+       width:100%;
+    }
+    .templet_picture_free{
+        position: absolute;
+        width:50%;
+        left:50%;
+        top:0%;
+    }
+    .templet_picture_pay{
+        position: absolute;
+        width:50%;
+        left:50%;
+        top:0%;
+    }
+    .templet2{
+        position: absolute;
+        width:32%;
+        left:58%;
+        top:1%;
+    }
+    .templet3{
+        position: absolute;
+        width:32%;
+        left:10%;
+        top:34%;
+    }
+    .templet4{
+        position: absolute;
+        width:32%;
+        left:58%;
+        top:34%;
+    }
+    .templet5{
+        position: absolute;
+        width:32%;
+        left:10%;
+        top:67%;
+    }
+    .templet6{
+        position: absolute;
+        width:32%;
+        left:58%;
+        top:67%;
+    }
+    .templet_checkbox{
+        position:relative;
+        margin-top:3px;
+        color:#7d7d7d;
+        left:-15%;
+    }
+    .pay_btn{
+        position:absolute;
+        width:27%;
+        height:40px;
+        line-height: 40px;
+        left:68%;
+        border-radius: 20px;
+        background:	#ff7ea2;
+        color:white;
+        top:50%;
+        transform: translateY(-50%)
+    }
+    .p6{
+        position: absolute;
+        top:30%;
+        left:5%; 
+        color:#7d7d7d;
+    }
+    .p7{
+        position: absolute;
+        top:32%;
+        left:33%;
+        font-size:13px;
+        color: #e4783b;
+        font-family: '微软雅黑';
+    }
+    .ticket{
+        position: absolute;
+        width:100%;
+        text-align: center;
+        top:50%;
+        transform: translateY(-50%);
+        /* top:32%; */
+        /* left:33%; */
+        font-size:15px;
+        color: #e4783b;
+        font-family: '微软雅黑';
+    }
+}

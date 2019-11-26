@@ -1,0 +1,49 @@
+<!--測試：<input type="checkbox" [checked]="checkbox_test" (change)="checkbox_test = !checkbox_test; filterTable()" />-->
+<!--上海：<input type="checkbox" [checked]="checkbox_sh" (change)="checkbox_sh = !checkbox_sh; filterTable()" />-->
+<!--北京：<input type="checkbox" [checked]="checkbox_bj" (change)="checkbox_bj = !checkbox_bj; filterTable()" />-->
+<!--廣州：<input type="checkbox" [checked]="checkbox_gz" (change)="checkbox_gz = !checkbox_gz; filterTable()" />-->
+
+<!--<table border="1">-->
+  <!--<tr align="center">-->
+    <!--<th>地區</th>-->
+    <!--<th>Site ID</th>-->
+    <!--<th>球場球門</th>-->
+    <!--<th>電量</th>-->
+    <!--<th>溫度</th>-->
+    <!--<th>充電中</th>-->
+    <!--<th>連線狀態</th>-->
+    <!--<th>Goal</th>-->
+    <!--<th>網路延遲</th>-->
+    <!--<th>角色</th>-->
+    <!--<th>設備代號</th>-->
+    <!--<th>APK版本</th>-->
+    <!--<th>最後更新時間</th>-->
+    <!--<th>上傳失敗訊息</th>-->
+    <!--&lt;!&ndash; <th>綁定設備</th> &ndash;&gt;-->
+  <!--</tr>-->
+
+  <!--<tr>-->
+    <!--<button (click)="startWork()"> start </button>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<button (click)="stopWork()"> stop </button>-->
+  <!--</tr>-->
+
+  <!--<tr *ngFor="let arr of siteListArr" [style.background-color]="arr.color" [style.color]="arr.color === '#07c734' ? '#FFF' : '#000'" align="center">-->
+    <!--<td>{{arr.region}}</td>-->
+    <!--<td>{{arr.siteId}}</td>-->
+    <!--<td>{{arr.siteName}}</td>-->
+    <!--<td [style.color]="arr.powerColor">{{arr.power}}</td>-->
+    <!--<td [style.color]="arr.tempColor">{{arr.temperature}}</td>-->
+    <!--<td [style.color]="arr.chargingColor">{{arr.charging}}</td>-->
+    <!--<td [style.color]="arr.statusColor">{{arr.status}}</td>-->
+    <!--<td>{{arr.goal}}</td>-->
+    <!--<td>{{arr.delay}}</td>-->
+    <!--<td>{{arr.role}}</td>-->
+    <!--<td>{{arr.deviceId}}</td>-->
+    <!--<td>{{arr.version}}</td>-->
+    <!--<td [style.color]="arr.lastUpdateColor">{{arr.lastUpdate}}</td>-->
+    <!--<td>{{arr.msg}}</td>-->
+    <!--&lt;!&ndash; <td><button (click)="onBind(arr)" [disabled]="arr.bindName == '無法綁定'">{{arr.bindName}}</button></td> &ndash;&gt;-->
+  <!--</tr>-->
+<!--</table>-->

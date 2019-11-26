@@ -1,0 +1,72 @@
+<div class="panel">
+  <div class="panel-source-setting">
+    <mat-select placeholder="台詞素材" class="mat-select-class" [(ngModel)]="commercialText" (selectionChange)="commercialParsing()">
+      <mat-option >請選擇</mat-option>
+      <mat-option *ngFor="let arr of commTextArr, let i = index" [value]="arr.description" >{{arr.title}}</mat-option>
+    </mat-select>
+    <br>
+    <mat-select placeholder="影片素材" class="mat-select-class" [(ngModel)]="commVideoIndex">
+      <mat-option >請選擇</mat-option>
+      <mat-option *ngFor="let arr of commVideoArr, let i = index" [value]="i">{{arr.title}}</mat-option>
+    </mat-select>
+    <br>
+    <!-- <mat-select placeholder="聲音樣板" class="mat-select-class" >
+      <mat-option *ngFor="let arr of commAudioArr, let i = index" [value]="i">{{arr.title}}</mat-option>
+    </mat-select> -->
+    <br>
+    <mat-form-field class="mat-textarea-class">
+      <textarea matInput placeholder="影片台詞" [(ngModel)]="commercialText" [value]="commercialText" (change)="commercialParsing()"></textarea>
+    </mat-form-field>
+    <div class="panel-source-logo">
+      <img src="assets/SYSTEX.png">
+    </div>
+  </div>
+
+  <!-- Video player -->
+  <div class="panel-preview">
+    <video [src]="videoLink" controls>
+      Your browser does not support HTML5 video.
+    </video>
+    <span>{{videoProcess}}</span>
+    <span *ngIf="videoProcessing">
+        <img src="assets/loading.gif" style="width: 30px; height: 30px;">
+    </span>
+  </div>
+  <!-- 剪輯button -->
+  <div class="panel-preview-button">
+    <button mat-button *ngIf="keyWordSettingArr.length !== 0" (click)="startCustomVideo()">開始剪輯</button>
+  </div>
+  <!-- 關鍵字列表 -->
+  <div class="panel-preview-setting" >
+    <table >
+      <tr *ngFor="let arr of keyWordSettingArr, let i = index" class="context-preview-setting">
+        <td align="center">
+          <span>類型:</span>
+          <select placeholder="類型" [value]="i" (change)="selectType(i, $event.target.value)">
+            <option>請選擇</option>
+            <option *ngFor="let typeArr of keywordTypeArr, let j = index" value="{{j}}">{{typeArr}}</option>
+          </select>
+        </td>
+        <td align="center">
+          <span>素材:</span>
+          <select placeholder="素材" [value]="i" (change)="selectMaterial(i, $event.target.value)">
+            <option>請選擇</option>
+            <option *ngFor="let MatArr of keywordMaterialArr, let k = index" value="{{k}}">{{MatArr}}</option>
+          </select>
+        </td>
+        <td align="center">
+          <span>關鍵字:</span>
+          <input placeholder="關鍵字" value="{{arr.keyword}}" disabled="disabled"/>
+        </td>
+        <td align="center">
+          <span>起始時間:</span>
+          <input placeholder="起始時間" style="width: 20px" [(ngModel)]=arr.start_time/>
+        </td>
+        <td align="center">
+          <span>結束時間:</span>
+          <input placeholder="結束時間" style="width: 20px" [(ngModel)]=arr.end_time/>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

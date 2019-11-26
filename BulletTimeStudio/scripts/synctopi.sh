@@ -1,0 +1,1 @@
+rsync -avzh --exclude "node_modules" --exclude ".git" --exclude "CameraAgent" --exclude "video" /Volumes/HD2/project/BulletTimeStudio pi@192.168.43.43:/home/pi/project/

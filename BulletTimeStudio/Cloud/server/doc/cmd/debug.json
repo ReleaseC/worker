@@ -1,0 +1,9 @@
+{
+  "deviceId": "deviceId",
+  "from": "deviceId_who",
+  "requestId": "requestId",
+  "param": {
+    "level": "debug", // fatal, error, info, debug, verbose
+    "category": "all" // all, other custom-defined, e.g. rtsp
+  }
+}

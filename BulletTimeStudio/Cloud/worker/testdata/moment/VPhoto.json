@@ -1,0 +1,101 @@
+//3D一体机python需要的JSON
+{
+    "background":[ 
+        {
+            "picture_bg_url":"background_1.jpg",   //右边提供用户选择的不同背景模板
+            "video_bg_url":"background_1.mp4"    //与右边用户选择模板相对应的铺满全屏1920×1080的背景视频 (x,y宽高UI自己定)
+        },
+        {
+            "picture_bg_url":"background_2.jpg",  
+            "video_bg_url":"background_2.mp4"    
+        },
+        {
+            "picture_bg_url":"background_3.jpg",   
+            "video_bg_url":"background_3.mp4"    
+        },
+        {
+            "picture_bg_url":"background_4.jpg",   
+            "video_bg_url":"background_4.mp4"    
+        }
+    ],
+    "start_shoot_btn":{             //开始拍摄按钮
+       "bg_url":"btn_bg.png",
+       "width":100,
+       "height":100,
+       "x":500,
+       "y":500
+    },
+    "roles":[         //角色按钮图(静态png:)===角色预览重复动效(绿屏mp4:)===角色入场动效(绿屏mp4:)/角色后期叠加图片(PNG:1920*1080)===角色后期叠加动效(MOV:1920*1080)
+        { //角色1
+          "role_btn_bg":"/role1/btn.png",      //角色按钮图
+          "role_preview_effects":{
+            "url": "role1/preview.mp4",  //角色预览重复动效路径
+            "w":200,                          //角色预览重复动效宽度
+            "h":200,                         //角色预览重复动效高度
+            "x":300,                        //角色预览重复动效位置x
+            "y":300                        //角色预览重复动效位置y
+          },
+          "admission_effects":[
+            {
+                "url":"role1/admission_effect_1.mp4",    //eg:左入场
+                "w":200,                                        //入场特效mp4的宽
+                "h":200,                                       //入场特效mp4的高
+                "x":0,                                      //入场特效mp4叠加位置x
+                "y":0                                      //入场特效mp4叠加位置y
+            },   
+            {
+                "url":"role1/admission_effect_2.mp4",    //eg:右入场
+                "w":200,                                   
+                "h":200,                                     
+                "x":1920,                                   
+                "y":0          
+            },   
+            {
+                "admission_effect":"role1/admission_effect_3.mp4",    //eg:中间入场
+                "w":200,                                   
+                "h":200,                                     
+                "x":960,                                   
+                "y":1080    
+            }  
+          ]
+        },
+        { //角色2
+            "role_btn_bg":"role2/btn.png",
+            "role_preview_effects":{
+                "role_preview_effects_url": "role2/preview.mp4",  
+                "role_preview_effects_w":200,                          
+                "role_preview_effects_h":200,                        
+                "role_preview_effects_url_x":300,                   
+                "role_preview_effects_url_y":300                  
+              },
+            "admission_effects":[
+                {
+                    "url":"role2/admission_effect_1.mp4",   
+                    "w":200,                                       
+                    "h":200,                                       
+                    "x":0,                                     
+                    "y":0                                      
+                },   
+                {
+                    "url":"role2/admission_effect_2.mp4",   
+                    "w":200,                                   
+                    "h":200,                                     
+                    "x":1920,                                   
+                    "y":0          
+                },   
+                {
+                    "admission_effect":"role2/admission_effect_3.mp4",  
+                    "w":200,                                   
+                    "h":200,                                     
+                    "x":960,                                   
+                    "y":1080    
+                }  
+            ]
+          },
+          {},
+          {},
+          {}        
+    ]
+}
+
+//备注：不同类型的拍摄环境如：海洋馆(sea);博物馆(museum);球队(team)   只需要在执行python是以参数带入   python根据该参数作为路径去获取图片视频等素材eg:./sea/

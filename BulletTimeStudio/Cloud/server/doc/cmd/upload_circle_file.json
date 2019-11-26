@@ -1,0 +1,13 @@
+/* 用于上传circle_file到阿里云 */
+{
+  "deviceId": "deviceId", // 要远端拍摄那台mome的deviceId
+  "from": "deviceId_who", // 要求远端拍摄的deviceId, 通常是Cloud Admin
+  "requestId": "requestId", // 在同時多個远端拍摄时，用requestId來區分
+  "param": {
+    "action": "upload_circle_file",
+    "order": 2, // 序号, 用于mome设定资料名称
+    "time":1512312312312, // 开始时间
+    "duration": 3600000 // 上传时长,单位ms
+  }
+}
+

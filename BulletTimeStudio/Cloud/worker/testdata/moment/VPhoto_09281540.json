@@ -1,0 +1,74 @@
+{
+    "rootpath":"./sea/",  
+    "background":[ 
+        {
+            "picture_bg_url":"background_1.jpg", 
+            "video_bg_url":"background_2.mp4" 
+        },
+        {
+            "picture_bg_url":"background_2.jpg",  
+            "video_bg_url":"background_2.mp4"    
+        },
+        {
+            "picture_bg_url":"background_3.jpg",   
+            "video_bg_url":"background_3.mp4"    
+        }
+    ],
+    "start_shoot_btn":{           
+       "bg_url":"btn_bg.png",
+       "width":100,
+       "height":100,
+       "x":500,
+       "y":500
+    },
+    "roles":[
+        { 
+          "role_btn_bg":"/role1/btn.png",
+          "role_preview_effects":{"url": "role1/preview.mp4","w":0,"h":0,"x":0,"y":0},   
+          "admission_effects":[
+            {"url":"role1/admission_effect_1.mp4","w":844,"h":216,"x":0,"y":864},   
+            {"url":"role1/admission_effect_2.mp4","w":844,"h":216,"x":1076,"y":864} 
+          ]
+        },
+        { 
+            "role_btn_bg":"/role2/btn.png",
+            "role_preview_effects":{"url": "role2/preview.mp4","w":0,"h":0,"x":0,"y":0},   
+            "admission_effects":[
+              {"url":"role2/admission_effect_1.mp4","w":518,"h":259,"x":0,"y":346},   
+              {"url":"role2/admission_effect_2.mp4","w":518,"h":259,"x":1402,"y":346} 
+            ]
+        },
+        { 
+            "role_btn_bg":"/role3/btn.png",
+            "role_preview_effects":{"url": "role3/preview.mp4","w":0,"h":0,"x":0,"y":0},   
+            "admission_effects":[
+              {"url":"role3/admission_effect_1.mp4","w":1094,"h":303,"x":0,"y":0},   
+              {"url":"role3/admission_effect_2.mp4","w":1094,"h":303,"x":826,"y":0} 
+            ]
+        },
+        { 
+            "role_btn_bg":"/role4/btn.png",
+            "role_preview_effects":{"url": "role4/preview.mp4","w":0,"h":0,"x":0,"y":0},   
+            "admission_effects":[
+              {"url":"role4/admission_effect_1.mp4","w":615,"h":410,"x":0,"y":335},   
+              {"url":"role4/admission_effect_2.mp4","w":615,"h":410,"x":1305,"y":335} 
+            ]
+        },
+        { 
+            "role_btn_bg":"/role5/btn.png",
+            "role_preview_effects":{"url": "role5/preview.mp4","w":0,"h":0,"x":0,"y":0},   
+            "admission_effects":[
+              {"url":"role5/admission_effect_1.mp4","w":480,"h":443,"x":0,"y":637},   
+              {"url":"role5/admission_effect_2.mp4","w":480,"h":443,"x":1440,"y":637} 
+            ]
+        },
+        { 
+            "role_btn_bg":"/role6/btn.png",
+            "role_preview_effects":{"url": "role6/preview.mp4","w":0,"h":0,"x":0,"y":0},   
+            "admission_effects":[
+              {"url":"role6/admission_effect_1.mp4","w":864,"h":530,"x":0,"y":410},   
+              {"url":"role6/admission_effect_2.mp4","w":864,"h":530,"x":1056,"y":410} 
+            ]
+        }       
+    ]
+}

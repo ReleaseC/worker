@@ -1,0 +1,289 @@
+@media screen and (max-width:768px){
+    *{
+        margin:0;
+        padding:0;
+    }
+    body{
+        margin:0;
+        padding:0; 
+    }
+    .shoppingcar{
+        position: absolute;
+        text-align:center;
+        width:100%;
+        height:100%;
+        background-image: url("./../../assets/images/result_back.png");
+        background-size: contain;
+    }
+    .result_back{
+        position: absolute;
+        width:100%;
+        height:100%;
+        top:0%;
+        left:0%;
+        pointer-events: none;
+    }
+    .top_nav{
+        position: absolute;
+        width:100%;
+        height:8%;
+        background-image: url("../../assets/images/templet_top.png");
+        background-size: contain;
+    }
+    .title{
+        position: absolute;
+        top:50%;
+        left:50%;
+        font-size: 140%;
+        color:white;
+        transform: translate(-50%,-50%);
+    }
+    .shoppingcar_body{
+        position: absolute;
+        width:100%;
+        height:82%;
+        top:8%;
+    }
+    .bottom_nav{
+        position: absolute;
+        width:100%;
+        height:10%;
+        bottom:0%;
+        background-image: url("../../assets/images/templet_bottom.png");
+    }
+.parent{
+    position: relative;
+    left:0%;
+    top:0%;
+    width:100%;
+    height:100%;
+    overflow: scroll;
+}
+.border1{
+    position: relative;
+    background:	white;
+    width:100%;
+    height:18%;
+    left:0%;
+    top:0%;
+    margin-top: 20px;
+    /* border-radius: 8px; */
+}
+img{
+    position:relative;
+    left:-35%;
+    top:0%;
+    width:25%;
+    height:93%;
+    margin-top:3px;
+    margin-left:3%;
+
+}
+.tittle{
+    position: absolute;;
+    left:42%;
+    top:11%;
+    font-size: 18px;
+    color:#172142;
+}
+span{
+    position: absolute;
+    left:42%;
+    top:60%;
+    color:red;
+}
+.money{
+    position: absolute;
+    left:47%;
+    top:60%;
+    color:red;
+}
+.number{
+    position: absolute;;
+    left:75%;
+    top:60%;
+}
+.pay_btn{
+    position:absolute;
+    width:30%;
+    height:40px;
+    line-height: 40px;
+    left:65%;
+    border-radius: 20px;
+    background:	#f1cd53;
+    color:#172142;
+    top:50%;
+    transform: translateY(-50%)
+}
+.price_sum{
+  position: relative;
+  left:5%;
+  top:50%;
+  width:50%;
+  height:50%;
+transform: translateY(-50%);
+color:white;
+}
+h3{
+    position: absolute;;
+    left:0%;
+    top:15%;
+}
+.span_sum{
+    position: absolute;
+    left:31%;
+    top:25%;
+    font-size:100%;
+}
+.span_money{
+    position: absolute;
+    color:red;
+    left:39%;
+    top:-6%;
+    font-size:200%;
+}
+.back_icon{
+    position: absolute;
+    width:11%;
+    left:0%;
+    z-index: 1000;
+}
+}
+@media screen and (min-width:768px){
+    .shoppingcar{
+        position: absolute;
+        width:28%;
+        left:36%;
+        height:100%;
+        top:0%;
+    }
+    *{
+        margin:0;
+        padding:0;
+    }
+    .top_nav{
+        position: absolute;
+        width:100%;
+        height:8%;
+        background-color: white;
+    }
+      .title{
+        position: absolute;
+        top:50%;
+        left:50%;
+        font-size: 140%;
+        color:white;
+        transform: translate(-50%,-50%);
+    }
+    .shoppingcar_body{
+        position: absolute;
+        width:100%;
+        height:82%;
+        top:8%;
+    }
+    .bottom_nav{
+        position: absolute;
+        width:100%;
+        height:10%;
+        bottom:0%;
+        background-image: url("../../assets/images/templet_bottom.png");
+    }
+    .parent{
+        position: relative;;
+        left:0%;
+        top:0%;
+        width:100%;
+        height:100%;
+        overflow: scroll;
+    }
+    .border1{
+        position: relative;
+        background:	#E8E8E8;
+        width:100%;
+        height:18%;
+        left:0%;
+        top:0%;
+        margin-top: 20px;
+        /* margin-left:-3%; */
+    }
+    img{
+        position:relative;
+        left:0%;
+        top:0%;
+        width:25%;
+        height:93%;
+        margin-top:3px;
+        margin-left:3%;
+    }
+    .tittle{
+        position: absolute;
+        left:42%;
+        top:11%;
+        font-size: 18px;
+    }
+    span{
+        position: absolute;
+        left:42%;
+        top:60%;
+        color:red;
+    }
+    .money{
+        position: absolute;
+        left:47%;
+        top:60%;
+        color:red;
+    }
+    .number{
+        position: absolute;;
+        left:75%;
+        top:60%;
+    }
+    .price_sum{
+        position: relative;
+        left:5%;
+        top:50%;
+        width:50%;
+        height:50%;
+      transform: translateY(-50%)
+      }
+      h3{
+          position: absolute;;
+          left:0%;
+          top:15%;
+      }
+      .span_sum{
+          position: absolute;
+          left:31%;
+          top:25%;
+          font-size:100%;
+      }
+    .span_money{
+        position: absolute;
+        color:red;
+        left:39%;
+        top:-6%;
+        font-size:200%;
+    }
+    .pay_btn{
+        position:absolute;
+        width:30%;
+        height:40px;
+        line-height: 40px;
+        left:65%;
+        border-radius: 20px;
+        background:	#161439;
+        color:white;
+        top:50%;
+        transform: translateY(-50%)
+    }
+    .back_icon{
+        position: absolute;
+        width:11%;
+        left:0%;
+        z-index: 1000;
+    }
+    h1{
+        position: relative;
+        text-align: center;
+    }
+}

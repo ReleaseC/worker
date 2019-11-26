@@ -1,0 +1,17 @@
+<table border="1">
+  <tr>
+    <th>Account</th>
+    <th>Role</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let arr of accountListArr">
+    <td>{{arr.account}}</td>
+    <td>{{arr.role}}</td>
+    <td>{{arr.description}}</td>
+    <td><button (click)="delect_account(arr.account)">Delete</button></td>
+  </tr>
+  <tr>
+    <td colspan="4">{{errorMsg}}</td>
+  </tr>
+</table>

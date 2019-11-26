@@ -1,0 +1,13 @@
+{
+    "taskId": "",       // taskId, if no taskId (e.g. 小汽車), return ""
+    "action": "",       // detect XXX, recording, uploading, authoring
+    "who": "",          // mome, worker or Local File Server
+    "from": "",         // deviceId or workerId
+    “position": ""      // camera position, if who is mome
+    "step": "",         // For Detect: ['detect', 'idle'], 
+                        // for Record: ['init', 'recording', 'complete']
+                        // for Uploading: ['init', 'uploading', 'complete']
+                        // for authoring (worker): depends on worker and should be: ['idle', 'get_task', 'get_assets', 'get_video', 'step1', 'step2', ..., 'complete']
+    "progress": 0,      // 0-100
+    "status": ""        // normal, exception + retry message, error
+}

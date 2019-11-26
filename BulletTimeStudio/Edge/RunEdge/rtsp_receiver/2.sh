@@ -1,0 +1,1 @@
+ffmpeg -y -v info -i tmp/video.ffcat -map 0 -c copy tmp/output.mp4

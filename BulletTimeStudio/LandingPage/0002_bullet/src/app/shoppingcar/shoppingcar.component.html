@@ -1,0 +1,54 @@
+<div class="shoppingcar">
+<!-- <img class="result_back" src="assets/images/result_back.png" alt="图片"> -->
+   <div class="top_nav">
+        <img class="back_icon" src="assets/images/back.png" alt="图片" (click)="goback()">
+        <div class="title">购物车</div>
+  </div>
+  <div class="shoppingcar_body">
+<div class="parent">
+        <div *ngIf="istemplet2" class="border1">
+                <img src="assets/images/templet2.jpg" alt="图片">
+                  <div class="tittle">模板2</div>
+                  <span>&yen;</span>
+                  <div class="money">{{templet2_price}}</div>
+                  <div class="number">数量：1</div>
+        </div>
+        <div *ngIf="istemplet3" class="border1">
+                <img src="assets/images/templet3.jpg" alt="图片">
+                  <div class="tittle">模板3</div>
+                  <span>&yen;</span>
+                  <div class="money">{{templet3_price}}</div>
+                  <div class="number">数量：1</div>
+        </div>
+        <div *ngIf="istemplet4" class="border1">
+                <img src="assets/images/templet4.jpg" alt="图片">
+                  <div class="tittle">模板4</div>
+                  <span>&yen;</span>
+                  <div class="money">{{templet4_price}}</div>
+                  <div class="number">数量：1</div>
+        </div>
+        <div *ngIf="istemplet5" class="border1">
+                <img src="assets/images/templet5.jpg" alt="图片">
+                  <div class="tittle">模板5</div>
+                  <span>&yen;</span>
+                  <div class="money">{{templet5_price}}</div>
+                  <div class="number">数量：1</div>
+        </div>
+        <div *ngIf="istemplet6" class="border1">
+                <img src="assets/images/templet6.jpg" alt="图片">
+                  <div class="tittle">模板6</div>
+                  <span>&yen;</span>
+                  <div class="money">{{templet6_price}}</div>
+                  <div class="number">数量：1</div>
+        </div>
+    </div>
+    </div>
+    <div class="bottom_nav">
+                <div class="price_sum">
+                        <h3>合计：</h3><span class="span_sum">&yen;</span><span class="span_money">{{templet_price_sum}}</span>
+                </div>
+                <div (click)="pay()">
+                        <div class="pay_btn">前往支付</div>
+                </div>
+    </div>
+</div>

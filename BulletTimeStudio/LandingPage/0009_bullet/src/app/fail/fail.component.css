@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding:0;
+}
+img{ pointer-events: none; }
+.border_background{
+    position: absolute;
+    width:84%;
+    left:8%;
+    height:35%;
+    top:35%;
+    background-color: white;
+    border-radius: 10px;
+}
+.end{
+    position: absolute;
+    width:48%;
+    top:38%;
+    left:26%;
+}
+.text{
+    position: absolute;
+    left:68%;
+    top:13.5%;
+    font-size: 200%;
+    color:#ff037c;
+    font-weight: 300;
+  }
+  .hr3{
+    background: #CCCCCC;
+    position:absolute;
+    left:29%;
+    top:50%;
+    width:5%;
+    opacity:0.5;
+}
+.hr4{
+    background: #CCCCCC;
+    position:absolute;
+    left:67%;
+    top:50%;
+    width:5%;
+    opacity:0.5;
+}
+.title{
+    position: absolute;
+    width:98%;
+    /* top:5%; */
+    top:48%;
+    font-size: 19px;
+    color: #343434;
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 600;
+}
+.logo{
+      position: absolute;
+      width:70%;
+      top:20%;
+      left:15%;
+  }
+.text1{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    top:85.7%;
+    font-size: 14px;
+    color: #3b3b3b;
+    letter-spacing: 0.7px;
+}
+.text2{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    font-size: 14px;
+    top:89%;
+    color: #3b3b3b;
+    letter-spacing: 0.7px;
+}
+.text3{
+   position: absolute;
+   width:96%;
+   text-align: center;
+   top:55%;
+   color:#bdbdbd;
+   letter-spacing: 2.29px;
+}
+.text4{
+    position: absolute;
+    width:98%;
+    text-align: center;
+    top:59%;
+    color:#bdbdbd;
+    letter-spacing: 2.29px;
+}
+.logo2{
+    position: absolute;
+    width:17%;
+    top:84%;
+    left:22%;
+    z-index: -1;
+}
+.logo3{
+    position: absolute;
+    width:21%;
+    top:84%;
+    left:58%;
+    z-index: -1;
+}
+

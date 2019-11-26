@@ -1,0 +1,104 @@
+
+ *{
+   margin:0;
+   padding:0;
+ }
+.border_background{
+  position: absolute;
+  width:84%;
+  left:8%;
+  height:31%;
+  top:33%;
+  background-color: white;
+  border-radius: 10px;
+}
+.smile{
+  position: absolute;
+  width:25%;
+  top:4%;
+  left:22%;
+  pointer-events: none;
+}
+.weiai{
+  position: absolute;
+  width:26%;
+  top:4%;
+  left:54%;
+  pointer-events: none;
+}
+.end{
+  position: absolute;
+  width:48%;
+  top:36%;
+  left:26%;
+  pointer-events: none;
+}
+.text{
+  position: absolute;
+  left:68%;
+  top:13.5%;
+  font-size: 200%;
+  color:#044995;
+  font-weight: 300;
+}
+.text1{
+position: absolute;
+width:96%;
+top:51%;
+text-align: center;
+color:#acacac;
+font-size: 17px;
+letter-spacing: 2px;
+}
+.hr3{
+  background: #CCCCCC;
+  position:absolute;
+  left:29%;
+  top:46%;
+  width:5%;
+  opacity:0.5;
+}
+.hr4{
+  background: #CCCCCC;
+  position:absolute;
+  left:65%;
+  top:46%;
+  width:5%;
+  opacity:0.5;
+}
+.title{
+  position: absolute;
+  width:96%;
+  /* top:5%; */
+  top:44%;
+  font-size: 19px;
+  color: #2d2d2d;
+  letter-spacing: 3px;
+  text-align: center;
+  font-weight: 400;
+}
+.logo{
+    position: absolute;
+    width:70%;
+    top:20%;
+    left:15%;
+    pointer-events: none;
+}
+.img2{
+  position: absolute;
+  width:26%;
+  left:37%;
+  top:70%;
+}
+  .text3{
+    position: absolute;
+    top:55%;
+    font-size: 17px;
+    width:96%;
+    text-align: center;
+    color:#acacac;
+  }
+span{
+  color:#044995;
+}
+

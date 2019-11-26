@@ -1,0 +1,37 @@
+<div class="container">
+  <table class="table table-hover table-striped" style="width:100%;text-align:center;">
+
+    <tr class="row">
+      <td class="col-sm-1 text-align">活动</td>
+      <td class="col-sm-1 text-align">DeviceId</td>
+      <td class="col-sm-1 text-align">更新时间</td>
+      <td class="col-sm-1 text-align">详情</td>
+      <td class="col-sm-1 text-align">运行(分)</td>
+      <td class="col-sm-1 text-align">剩余(GB)</td>
+      <td class="col-sm-1 text-align">ip</td>
+      <td class="col-sm-1 text-align">版本</td>
+      <td class="col-sm-1 text-align">状态</td>
+      <td class="col-sm-1 text-align">操作</td>
+    </tr>
+
+    <tr class="row" *ngFor="let server of serverList;index as i">
+      <td class="col-sm-1 text-align">{{server.activity_name}}</td>
+      <td class="col-sm-1 text-align">{{server.device_id}}<br/>【{{server.device_name}}】</td>
+      <td class="col-sm-1 text-align" style="word-break:break-all">{{server.time}}</td>
+      <td class="col-sm-1 text-align">{{server.temperature}}</td>
+      <td class="col-sm-1 text-align">{{(server.ttl/60).toFixed(0)}}</td>
+      <td class="col-sm-1 text-align">{{(server.free_disk/1024).toFixed(1)}}</td>
+      <td class="col-sm-1 text-align">{{server.ip}}</td>
+      <td class="col-sm-1 text-align">{{server.version}}
+        <button (click)="updataDeviceVersion(server.device_id)">升级</button>
+      </td>
+      <td class="col-sm-1 text-align" [ngStyle]="{'color':checkOnline(server.time) == '在线' ? 'green':'red'}">
+        {{checkOnline(server.time)}}
+      </td>
+      <td class="col-sm-1 text-align">
+        <button (click)="reboot(server.device_id)">重启</button>
+      </td>
+    </tr>
+
+  </table>
+</div>

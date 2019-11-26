@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <button class="btn btn-success" (click)='onRefreshDevice()'>Refresh Device</button>
+        <button class="btn btn-success" (click)='onPreview()'>1.Preview correction</button>
+        <button class="btn btn-success" (click)='onPreviewAdjust(0)' >2.Find 4 red dots</button>
+        <button class="btn btn-success" (click)='onPreviewAdjust(1)' >3.Rectangle correction</button>
+        <button class="btn btn-success" (click)='onShootStart()' [disabled]="isRecording">4.Recording</button>
+        <button class="btn btn-success" (click)='testUpload()' >5.testUpload</button>
+    </div>
+    <br>
+    <div class="container-draw-rect">
+        <table border="1">
+            <tr><th><h4><b>Rectangle correction (for step 1): </b></h4></th></tr>
+            <tr>
+                <th>
+                    <b>Rect start x:</b><input type="text" [(ngModel)]="Rect_x"/>
+                    <b>Rect start y:</b><input type="text" [(ngModel)]="Rect_y"/><br>
+                    <b>Rect width:</b><input type="text" [(ngModel)]="Rect_w"/>
+                    <b>Rect height:</b><input type="text" [(ngModel)]="Rect_h"/><br>
+                    <b>Devices index:</b><input type="text" [(ngModel)]="Rect_index"/>(index = -1: all, or set index to specific image)<br>
+                    <button class="btn btn-success" (click)='onDrawRect()' >Draw Rectangle</button>
+                </th>
+                <th>
+                    <button class="btn btn-success" (click)='onCenterPoint()' >Center point</button>
+                    (Draw center point for preview correction)<br>
+                    <button class="btn btn-success" (click)='onGrid()' >Nine Grid</button>
+                    (Draw nine-grid for preview correction)<br>
+                    <button class="btn btn-success" (click)='onCross()' >Cross</button>
+                    (Draw cross for preview correction)
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="container-adjust">
+        <table border="1">
+            <tr><th><h4><b>Adjust_point parameters (for step 3 and 4):</b></h4></th></tr>
+            <tr>
+                <b>param1:</b> <input type="text" [(ngModel)]="adjParam_param1"/>
+                <b>param2:</b> <input type="text" [(ngModel)]="adjParam_param2"/><br>
+                <b>minRadius:</b> <input type="text" [(ngModel)]="adjParam_minRadius"/>
+                <b>maxRadius:</b> <input type="text" [(ngModel)]="adjParam_maxRadius"/>
+                <b>thresDistCent:</b> <input type="text" [(ngModel)]="adjParam_thresDistCent"/><br>
+                <b>lx:</b> <input type="text" [(ngModel)]="adjParam_lx"/>
+                <b>ux:</b> <input type="text" [(ngModel)]="adjParam_ux"/>
+                <b>ly:</b> <input type="text" [(ngModel)]="adjParam_ly"/>
+                <b>uy:</b> <input type="text" [(ngModel)]="adjParam_uy"/>
+            </tr>
+            <tr>
+                <b><font color="red">{{processing}}</font></b>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="devices">
+        <!-- Devices: -->
+        <ul>
+            <li *ngFor="let device of devices">
+                <app-device [device]="device"> </app-device>
+            </li>
+        </ul>
+        <ul>
+            <li *ngFor="let adjust_device of adjust_devices">
+                <app-device [device]="adjust_device"> </app-device>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <!-- <div class="container-fluid">
+        <p style="font-size:196px" align="center"> {{countDown}}</p>
+    </div> -->
+</div>

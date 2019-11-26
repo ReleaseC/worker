@@ -1,0 +1,2 @@
+{
+    "mongodb": "mongodb://siiva:siiva0901@production.mongodb.rds.aliyuncs.com:3717/bt_prod?authSource=admin" }

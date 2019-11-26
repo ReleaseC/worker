@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant goal_cam
+    participant video_cam
+    participant server
+    participant worker
+    participant ufile
+    participant admin
+    Note over goal_cam, server: 發goal_event時，從GoalCam app呼叫server api做task.create, taskId是siteId_timestamp
+    goal_cam->>server: task.create
+    server->>video_cam: 發goal_event(siteId)
+    video_cam->ufile: 存檔並上傳到ufile
+    Note over video_cam, server: *update_status到server，task增加detail字段，將status編成json寫到description中。相同role+deviceSig的，只保留一份。
+    video_cam->>server: *update_status(taskId, role, deviceSig, msg), 此處的msg是上傳進度或是上傳成功/失敗 , deviceSig是position (第幾台VideoCam)
+    video_cam->>server: 送single_file_upload event
+    server->>+server: 檢查是否所有檔案都上傳 (https://gitlab.com/siiva-nuwa/BulletTimeStudio/blob/develop/Cloud/server/src/activity/soccer.service.ts#L288)
+    admin->>server: *要taskId的state, 顯示在界面上
+    worker->>+server: requestTask(data.ready->start)
+    worker->>ufile: 下載video (eee，檔名是taskId_{position}_deviceId)
+    worker->>server: *update_status(taskId, role, deviceSig, msg), 此處的role是"worker", msg是上傳進度或是下載成功/失敗, deviceSig是worker id (目前用worker的local ip)
+    worker->>worker: 剪接
+    worker->>server: *update_status(taskId, role, deviceSig, msg), 此處的role是"worker", msg是剪接進度, deviceSig是worker id (目前用worker的local ip)
+    worker->>ufile: 上傳結果video (siiva)
+    worker->>server: *update_status(taskId, role, deviceSig, msg), 此處的role是"worker", msg是上傳成功/失敗, deviceSig是worker id (目前用worker的local ip)
+    worker->>server: complete/aboort, complete清掉description, abort保留description

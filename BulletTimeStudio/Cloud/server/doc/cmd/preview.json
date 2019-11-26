@@ -1,0 +1,17 @@
+
+{
+    "deviceId": "deviceId", // 要取得preview那台mome的deviceId
+    "from": "deviceId_who",      // 要求preview的deviceId, 通常是Cloud Admin
+    "requestId": "requestId",   // 再同時多個請求preview時，用requestId來區分。Cloud Admin可能會要多個mome的preview，requestId是讓Cloud Admin來區分不同的請求。
+    "param": {
+        "action": "get_preview",
+        "source": "ipc", // 目前ipc 或 cam
+        "cam_place":"backcam", // backcam 或 frontcam, optional, source是cam才需要
+        "url": "192.168.1.100", // 若有指定，使用此url，若沒有指定，使用mome設定中的url
+        "uid": "admin", // optional, source是ipc且有設定帳密才需要
+        "pwd": "siiva123456", // optional, source是ipc且有設定帳密才需要
+        "port": 554 // optional, source是ipc才需要
+
+    }
+}
+

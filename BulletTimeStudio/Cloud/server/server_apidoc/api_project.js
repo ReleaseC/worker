@@ -1,0 +1,1 @@
+define({  "name": "Siiva Cloud Server",  "version": "1.1.0",  "description": "Siiva cloud server apidoc",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2018-08-24T07:04:03.562Z",    "url": "http://apidocjs.com",    "version": "0.17.6"  }});

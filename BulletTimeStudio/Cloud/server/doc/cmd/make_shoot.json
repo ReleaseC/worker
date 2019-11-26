@@ -1,0 +1,49 @@
+/* 用于点击活动list拍摄按钮触发, 此时只需要拍摄上传即可, mome不需要创建task, 无论单机位多机位, 创建task在cloud_server */
+// 同步
+{
+  "deviceId": "deviceId",
+  // 要远端拍摄那台mome的deviceId
+  "from": "deviceId_who",
+  // 要求远端拍摄的deviceId, 通常是Cloud Admin
+  "requestId": "requestId",
+  // 在同時多個远端拍摄时，用requestId來區分
+  "param": {
+    "action": "make_shoot",
+    "order": 2, // 序号, 用于mome设定资料名称
+    "taskId": "1541132118ed_1552989480002",
+
+    "record": { // 可以先忽略
+      "time_before": 3000,
+      // 单位ms
+      "wait": 4000,
+      // 等待4s, 开始拍摄
+      "duration": 10000
+      // 拍摄10s
+    },
+    "recognition": { // 可以先忽略
+      "model_name": "hello_katty_home",
+      // 具体值待定
+      "model_url": "https://oss.hangzhou....",
+      // 具体值待定
+      "recognition_type": [
+        "handle_shake",
+        "appear"
+        // 具体值待定
+      ],
+      "version": "1.1.0"
+    },
+    "video_source": { // 可以先忽略
+      "port": 554,
+      "pwd": "siiva123456",
+      "source": "ipc",
+      "uid": "admin",
+      "url": "192.168.1.102"
+    },
+    "activity": { // 可以先忽略
+      "activity_id": "activity_id"
+    }
+
+
+  }
+}
+

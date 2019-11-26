@@ -1,0 +1,33 @@
+<table border="1">
+  <tr align="center">
+    <th>Site ID</th>
+    <th>最後更新時間</th>
+    <th>最後拍照時間</th>
+  </tr>
+  <tr *ngIf="reponseSiteId" [style.background-color]="'#FFF'" [style.color]="'#000'" align="center">
+    <td>{{reponseSiteId}}</td>
+    <td>{{reponseUpdateTime}}</td>
+    <td>{{reponsePhotoTime}}</td>
+  </tr>
+</table>
+<br>
+<table border="1">
+  <tr align="center">
+    <th>Index</th>
+    <th>Name</th>
+    <th>IP</th>
+    <th>Battery</th>
+    <th>Photo</th>
+    <th>IsAlive</th>
+    <th>MAC</th>
+  </tr>
+  <tr *ngFor="let arr of reponseDeviceStatus" [style.background-color]="arr.color" [style.color]="arr.color === '#07c734' ? '#FFF' : '#000'" align="center">
+    <td>{{arr.index}}</td>
+    <td>{{arr.name}}</td>
+    <td>{{arr.ip}}</td>
+    <td [style.color]="arr.batteryColor">{{arr.battery}}</td>
+    <td [style.color]="arr.photoColor">{{arr.photo}}</td>
+    <td [style.color]="arr.isaliveColor">{{arr.isalive}}</td>
+    <td>{{arr.mac}}</td>
+  </tr>
+</table>

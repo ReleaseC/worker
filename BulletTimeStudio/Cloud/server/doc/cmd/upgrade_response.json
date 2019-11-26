@@ -1,0 +1,8 @@
+{
+    "deviceId": "from",
+    "from": "deviceId",
+    "requestId": "requestId",
+    "action": "upgrade_response",
+    "code": 0,  // 0: success include no need to upgrade, -1: fail to upgrade
+    "reason": "reason"
+}

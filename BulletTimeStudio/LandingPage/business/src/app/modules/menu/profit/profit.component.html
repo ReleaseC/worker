@@ -1,0 +1,169 @@
+<div class="content">
+  <div class="box">
+    <div style="width:100%;text-align:center;font-size:1.5rem">
+      <div class="filter_activity">
+        <div>
+
+          <label class="label_title" for='project'>项目名称</label>
+          <!-- <span>上海环球金融中心</span> -->
+          <select id='project' [(ngModel)]="selProjectId" (change)="onProjectSelected()" class="select">
+            <option *ngFor="let project of porjectList" value="{{project.project_id}}"  >
+              {{project.project_name}}</option>
+          </select>
+        </div>
+        <div>
+
+          <label class="label_title" for='activity'>拍摄点</label>
+          <!-- <span>上海环球金融中心94F</span> -->
+          <select id="activity" [(ngModel)]="selActivityId" (change)="onActivitySelected()" class="select" > 
+            <option *ngFor="let activity of activityList" value="{{activity.activity_id}}">{{ activity.activity_name }}</option>
+          </select>
+
+        </div>
+      </div>
+      <!-- <div class="total">
+
+        <div class="view">收入总览</div>
+        <div>
+          <label  for='income_day'><div>日收入</div>
+          <input type="date" class='label_total' [(ngModel)]="dayModel" (change)="reqGetDay()" id="income_day">
+        </label>
+          <font size='6'>{{this.totalDay_fees === '' ? '-' : this.totalDay_fees/100  }}</font>
+        </div>
+        <div>
+          <label for='income_week'><div>周收入</div>
+          <input type="week" class='label_total'  [(ngModel)]="weekModel"  (change)="reqGetWeek($event)" id='income_week'>
+        </label>
+          <font size='6'>{{this.totalWeek_fees === '' ? '-' : this.totalWeek_fees/100}}</font>
+        </div>
+        <div>
+          <label for='income_month'><div>月收入</div>
+          <input type="month" class='label_total'  [(ngModel)]="monthModel" (change)="reqGetMonth()" id='income_month'>
+        </label>
+          <font size='6'>{{this.totalMonth_fees === '' ? '-' : this.totalMonth_fees/100}}</font>
+        </div>
+      </div> -->
+      <div class="total">
+
+        <div class="view">收入总览</div>
+        <div>
+          <label  for='income_day'><div>日收入</div>
+          <nz-date-picker [(ngModel)]="dayModel" id="income_day" (ngModelChange)="reqGetDay()" class='label_total'></nz-date-picker>
+        </label>
+          <font size='6'>{{this.totalDay_fees === '' ? '-' : this.totalDay_fees/100  }}</font>
+        </div>
+        <div>
+          <label for='income_week'><div>周收入</div>
+            <nz-week-picker [(ngModel)]="weekModel" (ngModelChange)="reqGetWeek()" nzPlaceHolder="Select week" id='income_week'></nz-week-picker>
+          <!-- <input type="week" class='label_total'  [(ngModel)]="weekModel"  (change)="reqGetWeek()" id='income_week'> -->
+        </label>
+            <!-- <my-date-range-picker [options]="myDateRangePickerOptions" [(ngModel)]="weekModel"
+              required (dateRangeChanged)="weekRangeChanged($event)"></my-date-range-picker> -->
+          <font size='6'>{{this.totalWeek_fees === '' ? '-' : this.totalWeek_fees/100}}</font>
+        </div>
+        <div>
+          <label for='income_month'><div>月收入</div>
+          <nz-month-picker [(ngModel)]="monthModel" (ngModelChange)="reqGetMonth()" id='income_month' nzPlaceHolder="Select month" ></nz-month-picker>
+          <!-- <input type="month" class='label_total'  [(ngModel)]="monthModel" (change)="reqGetMonth()" id='income_month'> -->
+        </label>
+            <!-- <my-date-range-picker [options]="myDateRangePickerOptions" [(ngModel)]="monthModel"
+              required (dateRangeChanged)="monthRangeChanged($event)"></my-date-range-picker> -->
+          <font size='6'>{{this.totalMonth_fees === '' ? '-' : this.totalMonth_fees/100}}</font>
+        </div>
+      </div>
+    </div>
+    <div class="thead rowpadding" >
+    <!-- <div class="thead rowpadding"> -->
+<!-- <nz-range-picker [(ngModel)]="dateModel" (ngModelChange)="touchToreqGetOrder($event)" class='showClass' nzShowTime></nz-range-picker> -->
+
+        <my-date-range-picker [options]="myDateRangePickerOptions" [(ngModel)]="dateModel" required (click)="touchToactive($event)" id='calendar'
+          (dateRangeChanged)="touchToreqGetOrder($event)"></my-date-range-picker>
+          <tbody class="sumTotal">
+            <tr class="rowTitle">
+              <td>
+                <b>
+                  实际收入
+                </b>
+              </td>
+              <td>
+                <span>照片总数：{{img_count}}</span>
+              </td>
+              <td>
+                <span>订单总数：{{orderNumber}}</span>
+              </td>
+              <td>
+                <span>总金额：{{total_fees/100}}</span>
+              </td>
+            </tr>
+            <tr class="isFlag rowTitle">
+              <td>
+                <b>
+                  总退款
+                </b>
+              </td>
+              <td>
+                  <span>照片总数：{{refund_img_count}}</span>
+              </td>
+              <td>
+                <span>订单总数：{{refund_count}}</span>
+              </td>
+              <td>
+                <span>总金额：{{refund_fees/100}}</span>
+              </td>
+            </tr>
+          </tbody>
+      <div>
+        <a (click)="touchToDownload()" >下载表格
+        <span class="help"><svg id="baseline-contact_support-24px" xmlns="http://www.w3.org/2000/svg" width="24"
+            height="24" viewBox="0 0 24 24">
+            <path id="路径_211" data-name="路径 211"
+              d="M11.5,2a8.5,8.5,0,0,0,0,17H12v3c4.86-2.34,8-7,8-11.5A8.506,8.506,0,0,0,11.5,2Zm1,14.5h-2v-2h2Zm0-3.5h-2c0-3.25,3-3,3-5a2,2,0,0,0-4,0h-2a4,4,0,0,1,8,0C15.5,10.5,9.5,10.75,9.5,13Z" />
+            <path id="路径_212" data-name="路径 212" d="M0,0H24V24H0Z" fill="none" />
+          </svg></span></a>
+        <div class="msg">点击下载表格可以导出Exel格式的文件</div>
+      </div>
+    </div>
+    <table class="table" style="text-align:center;">
+      <tr class="row rowpadding">
+        <td class="text-align" style="min-width: 100px">订单时间</td>
+        <td class="text-align" style="min-width: 130px">订单号</td>
+        <td class="text-align">收入金额</td>
+        <td class="text-align">打印数量</td>
+        <td class="text-align">退款标记</td>
+      </tr>
+      <tr class="row rowpadding" *ngFor="let order of orderList">
+        <td class="text-align text" [ngClass]="{'isFlag': order.refund === '1'}" style="word-break:keep-all;min-width: 100px">{{order.time}}</td>
+        <td class="text-align text" [ngClass]="{'isFlag': order.refund === '1'}" style="word-break:break-all;min-width: 130px">{{order.order_id}}</td>
+        <td class="text-align text" [ngClass]="{'isFlag': order.refund === '1'}" style="word-break:break-all">{{order.total_fee/100}}</td>
+        <td class="text-align text" [ngClass]="{'isFlag': order.refund === '1'}" style="word-break:break-all">{{order.print.length}}</td>
+        <td class="text-align text" [ngClass]="{'isFlag': order.refund === '1'}" style="word-break:break-all">
+          <div *ngIf="order.refund!=='pending'; else elsePanding">
+            <a nz-popconfirm nzTitle="确认退款？" *ngIf="order.refund==='0'; else elseFlag" (nzOnConfirm)="toggleFlag(order.order_id)" (nzOnCancel)="cancel()">
+              <img   width='24px' src='assets/images/flag.svg'>
+            </a>
+          </div>
+            <ng-template #elseFlag>
+              <img width='24px' src='assets/images/checked.svg'>
+            </ng-template>
+            <ng-template #elsePanding>
+              请等待
+            </ng-template>
+        </td>
+      </tr>
+    </table>
+    <div class="page_select">
+      <button class="btn_page" (click)="pageUp()" [ngStyle]="{'color':this.pageIndex  === 1 ? '#A4ABB3':'#409eff'}">
+        上一页
+      </button>
+      <input type="text" [(ngModel)]="pageIndex" style="width:1.5em; text-align: center" (keydown)="downToTouch($event)">
+      <button class="btn_page" (click)="pageDown()"
+        [ngStyle]="{'color':this.pageIndex < pages  ? '#409eff':'#A4ABB3'}">下一页
+      </button>
+      <span>共{{pages}}页</span>
+      
+  
+      <!-- <span style="margin-left: 30px">收益(元):</span>
+              <span style="color: #843534"> {{this.total_fees/100}}</span> -->
+    </div>
+  </div>
+</div>

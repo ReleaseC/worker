@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BulletTime</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- <script type="text/javascript" src="assets/jquery.min.js"></script> -->
+  <!-- <script type="text/javascript">
+        $(document).ready(function() {
+            var cicle = cle = function() {
+    
+                var oTx = $(".tx");
+    
+                var cicleTransform = function(num, old_num) {
+                    var b_l_a = $(".bar-left-an");
+                    var b_r_a = $(".bar-right-an");
+                    var c_num = num;
+                    if(c_num > 50) {
+                        b_r_a.css({
+                            "transform": "rotate(45deg)",
+                            "transition": "transform 1s linear"
+                        });
+                        setTimeout(function() {
+                            b_l_a.css({
+                                "transform": "rotate(" + (((c_num-50)/100*360)-135) + "deg)",
+                                "transition": "transform 1s linear"
+                            });
+                        },1000);
+                    } else {
+                        if(old_num > 50) {
+                            setTimeout(function() {
+                                b_r_a.css({
+                                    "transform": "rotate(" + ((c_num/100*360)-135) + "deg)",
+                                    "transition": "transform 1s linear"
+                                });
+                            },1000);
+                            b_l_a.css({
+                                "transform": "rotate(-135deg)",
+                                "transition": "transform 1s linear"
+                            });
+                        } else {
+                            b_r_a.css({
+                                "transform": "rotate(" + ((c_num/100*360)-135) + "deg)",
+                                "transition": "transform 1s linear"
+                            });
+                        }
+    
+                    }
+                }
+    
+                var setnum = function(num) {
+                    oTx.text(num);
+                }
+    
+                var getnum = function() {
+                    return parseInt(oTx.text());
+                }
+    
+                var inputB = function() {
+                    $("#inp").blur(function() {
+                        var num = parseInt($.trim( $(this).val() ));
+                        if(num>=0 && num <= 100){
+                            cicleTransform(num, getnum());
+                            setnum(num);
+                        }
+                    });
+                }
+
+    
+                return {
+                    init: function() {
+                        inputB();
+                    }
+                }
+            }();
+            cicle.init();
+        });
+      
+    </script> -->
+</head>
+<body>
+    <!-- <div class='bar2' style='position:absolute;width:1080px;height:640px;top:33.3%;border:1px solid black;'> -->
+        <!-- <video  autoplay="autoplay" loop="loop" width=1080px height=640px;>
+             <source src="assets/media/bullettime.mp4">
+     </video> -->
+    <!-- <p>1234556</p> -->
+     <!-- <object classid = "clsid：9BE31822-FDAD-461B-AD51-BE1D1C159921"  codebase = "http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab" >
+        <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" width="640"  height="480"  id="vlc" style='border:1px solid green'/>  
+        <param name='mrl' value='http://192.168.1.114:8090'/>  
+        <param name='volume' value='50' />  
+        <param name='autoplay' value='true' />  
+        <param name='loop' value='false' />  
+        <param name='fullscreen' value='false' />  
+     </object > -->
+    
+    
+    
+    
+    <!-- </div> -->
+
+    <!-- <div class="content">
+        <div class="input">
+          <label>进度条:</label><input type="text" id="inp"/>
+        </div>
+        <div class="cicle">
+          <div class="bar bar-left">
+            <div class="bar-left-an"></div>
+          </div>
+          <div class="bar bar-right">
+            <div  class="bar-right-an"></div>
+          </div>
+          <div class="tx">0</div>
+        </div>
+      <button onclick="alan()">加10</button>
+      </div> -->
+  <app-root></app-root>
+
+
+
+  <!-- <script type="text/javascript">  
+    var vlc = document.getElementById("vlc"); 
+    vlc.audio.toggleMute();
+  </script> -->
+
+
+
+
+
+</body>
+</html>

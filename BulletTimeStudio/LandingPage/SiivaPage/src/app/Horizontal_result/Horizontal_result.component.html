@@ -1,0 +1,36 @@
+<div class="H_result">
+    <div class="video_top">
+          <video id="video" class="video" loop="loop" preload="auto"  playsinline="true" x5-playsinline="true" x5-video-player-type='h5'
+          webkit-playsinline="true" poster="{{img_url}}">
+         <source src="{{videourl}}" type="video/mp4"/>
+       </video>
+       <div style="position:absolute;width:70%;height:50%;left:15%;top:20%;" (click)="playPause()"></div>
+      <div class="icon-play" (click)="playPause()" *ngIf="isPlay">
+              <img src="assets/images/icon-play.png" alt="图片" width='40px' height='40px'>
+          </div>
+          <div class="icon-play-number" (click)="count_play_number()" *ngIf="isPlay_number">
+                  <img src="assets/images/icon-play.png" alt="图片" width='40px' height='40px'>
+              </div>
+              <!-- <div class="logo" (click)="GoParter()"><img src="assets/images/reserve_logo.png" width="100%" alt="logo"></div> -->
+              <div class="wrap-icons">
+                      <div class="icon-back" (click)="goback_home()">
+                          <img src="assets/images/backhome.png" alt="图片" width='25px' height='25px'>
+                      </div>
+                      <span>首页</span>
+                      <div class="icon-share" (click)="share()">
+                          <img src="assets/images/icon_share.png" alt="图片" width='25px' height='25px'>
+                      </div>
+                      <span>转发</span>
+                      <div class="icon-download" (click)="download()">
+                          <img src="assets/images/icon_download.png" alt="图片" width='25px' height='25px'>
+                        </div>
+                      <span>下载</span>
+                  </div>
+                  <div class="share_bar" *ngIf="isShareimg" (click)="cancelShare()">
+                          <img class="shareImg" src="assets/images/share_img.png" alt="图片">
+                  </div>
+      </div>
+    </div>
+
+  
+

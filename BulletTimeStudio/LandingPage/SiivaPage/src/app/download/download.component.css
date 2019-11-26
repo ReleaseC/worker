@@ -1,0 +1,171 @@
+@media screen and (max-width:768px){
+     *{
+      margin:0;
+      padding:0;
+    }
+    /* #installaz{
+      position: absolute;
+      left:30%;
+      top:20%;
+      z-index: 100;
+    } */
+    
+    .download{
+      position: absolute;
+      width:100%;
+      height:100%;
+      left:0%;
+      top:0%;
+      background: rgb(38,31,71);
+      z-index: 1005;
+}
+body{
+  margin:0;
+  padding:0; 
+}
+.background_search{
+  position: absolute;
+  width:100%;
+  height:100%;
+  left:0%;
+  top:0%;
+  pointer-events: none;
+}
+.logo{
+  position: absolute;
+  width:100%;
+  left:0%;
+  top:10%;
+}
+.logo img{
+  position: absolute;
+  left:0%;
+  top:0%;
+  width:100%;
+  background-size: contain; 
+  pointer-events: none;
+}
+
+.content{
+  position: relative;
+  width:100%;
+  top:31%;
+  height:36%;
+  background: white;
+}
+    .code{
+      position: relative;
+      width:36%;
+      left:32%;
+      top:5%;
+      /* pointer-events:none;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      user-select:none; */
+  }
+    
+    .text1{
+    position: relative;
+    width:100%;
+    top:11%;
+    text-align: center;
+    color:#949494;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    }
+    .text2{
+      position: relative;
+      width:100%;
+      top:12%;
+      text-align: center;
+      color:#949494;
+      font-size: 14px;
+      /* letter-spacing: 2px; */
+      font-family: '微软雅黑';
+    }
+    .pic_bottom{
+      position: absolute;
+      width:30%;
+      top:90%;
+      left:35%;
+      pointer-events: none;
+  }
+}
+@media screen and (min-width:768px){
+
+    .download{
+        position: absolute;
+        width:30%;
+        height:100%;
+        left:35%;
+        top:0%;
+        background: rgb(38,31,71)
+    }
+    *{
+        margin:0;
+        padding:0;
+      }
+      .background_search{
+        position: absolute;
+        width:100%;
+        height:100%;
+        left:0%;
+        top:0%;
+        pointer-events: none;
+      }
+      .logo{
+        position: absolute;
+        width:100%;
+        left:0%;
+        top:10%;
+      }
+      .logo img{
+        position: absolute;
+        left:0%;
+        top:0%;
+        width:100%;
+        background-size: contain; 
+        pointer-events: none;
+      }
+      
+      .content{
+        position: relative;
+        width:100%;
+        top:36%;
+        height:32%;
+        background: white;
+      }
+          .code{
+            position: relative;
+            width:32%;
+            left:34%;
+            top:10%;
+        }
+          
+          .text1{
+          position: relative;
+          width:100%;
+          top:12%;
+          text-align: center;
+          color:#949494;
+          font-size: 14px;
+          font-family: '微软雅黑';
+          }
+          .text2{
+            position: relative;
+            width:100%;
+            top:13%;
+            text-align: center;
+            color:#949494;
+            font-size: 14px;
+            /* letter-spacing: 2px; */
+            font-family: '微软雅黑';
+          }
+          .pic_bottom{
+            position: absolute;
+            width:30%;
+            top:90%;
+            left:35%;
+            pointer-events: none;
+        }
+            }

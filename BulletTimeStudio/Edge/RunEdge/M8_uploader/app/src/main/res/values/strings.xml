@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Siiva Auto Uploader</string>
+
+    <string-array name="game_entries">
+        <item>測試</item>
+        <item>大連半馬</item>
+        <item>大連全馬</item>
+    </string-array>
+    <string-array name="device_entries">
+        <item>SD Card</item>
+        <item>禾苗N8預設</item>
+        <item>TC N10預設</item>
+    </string-array>
+</resources>

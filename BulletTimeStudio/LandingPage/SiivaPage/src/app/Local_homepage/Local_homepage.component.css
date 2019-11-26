@@ -1,0 +1,199 @@
+*{
+  padding:0;
+  margin:0;
+}
+body{
+  margin:0;
+  padding:0;
+}
+.homepage{
+  position: absolute;
+  width:100%;
+  height:100%;
+  left:0%;
+  top:0%;
+  overflow: hidden;
+  /* background: #0c091b; */
+}
+.home_body{
+  position: relative;
+  width:100%;
+  height:100%;
+  left:0%;
+  top:0%;
+}
+/* firstpage CSS */
+#firstpage{
+  position: relative;
+  width:100%;
+  height:100%;
+  left:0%;
+  top:0%;
+  overflow:scroll;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+}
+
+
+.banner{
+  position: relative;
+  width:100%;
+  /* height:32%; */
+  left:0%;
+  top:0%;
+}
+.banner img{
+  width:100%;
+  background-size: contain;
+  pointer-events: none;
+  vertical-align:bottom;
+}
+/* .middle-col{
+  position: relative;
+  top:0px;
+  width:100%;
+  height:7%;
+  left:0%;
+  margin-top:0px;
+  background: #0c091b;
+  z-index:1000;
+} */
+.middle-col{
+  position: relative;
+  width:100%;
+  height:6%;
+  left:0%;
+  margin-top:0px;
+  background: #0c091b;
+  z-index:1000;
+  color:#dbdbdb;
+  letter-spacing: 2.29px;
+}
+.menu{
+  position: relative;
+  width:33.3%;
+  left:0%;
+  height:100%;
+  display: inline-block;
+  /* background: rgb(26,20,56); */
+}
+.menu1{
+  position: relative;
+  width:25%;
+  left:75%;
+  height:100%;
+  display: inline-block;
+}
+.menu1 img{
+  width:20%;
+  left:15%;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+}
+.menu1 span{
+  position: absolute;
+  font-size: 14px;
+  left:40%;
+  top:50%;
+  transform: translateY(-50%);
+}
+.middle-col .menu span{
+  position: absolute;
+  width:100%;
+  text-align: center;
+  top:50%;
+  font-size: 14px;
+  transform: translateY(-50%);
+}
+
+.videolist{
+  position: relative;
+  left:0%;
+  top:0%;
+  width:100%;
+  height:60%;
+  background-color: rgb(26,20,56);
+  /* overflow: scroll; */
+}
+.border1{
+  position: relative;
+  background:	white;
+  width: 50%;
+  left:0%;
+  top:0%;
+  margin:0;
+  padding:0;
+  display: inline-block;
+}
+.undone{
+  position: absolute;
+  width:100%;
+  height:100%;
+  left:0%;
+  top:0%;
+  display: inline-block;
+  background: rgba(133, 133, 133,0.7);
+  text-align: center;
+}
+/* .undone span{
+  position: relative;
+  text-align: center;
+  top:50%;
+  font-size: 16px;
+  color:white;
+  transform: translateY(-50%);
+} */
+#ongoing{
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+  width:70%;
+}
+.videolist .border1 img{
+  position:relative;
+  left:0%;
+  top:0%;
+  width:100%;
+}
+.showText{
+  position: relative;
+  top:3%;
+  text-align: center;
+  font-size: 14px;
+  color:grey;
+  letter-spacing: 1.19px;
+}
+.csd{
+  position: absolute;
+  left:10%;
+  top:36%;
+  width:80%;
+  /* height:40%; */
+  background: white;
+  opacity: 0.9;
+  border-radius: 20px;
+  z-index: 1005;
+}
+.csd .icon_close{
+  position: absolute;
+  left:90%;
+  width:7%;
+  top:3%;
+  opacity:0.5
+}
+.csd div{
+  position: relative;
+  margin-top:30px;
+  line-height: 30px;
+  width: 100%;
+  text-align: center;
+}
+.csd .code{
+  position: relative;
+  margin-top:10px;
+  width:40%;
+  left:30%;
+}
+

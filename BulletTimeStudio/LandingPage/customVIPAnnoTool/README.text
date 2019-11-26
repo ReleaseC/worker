@@ -1,0 +1,19 @@
+CommercialTextSchema: 台詞樣板
+CommercialVideoSchema: 影片背景樣板
+CommercialAudioSchema: 背景音樂樣板(目前沒用到)
+
+更新updateMongo.ts為了insert上面三個schema寫到資料庫
+
+更新Cloud/server customize for tool to get template from db
+Cloud/server createTask增加customVideo type
+Cloud/server updateTask修正非時光子彈類型也可以更新task
+
+Cloud/worker增加TYPE_CUSTOMVIDEO
+
+Add customVIPAnnoTool
+流程: 從cloud/server取template -> 設定好台詞和素材後 -> cloud/server createTask -> cloud/server updateTask -> cloud/worker (產生tts, overlay bg video, add art, overlay other material)
+
+ToDo: 
+1.Login
+2.Get material template from cloud/server
+3.Cloud/worker addSrt, overlay with parameter, download material

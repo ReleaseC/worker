@@ -1,0 +1,31 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.option_group{
+    display: flex;cursor: pointer;align-items:center;
+    .siteIdBtn{
+        margin-right: 10px;
+        border:1px solid #606266;color:#606266;border-radius: 4px;
+        display:flex;align-items: center;justify-content: center;
+        width: 80px;height: 30px;line-height: 30px;
+        .checkBox{
+            display: block;;width: 12px;height: 12px;border:1px solid black;margin-right: 5px;
+        }
+    }
+    .siteIdChecked{
+        border:1px solid #409eff;color:#409eff;
+        .checkBox{border: 1px solid #409eff;background: #409eff}
+    }
+}

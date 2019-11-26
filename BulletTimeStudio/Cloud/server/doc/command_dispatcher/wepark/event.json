@@ -1,0 +1,12 @@
+{
+  "gid": "unique_id", // 同一個遊戲的unique id，以辨別同一game:start
+  "uid": "user_id", // 玩家id
+  "fid": "field_id", // 場地id
+  "param": {    // SUTU參數表內的內容
+    "yinid": "deviceId", // 設備id
+    "gameid": "gameId", // 遊戲id，那一種遊戲
+    "player": "", // 單雙玩
+    "timestamp": "2019/3/18 10:46:04.05", // yymmdd-HHMMSS.s, 事件時間，精確度至少到秒
+    "event": "game:startgame" // 事件名稱
+  }
+}

@@ -1,0 +1,303 @@
+<!-- 下面是新版device status html -->
+<div class="container">
+  <div *ngIf="isshowSetting">
+    <div class="filter">
+
+      <div>
+        <span>公司：</span>
+        <select [(ngModel)]="selCompany" (change)="onCompanySelected()">
+          <option *ngFor="let company of companyList" [selected]="company.company_id===selCompanyId">{{
+            company.company_name }}
+          </option>
+        </select>
+      </div>
+
+      <!--<div>-->
+      <!--<span>用户：</span>-->
+      <!--<select [(ngModel)]="selPhone" (change)="onUserSelected()">-->
+      <!--<option *ngFor="let user of userList" [selected]="user.user_id===selUserId">{{ user.phone }}</option>-->
+      <!--</select>-->
+      <!--</div>-->
+
+
+      <div>
+        <span>活动：</span>
+        <select [(ngModel)]="selActivity" (change)="onActivitySelected()">
+          <option *ngFor="let activity of activityList" [selected]="activity.activity_id===selActivityId">
+            {{activity.activity_name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="filter_time">
+        <a>时间：</a>
+        <input type="date" [(ngModel)]="createdAt" (change)="getDeviceStatus()" id="time">
+      </div>
+    </div>
+
+    <table class="table table-hover table-striped" style="width:100%;text-align:center;">
+      <tr class="row">
+        <td class="col-sm-1 text-align">活动</td>
+        <td class="col-sm-1 text-align">DeviceId</td>
+        <td class="col-sm-1 text-align mobile">更新时间</td>
+        <td class="col-sm-1 text-align mobile">详情</td>
+        <td class="col-sm-1 text-align mobile">运行(分)</td>
+        <td class="col-sm-1 text-align mobile">闪退(次)</td>
+        <td class="col-sm-1 text-align mobile">剩余(GB)</td>
+        <td class="col-sm-1 text-align">版本</td>
+        <td class="col-sm-1 text-align">设定</td>
+        <td class="col-sm-1 text-align">重启</td>
+        <td class="col-sm-1 text-align mobile">vnc</td>
+        <td class="col-sm-1 text-align mobile">错误信息</td>
+      </tr>
+
+      <tr class="row" *ngFor="let status of DeviceStatusList;index as i">
+        <td class="col-sm-1 text-align"  style="overflow: hidden">
+          <button *ngIf="status.attent == 1"
+            style="color: white; width: 48px;height:18px; font-size: 5px; position:absolute; left:0px; top:-5px; background: palevioletred"
+            (click)="attent(status.activity_id,status.device_id, true)">已绑
+          </button>
+          <button *ngIf="status.attent == 0"
+            style="color: white; width: 48px;height:18px; font-size: 5px; position:absolute; left:0px; top:-5px; background: #43A047"
+            (click)="attent(status.activity_id,status.device_id, false)">未绑
+          </button>
+          {{status.activity_name}}
+          <span *ngIf="status.device_id == '8439BE659A93'">金融中心显示屏(不升级)</span>
+          <span *ngIf="status.device_id == '00E04CDB0016'">锦江显示盒</span>
+          <span *ngIf="status.mark && status.mark !== ''" class="mark_list"><br/>{{status.mark}}</span>
+
+        </td>
+        <td class="col-sm-1 text-align" style="font-size: 15px"> <span
+            style="font-weight: bold; color: #0a081e">{{status.device_id}}</span> <br />【{{status.device_name}}】</td>
+        <!--<td class="col-sm-1 text-align" style="font-size: 15px">{{status.device_name}}</td>-->
+        <td class="col-sm-1 text-align mobile">
+          <span style="word-break:break-all">{{format(status.timestamp)}}</span>
+        </td>
+        <td class="col-sm-1 text-align mobile">
+
+          <span *ngIf="status.power < 30" style="color:red">{{status.power}}</span>
+          <span *ngIf="status.power >= 30">{{status.power}}</span>
+          <span *ngIf="status.is_charging === true">🔋</span>
+          <span *ngIf="status.is_charging === false" style="color: #3b3b3b">🔌</span>
+          <span *ngIf="status.temperature >= 40" style="color:red">{{status.temperature}}°C</span>
+          <span *ngIf="status.temperature < 40">{{status.temperature}}°C</span>
+          <span *ngIf="getUpdateDescrip(status.timestamp) == '在线'" style="color: #43A047">
+            {{getUpdateDescrip(status.timestamp)}}</span>
+          <span *ngIf="getUpdateDescrip(status.timestamp) == '离线'" style="color: #808080">
+            {{getUpdateDescrip(status.timestamp)}}</span>
+
+
+        </td>
+
+        <td class="col-sm-1 text-align mobile">{{(status.ttl/60).toFixed(0)}}</td>
+        <td class="col-sm-1 text-align mobile">{{status.crash}}
+          <button (click)="clearCrash(status.device_id)">清空</button>
+        </td>
+        <td class="col-sm-1 text-align mobile">{{(status.free_disk/1024).toFixed(1)}}</td>
+        <td class="col-sm-1 text-align">
+          {{status.app_version}}
+          <!--<button *ngIf="status.is_device_owner === true" (click)="updataDeviceVersion(status.device_id)">升级</button>-->
+          <button *ngIf="status.device_id != '8439BE659A93'" (click)="updataDeviceVersion(status.device_id)">升级</button>
+        </td>
+
+
+        <td class="col-sm-1 text-align">
+          <button (click)="goSetting(status.device_id)">设定</button>
+        </td>
+        <td class="col-sm-1 text-align">
+          <button (click)="reboot(status.device_id)">重启</button>
+        </td>
+        <td class="col-sm-1 text-align">
+          <button (click)="rebootvnc(status.device_id)">vnc</button>
+        </td>
+        <td class="col-sm-1 text-align mobile">
+          <!--<button (click)="makeMovie(status.device_id)">拍摄</button>-->
+          {{status.err_msg}}
+        </td>
+
+      </tr>
+    </table>
+  </div>
+
+  <!-- 设定界面 -->
+  <div *ngIf="!isshowSetting" class="collect_setting">
+    <table class="box">
+      <thead>
+        <td>账号</td>
+        <td>密码</td>
+        <td></td>
+        <td class="activity">活动</td>
+        <td class="addact">
+          <button (click)="add()">添加</button>
+        </td>
+      </thead>
+      <tr *ngFor="let select of activy;index as i">
+        <td>
+          <input type="text" [(ngModel)]="select.account">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="select.passwd">
+        </td>
+        <td class="logout">
+          <button (click)="login(i)">登录</button>
+        </td>
+        <td class="activity activitybox">
+          <select [(ngModel)]="select.activity_name" (change)="chooseActivity(i)">
+            <option value=''>--请选择--</option>
+            <option *ngFor="let activity of select.DeviceStatusList">{{activity.activity_name }}</option>
+          </select>
+        </td>
+        <td class="addact logout">
+          <button (click)="logout()">注销</button>
+        </td>
+      </tr>
+    </table>
+    <!-- <div class="firstLine">
+      <div class="accountNumber">
+        <font>账号</font>
+        <input type="text" [(ngModel)]="account">
+      </div>
+      <div class="accountPassword">
+        <font>密码</font>
+        <input type="text" [(ngModel)]="passwd">
+      </div>
+      <div class="btn_group">
+        <button class="btn_on" (click)="login()">登陆</button>
+        <button class="btn_out" (click)="logout()">注销</button>
+      </div>
+    </div> -->
+    <div class="secondLine">
+      <!-- <div class="activity_select">
+        <font>活动选择</font>
+        <select [(ngModel)]="myActivity" (change)="chooseActivity()" style="width: 180px">
+          <option *ngFor="let activity of settingActivityList">{{
+            activity.activity_name }}
+          </option>
+        </select>
+      </div> -->
+      <!--<div class="module_select">-->
+      <!--<font>辨识模型</font>-->
+      <!--<select [(ngModel)]="myModel" (change)="chooseModel()" style="width: 180px">-->
+      <!--<option *ngFor="let model of modelList" [selected]="model.name==='凯蒂猫'">{{ model.name }}</option>-->
+      <!--</select>-->
+      <!--</div>-->
+
+      <div>
+        <span *ngFor="let action of this.myModelActions">
+          <input type="checkbox" (click)="chooseAction(action.act)">{{action.name}}
+        </span>
+      </div>
+
+      <!-- <div class="mengban" *ngIf="isONsuccess">
+      </div> -->
+      <div class="thirdLine">
+        <div class="thirdLine_left">
+          <!--<div class="jiwei_select">-->
+          <!--<font>机位</font>-->
+          <!--<input type="text" [(ngModel)]="position">-->
+          <!--</div>-->
+
+          <div class="device_type">
+            <span>设备类型: 未知</span>
+          </div>
+
+          <div class="camera_type">
+            <font>摄像头</font>
+            <select [(ngModel)]="deviceType" (change)="changeDeviceType()" style="width: 140px">
+              <option value='cam'>backcam</option>
+              <option value='ipc'>IPC</option>
+              <option value='uvc'>UVC</option>
+            </select>
+          </div>
+          <div *ngIf="deviceType == 'ipc'">
+            <div class="IPC_url">
+              <font>URL</font>
+              <input type="text" [(ngModel)]="url">
+            </div>
+            <div class="IPC_port">
+              <font>port</font>
+              <input type="number" [(ngModel)]="port">
+            </div>
+            <div class="IPC_account">
+              <font>账号</font>
+              <input type="text" [(ngModel)]="uid" class="code">
+            </div>
+            <div class="IPC_password">
+              <font>密码</font>
+              <input type="text" [(ngModel)]="pwd" value="123" class="code">
+            </div>
+            
+        <div class="IPC_password">
+          <font>密码</font>
+        <select id="subtype" [(ngModel)]="subtype" [ngModelOptions]="{standalone: true}"  >
+          <option value='sub'>sub</option>
+          <option value='main'>main</option>
+        </select>
+        </div>
+          </div>
+        </div>
+        <div class="thirdLine_middle">
+          <!--<button class="btn_collect" (click)="sendParam()">套用</button>-->
+          <button class="btn_preview" (click)="preview()">预览</button>
+          <button *ngIf="!isReceiveLive" type="button" class="btn_preview" (click)="live()">直播</button>
+          <button *ngIf="isReceiveLive" type="button" class="btn_preview" (click)="live_stop()">取消直播</button>
+        </div>
+        <div id="canvas-container">
+          <div class="thirdLine_right">
+            <img *ngIf='!isReceiveLive' class="preview" src="{{receivePreview}}" id="preview" />
+            <video *ngIf='isReceiveLive' id="videoElement" class="preview" ></video>
+            <canvas id="canvas-content" (mouseup)="mouseup()" (mousedown)="mousedown($event)"
+              (mousemove)="mousemove($event)"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="fifthLine">
+        <!--<div class="device_browser">-->
+        <!--<span>deviceId: {{this.settingDeviceId}}</span>-->
+        <!--<span>browser: {{this.browser_device_id}}</span>-->
+        <!--</div>-->
+        <div class="btn_group">
+          <button class="btn_apply" (click)="sendParam()">应用</button>
+          <button class="btn_verify" (click)="makeSureSetup()">确认</button>
+          <button class="btn_cancel" (click)="shut()">关闭</button>
+        </div>
+      </div>
+      <div class="sixthLine">
+        <div class="ROI">
+          <font>ROI: </font>
+          <font>x</font>
+          <input type="text" [(ngModel)]="x1">
+          <font>y</font>
+          <input type="text" [(ngModel)]="y1">
+          <font>w</font>
+          <input type="text" [(ngModel)]="w1">
+          <font>h</font>
+          <input type="text" [(ngModel)]="h1">
+          <font>阈值</font>
+          <input type="number" [(ngModel)]="threshold">
+          {{canvasError}}
+        </div>
+        <div class="device_browser">
+          <div>deviceId: {{this.settingDeviceId}}</div>
+          <div>browser: {{this.browser_device_id}}</div>
+          <div>备注
+            <input type="text" [(ngModel)]="mark">
+          </div>
+        </div>
+      </div>
+      <div class="forthLine">
+        <div class="JSON_mode">
+          <textarea type="text" [(ngModel)]="param" placeholder="通讯窗口，发送JSON指令到采集盒"></textarea>
+        </div>
+        <button class="btn_sendJSON" (click)="testMakesureSetup()">执行</button>
+        <div class="JSON_respon">
+          <textarea
+            style="color: red;width: 100%; height: 100%; background: #3b3b3b; word-break: break-all">{{mome_res}}</textarea>
+          <!--<textarea *ngIf="this.settingDeviceId == this.mome_res.from" style="color: red;width: 100%; height: 100%; background: #3b3b3b; word-break: break-all">{{mome_res}}</textarea>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

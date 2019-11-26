@@ -1,0 +1,65 @@
+{
+    "camera": [
+        {
+            "name": "sh_xiaoyi-1",
+            "mac": "04:E6:76:2F:77:9C"
+        },
+        {
+            "name": "sh_xiaoyi-2",
+            "mac": "04:E6:76:12:84:DA"
+        },
+        {
+            "name": "sh_xiaoyi-3",
+            "mac": "04:E6:76:00:9A:62"
+        },
+        {
+            "name": "sh_xiaoyi-4",
+            "mac": "04:E6:76:10:44:BC"
+        },
+        {
+            "name": "sh_xiaoyi-5",
+            "mac": "04:E6:76:24:36:05"
+        },
+        {
+            "name": "sh_xiaoyi-6",
+            "mac": "04:E6:76:45:95:58"
+        },
+        {
+            "name": "sh_xiaoyi-7",
+            "mac": "04:E6:76:11:37:0D"
+        },
+        {
+            "name": "sh_xiaoyi-8",
+            "mac": "04:E6:76:05:39:93"
+        },
+        {
+            "name": "sh_xiaoyi-9",
+            "mac": "04:E6:76:10:1E:F4"
+        },
+        {
+            "name": "sh_xiaoyi-10",
+            "mac": "04:E6:76:28:09:92"
+        },
+        {
+            "name": "sh_xiaoyi-11",
+            "mac": "04:E6:76:13:CC:7D"
+        },
+        {
+            "name": "sh_xiaoyi-12",
+            "mac": "04:E6:76:40:C5:9F"
+        },
+        {
+            "name": "sh_xiaoyi-13",
+            "mac": "04:E6:76:08:3E:83"
+        },
+        {
+            "name": "sh_xiaoyi-14",
+            "mac": "04:E6:76:09:BD:A9"
+        },
+        {
+            "name": "sh_xiaoyi-15",
+            "mac": "04:E6:76:2B:C6:88"
+        }
+        
+    ]
+}

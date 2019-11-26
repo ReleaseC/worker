@@ -1,0 +1,23 @@
+{
+  "task": {
+    "activity_id": "1543378752en",
+    "siteId": "1543378752rt",
+    "taskId": "1543378752rt_1543386972740",
+    "type": "moment",
+    "dst": {
+      "provider": "oss",
+      "key": "51088434"
+    },
+    "src": {
+      "provider": "oss",
+      "video": "1543378752rt_1543386972740_0_9C522FE0.mp4"
+    },
+    "options": {
+      "mode": "movie",
+      "light": 0,
+      "rmturn": false,
+      "rmborder": false,
+      "rmbgm": false
+    }
+  }
+}

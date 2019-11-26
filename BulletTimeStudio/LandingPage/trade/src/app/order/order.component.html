@@ -1,0 +1,56 @@
+<div class="container">
+
+  <h2>凯蒂猫乐园交易记录</h2>
+  <div id="outer" style="width:100%;">
+
+    <div class="filter">
+      <form #myForm="ngForm" novalidate class="myForm">
+        <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions"
+                              [(ngModel)]="dateModel" required
+                              (dateRangeChanged)="dateRangeChanged($event)"></my-date-range-picker>
+      </form>
+
+      <div class="filter_state">
+        <a>支付状态：</a>
+        <select [(ngModel)]="is_pay" (change)="this.getOrderlist(true)">
+          <option value=1>已支付</option>
+          <option value="">全部</option>
+          <option value=0>未支付</option>
+        </select>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <table class="table table-hover table-striped" id="myTable" style="width:100%;text-align:center;">
+      <tr class="row">
+        <td class="one_row" *ngFor="let myHeader of orderHeader">{{myHeader}}</td>
+      </tr>
+      <tr class="row" *ngFor="let order of orderList">
+        <td class="one_row">{{order.time}}</td>
+        <!--<td class="col-sm-2 text-align text">{{order.uid}}</td>-->
+        <!--<td class="col-sm-2 text-align text">{{order.openid}}</td>-->
+        <td class="one_row">{{order.order_id}}</td>
+        <td class="one_row">{{order.total_fee/100}}</td>
+        <td class="one_row">{{order.is_pay=='1'?'已支付':'未支付'}}</td>
+      </tr>
+    </table>
+
+    <div class="page_select">
+      <button class="btn_page" (click)="pageUp()" [ngStyle]="{'color':this.pageIndex  === 1 ? '#A4ABB3':'#409eff'}">
+        上一页
+      </button>
+      <input type="text" [(ngModel)]="pageIndex" style="width:1.5em; text-align: center">
+      <button class="btn_page" (click)="pageDown()"
+              [ngStyle]="{'color':this.pageIndex < pages  ? '#409eff':'#A4ABB3'}">下一页
+      </button>
+      <span>共{{pages}}页</span>
+
+      <span style="margin-left: 30px">收益(元):</span>
+      <span style="color: #843534"> {{this.total_fees/100}}</span>
+
+    </div>
+
+  </div>
+</div>
+
+

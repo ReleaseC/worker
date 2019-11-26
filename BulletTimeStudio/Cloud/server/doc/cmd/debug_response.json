@@ -1,0 +1,9 @@
+{
+    "deviceId": "deviceId_who",
+    "requestId": "requestId",     
+    "from": "deviceId_from",
+    "preview": "base64 image in jpg",
+    "action": "debug_response",
+    "status": 0,
+    "reason": ""
+}

@@ -1,0 +1,506 @@
+// table {
+//   tr:nth-child(1) {
+//     background-color: #FFFFFF;
+//     color: #000000;
+//   }
+//   tr {
+//     td {
+//       padding: 1px 0;
+//       height: 100%;
+//       ul {
+//         width: 100%;
+//         height: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         list-style: none;
+//         padding: 0;
+//         margin: 0;
+//         li {
+//           border-bottom: 1px solid #808080;
+//           text-align: center;
+//           height: 55px;
+//           display: inline-flex;
+//           justify-content: center;
+//           align-items: center;
+//           display: flex;
+//           flex-direction: row;
+//           .label_text {
+//             background: transparent;
+//             border: 0;
+//           }
+//           .label_text:focus {
+//             background: white;
+//           }
+//         }
+//         li:last-child {
+//           border: 0;
+//         }
+//       }
+//     }
+//   }
+//   tr:nth-child(2n+2) {
+//     background-color: cyan;
+//   }
+//   tr:nth-child(2n+3) {
+//     background-color: white;
+//   }
+// }
+
+// .view {
+//   width: 400px;
+//   height: 400px;
+//   background: white;
+// }
+
+// input[type="checkbox"] {
+//   width: 30px;
+//   height: 30px;
+// }
+#canvas-container {
+  position: relative;
+  top: -50px;
+}
+#canvas-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ROI {
+  margin-left: 170px;
+}
+.ROI > input {
+  width: 50px;
+}
+.ROI > font {
+  margin-left: 10px;
+}
+.thirdLine_right > .preview {
+  width: 400px;
+}
+/*下面是新版device status css*/
+.filter {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    display: flex;
+    min-width: 20%;
+    margin-top: 20px;
+    align-items: flex-start;
+    margin-right: 20px;
+    a {
+      font-weight: bold;
+    }
+  }
+  select {
+    width: 70%;
+  }
+  .filter_time {
+    .tip {
+      margin-left: 2px;
+      font-size: 12px;
+      align-self: flex-end;
+    }
+  }
+}
+
+table {
+  margin-top: 10px;
+  .tablehead {
+    font-weight: bold;
+    color: black;
+  }
+  .text-align {
+    width: 100%;
+    text-align: center;
+    display: block;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+}
+
+.bar1 {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 80%;
+  height: 85%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  input {
+    //margin-left:5px
+  }
+  //.title{
+  //  position:relative;
+  //  left:20%;
+  //  margin-top:20px;
+  //  text-align: left;
+  //  span{
+  //    font-size: 30px;
+  //    font-weight: bolder;
+  //    color: white;
+  //    margin-left:5px;
+  //  }
+  //}
+  .btn1 {
+    position: relative;
+    text-align: center;
+    //margin-top:5%;
+    button {
+      width: 10%;
+    }
+  }
+}
+.mark_list {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  font-size: 13px;
+}
+
+//.border1{
+//  position:relative;
+//  //margin-left:10px;
+//  //margin-top:20px;
+//  top:30%;
+//  width: 20%;
+//  display: inline-block;
+//  .input{
+//    //margin-left:5px
+//  }
+//}
+@media screen and (max-width: 576px) {
+  .container {
+    table {
+      .row {
+        flex-wrap: nowrap;
+      }
+      .mobile {
+        display: none;
+      }
+    }
+  }
+  .ROI {
+    margin-left: 0;
+  }
+}
+.collect_setting {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  .box {
+    margin: auto;
+    td {
+      width: 20%;
+    }
+  }
+  select {
+    width: 180px;
+  }
+  font {
+    color: black;
+  }
+  input {
+    margin-left: 10px;
+  }
+  .firstLine {
+    div {
+      display: inline-block;
+    }
+    .accountPassword {
+      margin-left: 15px;
+    }
+    .btn_group {
+      display: inline-block;
+      button {
+        margin-left: 20px;
+        background-color: transparent;
+        padding: 3px 20px;
+        border-radius: 5px;
+        color: black;
+      }
+      .btn_on {
+        border: 1px solid green;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .btn_out {
+        border: 1px solid red;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+  .secondLine {
+    margin-top: 30px;
+    div {
+      display: inline-block;
+    }
+    select {
+      margin-left: 10px;
+    }
+    .module_select {
+      margin-left: 15px;
+    }
+    .action_select {
+      margin-left: 15px;
+    }
+    .mengban {
+      position: absolute;
+      top: 8%;
+      left: 0%;
+      width: 100%;
+      height: 10%;
+      background: rgba(235, 239, 245, 0.5);
+    }
+  }
+  .thirdLine {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    .thirdLine_left {
+      position: absolute;
+      left: 15%;
+      width: 30%;
+      height: 200px;
+      display: inline-block;
+      text-align: left;
+      .jiwei_select {
+        display: inline-block;
+        margin-top: 30px;
+        input {
+          width: 30px;
+          text-align: center;
+        }
+      }
+      .device_type {
+        display: inline-block;
+        margin-left: 15px;
+      }
+      .camera_type {
+        //display: inline-block;
+        //margin-left: 15px;
+        margin-top: 10px;
+        display: block;
+        select {
+          width: 80px;
+          margin-left: 10px;
+        }
+      }
+      .IPC_url,
+      .IPC_account,
+      .IPC_password {
+        margin-top: 10px;
+      }
+    }
+    .thirdLine_middle {
+      width: 10%;
+      height: 200px;
+      display: inline-block;
+      button {
+        background-color: transparent;
+        padding: 3px 20px;
+        border-radius: 5px;
+        color: black;
+      }
+      .btn_collect {
+        margin-top: 50px;
+        border: 1px solid black;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .btn_preview {
+        margin-top: 20px;
+        border: 1px solid black;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+    }
+    .thirdLine_right {
+      width: 27%;
+      position: absolute;
+      height: 200px;
+      margin-left: 4%;
+      display: inline-block;
+      background: rgba(235, 239, 245, 0.5);
+    }
+  }
+
+  .forthLine {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    .JSON_mode {
+      position: absolute;
+      left: 15%;
+      width: 30%;
+      height: 200px;
+      textarea {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .btn_sendJSON {
+      position: relative;
+      background-color: transparent;
+      padding: 3px 20px;
+      border-radius: 5px;
+      margin-top: 80px;
+      color: black;
+      border: 1px solid black;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .JSON_respon {
+      position: absolute;
+      width: 31%;
+      margin-left: 1.5%;
+      height: 200px;
+      border: 1px solid #dbdbdb;
+      display: inline-block;
+    }
+  }
+  .sixthLine {
+    position: relative;
+    display: block !important;
+    margin-top: 65px;
+    text-align: left;
+    .device_browser {
+      margin-left: 15%;
+      display: block;
+      div {
+        display: block !important;
+      }
+    }
+  }
+  .fifthLine {
+    margin-top: 10px;
+
+    .btn_group {
+      position: relative;
+      margin-top: 2%;
+      left: -80%;
+      button {
+        background-color: transparent;
+        margin-left: 15px;
+        padding: 3px 20px;
+        border-radius: 5px;
+        color: black;
+      }
+      .btn_apply {
+        border: 1px solid green;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .btn_verify {
+        border: 1px solid black;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .btn_cancel {
+        border: 1px solid red;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .container {
+    .collect_setting {
+      .thirdLine {
+        .thirdLine_left {
+          .code {
+            position: relative;
+            top: -1.4rem;
+            left: 2rem;
+          }
+        }
+        .thirdLine_middle {
+          margin-left: 10rem;
+          .btn_preview {
+            padding: 5px 17px;
+          }
+        }
+        .thirdLine_right {
+          text-align: right;
+        }
+      }
+    }
+  }
+  .collect_setting[_ngcontent-c8] .fifthLine[_ngcontent-c8] .btn_group[_ngcontent-c8] {
+    margin-top: 18%;
+  }
+  .collect_setting[_ngcontent-c8] .forthLine[_ngcontent-c8] {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    .collect_setting {
+      .box {
+        input {
+          width: 115px;
+        }
+        select {
+          width: 140px;
+        }
+      }
+    }
+    .collect_setting[_ngcontent-c11] .fifthLine[_ngcontent-c11] .btn_group[_ngcontent-c11] {
+      margin-top: 10%;
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    padding-left: 0;
+    .collect_setting {
+      .box {
+        td {
+          padding-left: 5px;
+        }
+        input {
+          margin-bottom: 80px;
+        }
+        .activity {
+          position: relative;
+          top: 97px;
+          right: 186px;
+        }
+        .activitybox {
+          position: relative;
+          top: 20px;
+          left: -88px;
+        }
+        .addact {
+          position: relative;
+          right: 121px;
+          top: -10px;
+        }
+        .logout {
+          position: relative;
+          top: -40px;
+        }
+      }
+      .device_browser {
+        display: none;
+      }
+      .thirdLine {
+        .thirdLine_middle {
+          .btn_preview {
+            position: absolute;
+            left: 0;
+            top: 245px;
+          }
+        }
+        .thirdLine_right {
+          width: 61%;
+          margin-top: 55px;
+          position: static;
+        }
+      }
+      .fifthLine {
+        .btn_group {
+          margin-top: 40% !important;
+        }
+      }
+    }
+  }
+}

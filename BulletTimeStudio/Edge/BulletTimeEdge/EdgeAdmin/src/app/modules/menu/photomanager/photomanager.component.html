@@ -1,0 +1,78 @@
+ <div class="container">
+      <div class="row">
+         <!-- <div class="col-xs-6 col-sm-4"  style="display:block;margin:0 auto;" > 
+                <span class="input-group-addon">siteId:</span><input type="text" class="form-control" [(ngModel)]="site" placeholder="please input siteId">
+            </div> -->
+         <div class=" col-xs-8"  style="display:block;margin:0 auto;" > 
+                        <!-- <span>date:</span> -->
+                        <input type="date" class="form-control" [(ngModel)]="time" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        </div>
+         <div class="col-xs-4"  style="display:block;margin:0 auto;" > 
+              <button class="btn btn-success" (click)="getTasklist()">查找</button>
+         </div>
+    </div>
+        <div class="row">
+                 <div class="col-xs-6">
+                        date: {{time}}
+                </div>
+                 <div class="col-xs-6">
+                        完成数/总数：{{videoNumber}}/{{taskNumber}}
+                </div>
+        </div>
+
+<!-- <div id="outer" style="width:100%;text-align:center;height:500px">
+      <table class="table table-hover text-nowrap" width=100% style="font-size:12px">
+           <tr>
+               <td *ngFor="let header of taskheader">{{header}}</td>
+           </tr>
+           <tr *ngFor="let task of tasklist">
+               <td>{{task.task.param.text}}</td>
+               <td>
+                   {{task.task.userId}}
+               </td>
+               <td>
+                   {{task.createdAt}}
+               </td>
+               <td>
+                   {{task.state==='complete'?'已完成':task.finishtime}}
+               </td>
+               <td>
+                   <a *ngIf="task.state === 'complete'" href="http://siiva.cn-sh2.ufileos.com/ucloud/{{task.task.output.name}}" target="_blank">視頻連結</a>
+                   <mat-icon color="{{task.state === 'abort'? 'warn': ''}}">{{task.state === 'abort' ? 'clear': ''}}</mat-icon>
+               </td>
+           </tr>
+   </table>
+</div> -->
+<!-- <div class="row">
+   <div class="col-xs-4" style="background:green"><span class="text-align">UserID</span></div>
+   <div class="col-xs-4" style="background:yellow"><span class="text-align">拍照时间</span></div>
+   <div class="col-xs-2" style="background:blue"><span class="text-align">预计完成时间</span></div>
+   <div class="col-xs-2" style="background:orange"><span class="text-align">预警</span></div>
+</div> -->
+<table class="table table-hover table-striped">
+        <tr class="row">
+                <td class="col-xs-2"><span class="text-align">UserID</span></td>
+                <td class="col-xs-2" ><span class="text-align">taskId</span></td>
+                <td class="col-xs-2" ><span class="text-align">拍照时间</span></td>
+                <td class="col-xs-2" ><span class="text-align">预计完成时间</span></td>
+                <td class="col-xs-2" ><span class="text-align">state</span></td>
+                <td class="col-xs-2" ><span class="text-align">预警</span></td>
+        </tr>
+    <tr  class="row" *ngFor="let task of tasklist">
+   <!-- <div class="col-xs-2" style="background:red">{{task.task.param.text}}</div> -->
+   <td class="col-xs-2 text" >{{task.task.userId}}</td>
+   <td class="col-xs-2 text" >{{task.task.taskId}}</td>
+   <td class="col-xs-2 text" >{{task.createdAt}}</td>
+   <td class="col-xs-2 text" >{{task.state==='complete'?'已完成':task.finishtime}}</td>
+   <td class="col-xs-2 text" >{{task.state}}</td>
+   <td class="col-xs-2 text" ><a *ngIf="task.state === 'complete'" href="http://siiva.cn-sh2.ufileos.com/ucloud/{{task.task.output.name}}" target="_blank">視頻連結</a>
+    <mat-icon color="{{task.state === 'abort'? 'warn': ''}}">{{task.state === 'abort' ? 'clear': ''}}</mat-icon>
+   </td>
+</tr>
+</table>
+
+
+
+
+
+</div>

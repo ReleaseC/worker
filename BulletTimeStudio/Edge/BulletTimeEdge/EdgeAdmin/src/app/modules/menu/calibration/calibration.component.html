@@ -1,0 +1,20 @@
+<div class="container">
+ <h1>校正指南</h1>
+ <div *ngIf="isStep1">
+    <h2>step1：校正三脚架的设定</h2>
+    <p>三脚架用两个红布条绑定两个红点：下方红点距离地面0.9米（与相加台子高度一致）；上方红点距离地面1.3米</p>
+    <h2>step2：校正三脚架的摆放位置</h2>
+    <p>拍摄区域中心距离13号相机1.7米左右，距离1号相机和25号相机1.6米左右</p>
+    <h2>step3：看25台相机画面</h2>
+    <p>检查25台相机画面里三脚架的位置是否均大致在“普通拍照”的“通”和“拍”之间</p>
+    <h2>step4：开始拍照</h2>
+    <p>确认三脚架摆放无误后点击下一步：</p>
+<button id="btn1" class="btn btn-lg btn-info" (click)="Next()">下一步</button>
+</div>
+<div *ngIf="isStep2">
+  <h2>step5：点击下方拍照按钮进行拍照</h2>
+    <button id="btn_photo" class="btn btn-lg btn-success" (click)="TakePhoto()">拍照</button>
+  <h2>step6：拍照完成后通知技术人员即可</h2> 
+  <button id="btn2" class="btn btn-info" (click)="Prev()">上一步</button> 
+</div>
+</div>

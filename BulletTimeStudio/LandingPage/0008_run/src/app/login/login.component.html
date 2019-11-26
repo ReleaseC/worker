@@ -1,0 +1,42 @@
+<div class="login">
+  <div class="background" style="width:100%;min-height:100%; position:fixed;left:0%;top:0%;z-index:-1000 ">
+    <img alt="图片"  src="assets/images/background.png" width=100%>
+  </div>
+  <div  class="logo1">
+    <img src="assets/images/logo1.png" alt="图片" width=100%>
+  </div>
+  <div class="seconds">
+    <img src="assets/images/seconds.png" alt="图片" width=100%>
+  </div>
+  <div class="slogin">
+    <img src="assets/images/slogin.png" alt="图片" width=100%>
+  </div>
+    <div class="register" >
+    <div class="back_white"></div>
+      <div class="title">
+          参赛信息
+      </div>
+   <form id="form" name="myForm">
+     <img class="number" src="assets/images/number.png">
+     <input type="text" class="form-control" name="number" id="number" placeholder="请输入您的号码牌">
+     <hr class="hr1"/> 
+     <img class="name" src="assets/images/name.png">
+     <input type="text" name="username" id="username" placeholder="请输入您的姓名">
+     <hr class="hr2" />
+   </form>
+   <div class="btn" (click)="reserve()" >点我预约</div>
+   <div class="btn_1" *ngIf="isreserve">点我预约</div>
+   <div class="btn1" (click)="search()">我的视频</div>
+   <div class="btn1_1" *ngIf="issearch" >我的视频</div>
+  <div class="attention">*每个微信仅能绑定一个参赛者查看视频</div>
+</div>
+<div  class="logo2">
+  <img  src="assets/images/logo2.png" width=100% alt="图片">
+ </div>
+ <div  class="logo3">
+  <img src="assets/images/logo3.png" width=100% alt="图片">
+ </div>
+ <div class="logo4">
+  <img   src="assets/images/logo4.png" width=100% alt="图片"> 
+ </div>
+</div>

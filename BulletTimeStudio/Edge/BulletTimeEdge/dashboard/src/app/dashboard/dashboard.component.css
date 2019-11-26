@@ -1,0 +1,22 @@
+.container-fluid{
+    position:absolute;
+    top:50px;
+}
+/* .container-adjust{
+    position:absolute;
+    left:5%;
+    top:18%;
+}
+.devices{
+    position:absolute;
+    top:25%; 
+} */
+.footer{
+    position: fixed;
+    bottom:0px;
+}
+
+li{
+    float:left;
+    list-style: none;
+}

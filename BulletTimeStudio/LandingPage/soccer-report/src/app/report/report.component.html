@@ -1,0 +1,31 @@
+<select [(ngModel)]="selectedDate">
+  <option [value]="'2018-7-9'"> 2018-7-9 </option>
+  <option [value]="'2018-7-10'"> 2018-7-10 </option>
+  <option [value]="'2018-7-11'"> 2018-7-11 </option>
+  <option [value]="'2018-7-12'"> 2018-7-12 </option>
+  <option [value]="'2018-7-13'"> 2018-7-13 </option>
+  <option [value]="'2018-7-14'"> 2018-7-14 </option>
+  <option [value]="'2018-7-15'"> 2018-7-15 </option>
+  <option [value]="'2018-7-16'"> 2018-7-16 </option>
+  <option [value]="'2018-7-17'"> 2018-7-17 </option>
+  <option [value]="'2018-7-18'"> 2018-7-18 </option>
+</select>
+<button (click)="getTaskNumber()">確定</button>
+<table border="1">
+  <tr>
+    <th>球場名</th>
+    <th>Site ID</th>
+    <th>當日影片數量</th>
+  </tr>
+  <tr *ngFor="let arr of siteListArr">
+    <td>{{arr.siteName}}</td>
+    <td>{{arr.siteId}}</td>
+    <td>{{arr.videoNum}}</td>
+  </tr>
+  <tr>
+    <td colspan="2">當日總合:</td>
+    <!-- <td></td> -->
+    <td>{{total}}</td>
+  </tr>
+</table>
+

@@ -1,0 +1,37 @@
+<div class="data" style="position:relative;text-align:center">
+   <h1>机器人后台数据</h1>
+   <div id="outer" style="width:100%">
+    <div id="inner">
+      <table border=1>
+        <tr>
+          <td>id</td>
+          <td>姓名</td>
+          <td>性别</td>
+          <td>年龄</td>
+          <td>VIP</td>
+          <td>人脸图片</td>
+          <td>注册时间</td>
+          <td>优惠券领取</td>
+          <td>优惠券使用</td>
+          <td>消费标签</td>
+        </tr>
+        <tr *ngFor="let index of ret,let i=index">
+          <td>{{index.wechat.openid}}</td>
+          <td>{{index.info.nickname}}</td>
+          <td>{{index.info.sex}}</td>
+           <td>10</td>
+           <td>{{index.info.remark}}</td>
+           <td>暂无照片</td>
+          <td>{{index.time}}</td>
+          <td>{{index.tikcets}}</td>
+          <td>未使用</td>
+          <td>{{index.tags}}<button (click)="AddLabel(i)">添加标签</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="label" *ngIf="isLabel">
+     <input type="text" id="text" placeholder="请输入您想要添加的标签">
+     <button (click)="SaveLabel()">保存</button>
+  </div>
+</div>

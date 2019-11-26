@@ -1,0 +1,80 @@
+@media screen and (max-width:768px){
+    *{
+        margin:0;
+        padding:0;
+    }
+    body{
+        margin:0;
+        padding:0; 
+    }
+    .firstpage{
+        position: absolute;
+        width:100%;
+        height:100%;
+        left:0%;
+        top:0%;
+    }
+    .swiper-container {
+        width:100%;
+        height:33%;
+      }
+      .swiper-slide {
+        display: flex;
+      }
+      /* .middle-col{
+        position: relative;
+        width:100%;
+        height:7%;
+        left:0%;
+        margin-top:0px;
+        background: #dbdbdb;
+        z-index:1000;
+      } */
+      .activities{
+          position: relative;
+          width:100%;
+          height:67%;
+          left:0%;
+          overflow: scroll;
+      }
+      .activity{
+          position: relative;
+          width:100%;
+          height:30%;
+          left:0%;
+          border-bottom: 0.6px solid #bdbdbd
+      }
+      .banner{
+        position: absolute;
+        width:33%;
+        height:75%;
+        margin-left:10px;
+        top:50%;
+        transform: translateY(-50%);
+      }
+      .activityName{
+        position: relative;
+        width:50%;
+        left:40%;
+        top:12.5%;
+        font-weight: bolder;
+        font-family: 'PingFangSC-Light';
+        letter-spacing: 1.5px;
+      }
+      .mark{
+        position: relative;
+        width:56%;
+        left:40%;
+        top:19%;
+        font-size:14px;
+        letter-spacing: 1px;
+        color:#737373;
+        font-family: 'PingFangSC-Light';
+      }
+ 
+
+}
+@media screen and (min-width:768px){
+
+
+}

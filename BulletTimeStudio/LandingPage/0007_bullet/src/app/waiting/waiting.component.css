@@ -1,0 +1,76 @@
+.border_background{
+    position: absolute;
+    width:90%;
+    left:5%;
+    height:21%;
+    top:40%;
+    background-color: white;
+    border-radius: 10px;
+}
+.code{
+    width:26.7%; 
+    position:absolute;
+    left:36.8%;
+    top:67.8%;
+}
+.bullettime{
+    position: absolute;
+    width:66%;
+    top:19%;
+    left:17%;
+  }
+  .logo1{
+    position: absolute;
+    width:25%;
+    top:6%;
+    left:10%;
+  }
+  .slogin{
+    position: absolute;
+    width:52%;
+    top:5%;
+    left:40%;
+  }
+  .text3{
+    position: absolute;
+    width:98%;
+    text-align: center;
+    top:44%;
+    color:#00aec4;
+ }
+ .text4{
+     position: absolute;
+     width:97%;
+     text-align: center;
+     top:50%;
+     color:#00aec4;
+ 
+ }
+
+ .line{
+    position: absolute;
+    top:57%;
+    width:14%;
+    height:1px;
+    border-radius: 10px;
+    left:43%;
+    background-color: #00aec4;
+  }
+  .logo2{
+    position: absolute;
+    width:15%;
+    top:85%;
+    left:12%;
+}
+.logo3{
+    position: absolute;
+    width:18%;
+    top:85%;
+    left:42%;
+}
+.logo4{
+    position: absolute;
+    width:13%;
+    top:85%;
+    left:73%;
+}

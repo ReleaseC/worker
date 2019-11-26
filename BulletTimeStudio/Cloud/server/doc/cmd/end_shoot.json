@@ -1,0 +1,10 @@
+/* 用于通知正在拍摄的mome, 停止拍摄, 并上传视频 */
+{
+  "deviceId": "deviceId", // 停止拍摄的那台mome的deviceId
+  "from": "deviceId_who", // 要求停止远端拍摄的deviceId, 通常是wepark
+  "requestId": "requestId", // 在同時多個远端拍摄时，用requestId來區分
+  "param": {
+    "action": "end_shoot"
+  }
+}
+

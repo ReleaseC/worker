@@ -1,0 +1,76 @@
+<div class='container'>
+  <!-- <div class='siftings'>
+    <div>
+        <label for="company" >公司</label>
+        <select id="company" (change)="getActivityList()" [(ngModel)]="selCompanyId">
+          <option *ngFor="let company of companyList"  value="{{company.company_id}}"  >{{ company.company_name }}</option>
+        </select>
+    </div>
+    <div>
+        <label for="activity" >活动</label>
+        <select id="activity" (change)="getDeviceStatus()" [(ngModel)]="selActivityId">
+          <option *ngFor="let activity of activityList" value="{{activity.activity_id}}">{{ activity.activity_name }}</option>
+        </select>
+    </div>
+    <div>
+      <label for="date" >时间</label>
+      <input type="date" id='date' (change)="getDeviceStatus()">
+    </div>
+   
+  <div> -->
+    
+  <table id='table'>
+    <thead>
+      <tr>
+        <th><a>活动</a></th>
+        <th>DeviceId</th>
+        <th>详情</th>
+        <th class='tableBtn'>设定</th>
+        <th class='tableBtn'>重启</th>
+        <th class='tableBtn'>重启vnc</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let status of DeviceStatusList;index as i" >
+        <td>
+            <button *ngIf="status.attent == 1"
+            style="color: white; width: 48px;height:18px; font-size: 5px; position:absolute; left:0px; top:-5px; background: palevioletred"
+            (click)="attent(status.activity_id,status.device_id, true)">已绑
+          </button>
+          <button *ngIf="status.attent == 0"
+            style="color: white; width: 48px;height:18px; font-size: 5px; position:absolute; left:0px; top:-5px; background: #43A047"
+            (click)="attent(status.activity_id,status.device_id, false)">未绑
+          </button>
+          {{status.activity_name}}
+          <span *ngIf="status.device_id == 'CE57F9FD2CE6'">金融中心提示屏(不升级)</span>
+        </td>
+        <td>
+          <span
+          style="font-weight: bold; color: #0a081e">{{status.device_id}}</span> <br />【{{status.device_name}}】</td>
+        <td>
+            <span *ngIf="status.power < 30" style="color:red">{{status.power}}</span>
+            <span *ngIf="status.power >= 30">{{status.power}}</span>
+            <span *ngIf="status.is_charging === true">🔋</span>
+            <span *ngIf="status.is_charging === false" style="color: #3b3b3b">🔌</span>
+            <span *ngIf="status.temperature >= 40" style="color:red">{{status.temperature}}°C</span>
+            <span *ngIf="status.temperature < 40">{{status.temperature}}°C</span>
+            <span *ngIf="getUpdateDescrip(status.timestamp) == '在线'" style="color: #43A047">
+              {{getUpdateDescrip(status.timestamp)}}</span>
+            <span *ngIf="getUpdateDescrip(status.timestamp) == '离线'" style="color: #808080">
+              {{getUpdateDescrip(status.timestamp)}}</span>
+        </td>
+        <td>
+          <button (click)="touchToOption(status.device_id)">
+            设定
+          </button>
+        </td>
+        <td>
+          <button (click)="reboot(status.device_id)">
+            重启
+          </button>
+        </td>
+        <td>
+          <button (click)="rebootvnc(status.device_id)">vnc</button>
+        </td>
+      </tr>
+  </table>
+</div>

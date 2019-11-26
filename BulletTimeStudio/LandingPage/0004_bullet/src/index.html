@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>之炜时刻</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- <script type="text/javascript" src="assets/jquery.min.js"></script> -->
+  <!-- <script type="text/javascript" src="assets/angular.min.js"></script> -->
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+
+// function UrlSearch()
+//     {
+//         var name,value; 
+//         var str=location.href; //取得整个地址栏
+//         var num=str.indexOf("?") 
+//         str=str.substr(num+1); 
+
+//         var arr=str.split("&"); //各个参数放到数组里
+//         for(var i=0;i < arr.length;i++){ 
+//             num=arr[i].indexOf("="); 
+//             if(num>0){ 
+//             name=arr[i].substring(0,num);
+//             value=arr[i].substr(num+1);
+//             this[name]=value;
+//             } 
+//         } 
+//     } 
+//     var Request=new UrlSearch(); //实例化
+//     var id=Request.id;
+
+
+// 付费下载功能code
+//   console.log('id:'+id);
+//   var app = angular.module( 'app', [] ); 
+//   app.controller( 'test', ['$scope','$http',($scope,$http)=>{
+//       $scope.upDown = function(){
+//         var ua = navigator.userAgent.toLowerCase();  
+//         var isWeixin = ua.indexOf('micromessenger') != -1;  
+//         if (isWeixin) {  
+//         alert('请点击右上角进入其他浏览器下载')  
+//         }else{ 
+//         $scope.baseUrl = 'https://siiva.cn-sh2.ufileos.com/'+id+'.mp4?jsonp=JSON_CALLBACK';
+//           $http.get($scope.baseUrl + '/server/ajax/expServers.action', { responseType: 'arraybuffer' })
+//           .success( function(data, status, headers) {
+//           var octetStreamMime = 'application/octet-stream';
+//           var success = false;
+//           headers = headers();
+//           var filename = headers['x-filename'] || id+'.mp4';
+//           var contentType = headers['content-type'] || octetStreamMime;
+//           try
+//           {
+//               console.log("Trying saveBlob method ...");
+//               var blob = new Blob([data], { type: contentType });
+//               if(navigator.msSaveBlob)
+//                   navigator.msSaveBlob(blob, filename);
+//               else {
+//                   var saveBlob = navigator.webkitSaveBlob || navigator.mozSaveBlob || navigator.saveBlob;
+//                   if(saveBlob === undefined) throw "Not supported";
+//                   saveBlob(blob, filename);
+//               }
+//               console.log("saveBlob succeeded");
+//               success = true;
+//           } catch(ex)
+//           {
+//               console.log("saveBlob method failed with the following exception:");
+//               console.log(ex);
+//           } 
+//           if(!success)
+//           {
+//               var urlCreator = window.URL || window.webkitURL || window.mozURL || window.msURL;
+//               if(urlCreator)
+//               {
+//                   var link = document.createElement('a');
+//                   if('download' in link)
+//                   {
+//                       try
+//                       {
+//                           // Prepare a blob URL
+//                           console.log("Trying download link method with simulated click ...");
+//                           var blob = new Blob([data], { type: contentType });
+//                           var url = urlCreator.createObjectURL(blob);
+//                           link.setAttribute('href', url);
+//                           // Set the download attribute (Supported in Chrome 14+ / Firefox 20+)
+//                           link.setAttribute("download", filename); 
+//                           // Simulate clicking the download link
+//                           var event = document.createEvent('MouseEvents');
+//                           event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+//                           link.dispatchEvent(event);
+//                           console.log("Download link method with simulated click succeeded");
+//                           success = true; 
+//                       } catch(ex) {
+//                           console.log("Download link method with simulated click failed with the following exception:");
+//                           console.log(ex);
+//                       }
+//                   } 
+//                   if(!success)
+//                   {
+//                       // Fallback to window.location method
+//                       try
+//                       {
+//                           // Prepare a blob URL
+//                           // Use application/octet-stream when using window.location to force download
+//                           console.log("Trying download link method with window.location ...");
+//                           var blob = new Blob([data], { type: octetStreamMime });
+//                           var url = urlCreator.createObjectURL(blob);
+//                           window.location = url;
+//                           console.log("Download link method with window.location succeeded");
+//                           success = true;
+//                       } catch(ex) {
+//                           console.log("Download link method with window.location failed with the following exception:");
+//                           console.log(ex);
+//                       }
+//                   }  
+//               }
+//           } 
+//          if(!success)
+//           {
+//               // Fallback to window.open method
+//               console.log("No methods worked for saving the arraybuffer, using last resort window.open");
+//               window.open(httpPath, '_blank', '');
+//           }
+//       })
+//       .error(function(data, status) {
+//           console.log("Request failed with status: " + status);
+//           // Optionally write the error out to scope
+//           $scope.errorDetails = "Request failed with status: " + status;
+//       });
+//       }
+//     }
+//   }] )
+
+</script>
+</head>
+<body style="font-size:16px;">
+
+
+    
+    
+    
+  
+  <app-root></app-root>
+
+
+
+
+
+
+</body>
+</html>

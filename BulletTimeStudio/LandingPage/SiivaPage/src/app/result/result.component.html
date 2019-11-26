@@ -1,0 +1,183 @@
+<!-- <div class="result">
+    <video id="video" class="video" loop="loop" preload="auto"  playsinline
+    x5-video-player-type="h5" x5-video-player-fullscreen="true" webkit-playsinline>
+    <source src="{{videourl}}" type="video/mp4"/>
+  </video>
+  <div class="video_top">
+    <div style="position:absolute;width:70%;height:50%;left:15%;top:20%;" (click)="playPause()"></div>
+    <div class="share_bar1" *ngIf="isShow">
+        <img class="result_back" src="{{img_url}}" alt="图片">
+    </div>    
+    <div class="icon-play" (click)="playPause()" *ngIf="isPlay">
+        <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="icon-play-number" (click)="count_play_number()" *ngIf="isPlay_number">
+        <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="wrap-icons">
+          <div class="icon-back" (click)="goback_home()">
+              <img src="assets/images/backhome.png" alt="图片" width='35px' height='35px'>
+          </div>
+          <span>首页</span>
+          <div class="icon-love" *ngIf="isnoLove">
+            <img src="assets/images/icon-love.png" alt="图片" width='35px' height='35px' (click)="Love()">
+          </div>
+          <div class="icon-love-active" *ngIf="isLove" (click)="Cancel_Love()">
+              <img src="assets/images/icon-love-active.png" alt="图片" width='35px' height='35px' >
+          </div>
+          <span>{{love_number}}</span>
+          <div class="icon-share" (click)="share()">
+              <img src="assets/images/icon_share.png" alt="图片" width='35px' height='35px'>
+          </div>
+          <span>转发</span>
+          <div class="icon-download" (click)="download()">
+              <img src="assets/images/icon_download.png" alt="图片" width='35px' height='35px'>
+            </div>
+          <span>下载</span>
+          <div class="icon-collect" *ngIf="isnoCollect" (click)="collect()">
+            <img src="assets/images/icon-collect.png" alt="图片" width='35px' height='35px'>
+          </div>
+          <div class="icon-collect" *ngIf="isCollect" (click)="Cancel_collect()">
+            <img src="assets/images/icon-collect-active.png" alt="图片" width='35px' height='35px'>
+          </div>
+          <span>收藏</span>
+          <div (click)="pay()">
+          <div class="icon-money">
+            <img src="assets/images/icon_money.png" alt="图片" width='35px' height='35px'>
+          </div>
+          <span>打赏</span>
+          </div>
+      </div>
+      <div class="icon-information" (click)="show_info()">
+        <img src="assets/images/icon_information.png" alt="图片" width='25px' height='25px'>
+      </div>
+      <div class="info" *ngIf="isshowInfo" (click)="cancel_showinfo()">
+          <div class='triangle-up'></div> 
+          <div class="info_text">
+              <div class="info_text_item"><span class="info_text_item_left">活动名称：</span><span class="info_text_item_right">{{activityName}}</span></div>
+              <div class="info_text_item"><span class="info_text_item_left">拍摄时间：</span><span class="info_text_item_right">{{createdAt}}</span></div>
+              <div class="info_text_item info_text_item_last"><span class="info_text_item_left">拍摄作者：</span><span class="info_text_item_right">{{author}}</span></div>
+          </div>
+      </div>
+      <div class="icon-del" (click)="task_del()">
+          <img src="assets/images/icon_del.png" alt="图片" width='28px' height='28px'>
+      </div>
+      <div class="task_del_info" *ngIf="isshowTaskDelInfo">
+          <div class="task_del_info_text">是否确认删除？</div>
+          <div class="cancel_info" (click)="task_del_cancel()">取消</div>
+          <div class="confirm_info" (click)="task_del_confirm()">确认</div>
+      </div>
+      <img *ngIf="isShareimg" class="share_bar" src="assets/images/share2.png" alt="图片" (click)="cancelShare()">
+    </div>
+  </div> -->
+
+  
+
+
+  <div class="result">
+        <div class="swiper-container">
+              <video id="video0" class="video" src="{{video_url}}" poster="{{img_url}}" loop="loop"  preload="auto" playsinline="true" 
+               x5-video-player-type="h5" x5-video-player-fullscreen="true"  webkit-playsinline="true" >
+              <!-- <source src="{{video_url}}" type="video/mp4"/> -->
+              </video>
+           <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let index of videolist,let i=index"> 
+                    <div class="video_top">
+                          <div style="position:absolute;width:70%;height:50%;left:15%;top:20%;" (click)="playPause(i,index.task.taskId)"></div>
+                          <div class="share_bar1" *ngIf="isshow">
+                              <img class="swiper-lazy" style="position:absolute;height:100%;top:0%;left:50%;transform: translateX(-50%);background-size: contain;pointer-events: none;" data-src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg" alt="图片">
+                          </div>
+                          <div class="icon-play" (click)="playPause(i,index.task.taskId)" *ngIf="isPlay">
+                              <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+                          </div>
+                          <div class="icon-play-number" (click)="FirstPlay(index.task.taskId)" *ngIf="isPlay_number">
+                              <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+                          </div>
+                          <div class="wrap-icons">
+                              <div class="icon-back" (click)="goback_home(index.task.taskId)">
+                                  <img src="assets/images/backhome.png" alt="图片" width='30px' height='30px'>
+                              </div>
+                              <span>主页</span>
+                              <div *ngIf="isshow_Love">
+                                <div class="icon-love" *ngIf="isnoLove">
+                                    <img src="assets/images/icon-love.png" alt="图片" width='30px' height='30px' (click)="Love(i,index.task.taskId)">
+                                </div>
+                                <div class="icon-love-active" *ngIf="isLove" >
+                                    <img src="assets/images/icon-love-active.png" alt="图片" width='30px' height='30px' >
+                                </div>
+                                <span style="display:block">{{love_number}}</span>
+                            </div>
+                              <div class="icon-share" (click)="share(i,index.task.taskId)">
+                                  <img src="assets/images/icon_share.png" alt="图片" width='30px' height='30px'>
+                              </div>
+                              <span>转发</span>
+                              <div class="icon-download" (click)="download(i,index.task.taskId)">
+                                  <img src="assets/images/icon_download.png" alt="图片" width='30px' height='30px'>
+                                </div>
+                              <span>下载</span>
+                              <div *ngIf="isshow_Collect">
+                                    <div class="icon-collect" *ngIf="isnoCollect" (click)="Collect(i,index.task.taskId)">
+                                        <img src="assets/images/icon-collect.png" alt="图片" width='30px' height='30px'>
+                                    </div>
+                                    <div class="icon-collect" *ngIf="isCollect">
+                                        <img src="assets/images/icon-collect-active.png" alt="图片" width='30px' height='30px'>
+                                    </div>
+                                    <span>收藏</span>
+                            </div>
+                            <div (click)="pay(index.task.taskId)" *ngIf="isshow_Pay">
+                                    <div class="icon-money">
+                                        <img src="assets/images/icon_money.png" alt="图片" width='30px' height='30px'>
+                                    </div>
+                                    <span>打赏</span>
+                            </div>
+                          </div>
+                          <div class="icon-information" (click)="show_info(index.task.taskId)" *ngIf="isshow_Info">
+                            <img src="assets/images/icon_information.png" alt="图片" width='25px' height='25px'>
+                          </div>
+                          <div class="info" *ngIf="isshowInfo" (click)="cancel_showinfo()">
+                              <div class='triangle-up'></div> 
+                              <div class="info_text">
+                                  <div class="info_text_item"><span class="info_text_item_left">活动名称：</span><span class="info_text_item_right">{{activityName}}</span></div>
+                                  <div class="info_text_item"><span class="info_text_item_left">拍摄时间：</span><span class="info_text_item_right">{{createdAt}}</span></div>
+                                  <div class="info_text_item info_text_item_last"><span class="info_text_item_left">拍摄作者：</span><span class="info_text_item_right">{{author}}</span></div>
+                              </div>
+                          </div>
+                          <div class="icon-del" (click)="task_del()" *ngIf="isshowTask_del_icon">
+                            <img src="assets/images/icon_del.png" alt="图片" width='28px' height='28px'>
+                        </div>
+                        <div class="task_del_info" *ngIf="isshowTaskDelInfo">
+                            <div class="task_del_info_text">是否确认删除？</div>
+                            <div class="cancel_info" (click)="task_del_cancel()">取消</div>
+                            <div class="confirm_info" (click)="task_del_confirm(index.task.taskId,i)">确认</div>
+                        </div>
+                    </div>
+                    <div class="arrow">
+                        <img src="assets/images/arrows.png" alt="图片" width="100%">
+                    </div>
+                    <!-- <div class="icon-back-jiantou" (click)="goback_home(index.task.taskId)">
+                        <img src="assets/images/backhome.png" alt="图片" width='100%'>
+                    </div> -->
+                    <div class="logo" (click)="GoParter()" *ngIf="isshowlogo"><img src="assets/images/reserve_logo.png" width="100%" alt="logo"></div>
+                    <!-- <div class="swiper-lazy-preloader"></div> -->
+                    <!-- <span>首页</span> -->
+            </div>
+      
+        
+      
+        
+       
+        
+      
+        
+      
+        
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+        <img *ngIf="isShareimg" class="share_bar" src="assets/images/share2.png" alt="图片" (click)="cancelShare()">
+      </div>
+      
+      </div>
+

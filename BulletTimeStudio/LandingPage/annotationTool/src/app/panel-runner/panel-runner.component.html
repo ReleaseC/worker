@@ -1,0 +1,131 @@
+<div class="HotKeyMap" #HotKeyMap>
+  <span>左邊隊伍: 數字鍵1 ~ 9</span><br>
+  <span>右邊隊伍: 數字鍵1 ~ 9</span><br>
+  <span>進球類型: 兩分(Z) / 上籃(X) / 扣籃(C) / 三分(V)</span><br>
+  <span>進球類型: 兩分(Z) / 上籃(X) / 扣籃(C) / 三分(V)</span><br>
+  <span>進球確認: G</span><br>
+  <span>中間時間軸左右移動: Shift + 左右鍵</span><br>
+  <span>下方主要時間軸左右移動: 左右鍵</span><br>
+  <span>任務列表上下移動: 上下鍵</span><br>
+</div>
+<div class="AnnoMain">
+  <div class="PlayerPanel">
+    <div class="SiteNameMenu">
+      <select
+        (change)="onSelectSetting($event.target.value)"
+        [(ngModel)]="initSiteSetting">
+        <option value="-1">請選擇場次</option>
+        <option *ngFor="let arr of siteArr, let i = index" value="{{i}}">{{arr.siteName}}</option>
+      </select>
+      <span class="HotkeyMapClass" (mouseup)="hotKeyMap(false)" (mousedown)="hotKeyMap(true)" > HotKey</span>
+      <input type="button" id="logout" value="登出" (click)="logout()" style="font-size: 30px; width: 20%; height: 35px; margin: 0 2%;">
+    </div>
+    <div class="PlayerMenu">
+      <div class="PlayerTeam1">
+        <p class="TeamName">{{teamArr[0]}}</p>
+        <div *ngFor="let arr of playerArr[0], let i = index">
+          <input type="radio" name="PlayerArr" class="RadioClass" (click)="selectedPlayer(0, i)" [checked]="radioStatusArr[0][i]"> <label style="font-size:15px">{{arr}}</label>
+        </div>
+      </div>
+      <div class="PlayerTeam2">
+        <p class="TeamName">{{teamArr[1]}}</p>
+        <div *ngFor="let arr of playerArr[1], let i = index">
+          <input type="radio" name="PlayerArr" class="RadioClass" (click)="selectedPlayer(1, i)" [checked]="radioStatusArr[1][i]"> <label style="font-size:15px">{{arr}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="GoalBtnClass">
+      <div class="GoalTypeClass">
+        <input type="radio" class="GoalRadioClass" (click)="selectedGoalType(0)" [checked]="radioGoalTypesArr[0]"><label style="font-size:10px">2分</label>
+        <input type="radio" class="GoalRadioClass" (click)="selectedGoalType(1)" [checked]="radioGoalTypesArr[1]"><label style="font-size:10px">上籃</label>
+        <input type="radio" class="GoalRadioClass" (click)="selectedGoalType(2)" [checked]="radioGoalTypesArr[2]"><label style="font-size:10px">扣籃</label>
+        <input type="radio" class="GoalRadioClass" (click)="selectedGoalType(3)" [checked]="radioGoalTypesArr[3]"><label style="font-size:10px">3分</label>
+      </div>
+      <div>
+        <input type="button" id="GoalBtn" style="font-size:30px" value="Goal!!!" (click)="Goal()" [disabled]="goalbtn">
+      </div>
+    </div>
+    <!-- <input type="button" id="RecordBtn" value="开始录制直播流" (click)="startRecording()"> -->
+  </div>
+  <div class="PreviewPanel">
+    <div class="MainPreview">
+      <canvas class="MainPreviewCanvas" id="MainPreviewCanvas">
+        Your browser does not support the HTML5 canvas tag.
+      </canvas>
+      <picture>
+        <img [src]="currentPreviewImg" class="MainPreviewImg" onerror="this.src='../assets/default.png'" alt="My default image" #MainPreview>
+      </picture>
+    </div>
+    <div class="MainPreviewChild" #ChildSeekBarView>
+      <img class="ChildPreview" #SampleChildImageView>
+      <img class="ChildPreview">
+      <span *ngFor="let arr of imgChildArr[currentThumbnailIndex], let i = index">
+        <img [src]="arr" class="ChildPreview" alt="My default image" (click)="clickPreview('child', i)">
+      </span>
+      <img class="ChildPreview">
+      <img class="ChildPreview">
+      <br>
+      <span><p class="ChildPreviewIndex" ></p></span>
+      <span><p class="ChildPreviewIndex" ></p></span>
+      <span *ngFor="let arr of imgChildArr[currentThumbnailIndex], let i = index" >
+          <p class="ChildPreviewIndex" >{{calIndexToTime('child', i)}}</p>
+      </span>
+    </div>
+    <div class="MainPreviewIndex" >{{previewIndexMsg}}</div>
+  </div>
+
+  <div class="TaskPanel" #TaskPanelView>
+    <div class="TaskListClass" *ngFor="let arr of taskArr, let i = index" id="task_{{i}}"
+        #TaskListView>
+      <span class="TaskListIndex">{{taskArr.length - i}}</span>
+      <!-- <img [src]="arr.img" class="TaskListThumbnail" alt="My default image"> -->
+      <span class="TaskListDetail"
+      (click)="doTaskListFocusAndBlur(i);selectTask('child', arr.mainIndex, arr.childIndex)"
+      (mouseover)="taskMouseoverListener(i)"
+      (mouseout)="taskMouseoutListener(i)">
+        <div>{{arr.team}}</div>
+        <div>{{arr.player}}</div>
+        <div>{{arr.frame}}</div>
+        <div>已發送:{{arr.isTaskCreated}}</div>
+        <br>
+      </span>
+      <span style="display: inline-block;"><button (click)="deleteTask(i)">刪除</button></span>
+    </div>
+  </div>
+  <div class="TaskBtnPanel">
+    <input type="button" class="TaskBtn" value="Send all events" (click)="SendGoalEventToServer(true)" [disabled]="goalbtn">
+  </div>
+</div>
+
+<div class="SeekBar" #MainSeekBarView>
+  <!-- Sample thumbnail -->
+  <img class="ThumbnailPreview" #SampleImageView>
+  <img class="ThumbnailPreview">
+  <img class="ThumbnailPreview">
+  <img class="ThumbnailPreview">
+  <!-- Stream thumbnail -->
+  <span *ngFor="let arr of imgArr, let i = index">
+      <img [src]="arr" id="list_{{i}}" class="ThumbnailPreview" (click)="clickPreview('main', i)">
+  </span>
+  <!-- Sample thumbnail -->
+  <img class="ThumbnailPreview">
+  <img class="ThumbnailPreview">
+  <img class="ThumbnailPreview">
+  <img class="ThumbnailPreview">
+  <br>
+
+  <!-- Sample thumbnail index -->
+  <p class="ThumbnailIndex" ></p>
+  <p class="ThumbnailIndex" ></p>
+  <p class="ThumbnailIndex" ></p>
+  <p class="ThumbnailIndex" ></p>
+  <!-- Stream thumbnail index -->
+  <span *ngFor="let arr of imgArr, let i = index">
+      <p class="ThumbnailIndex" >{{calIndexToTime('main', i)}}</p>
+  </span>
+  <!-- Sample thumbnail index -->
+  <p class="ThumbnailIndex" ></p>
+  <p class="ThumbnailIndex" ></p>
+  <p class="ThumbnailIndex" ></p>
+  <p class="ThumbnailIndex" ></p>
+</div>

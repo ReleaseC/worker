@@ -1,0 +1,39 @@
+<select [(ngModel)]="selSite" (change)="getTasksStatus()">
+  <option [value]="" ></option>
+  <option *ngFor="let arr of siteListArr" [value]="arr.siteId">
+    {{arr.siteId}}_{{arr.name}}
+  </option>
+</select>
+<br>
+<div *ngIf="selSite">
+  <button (click)="refreshSite()">Refresh</button>
+</div>
+<br>
+<div *ngFor="let arr of taskListArr; let i = index">
+  <table border="1" *ngIf="selSite">
+    <tr align="center">
+      <th>Status</th>
+      <th>Site ID</th>
+      <th>Task ID</th>
+      <th>Node</th>
+      <th>Date</th>
+    </tr>
+    <tr align="center">
+      <td>{{arr.status}}</td>
+      <td>{{arr.site_id}}</td>
+      <td>{{arr.task_id}}</td>
+      <td>{{arr.node}}</td>
+      <td>{{arr.date}}</td>
+    </tr>
+    <tr align="center">
+      <th>IP</th>
+      <th>Index</th>
+      <th>Path</th>
+    </tr>
+    <tr *ngFor="let index of arr.video_path" align="center">
+      <td>{{index.ip}}</td>
+      <td>{{index.index}}</td>
+      <td>{{index.path}}</td>
+    </tr>
+  </table><br>
+</div>

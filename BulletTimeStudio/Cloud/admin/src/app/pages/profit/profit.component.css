@@ -1,0 +1,52 @@
+#outer {
+  position: relative;
+  margin-top: 20px;
+}
+
+.text {
+  word-wrap: break-word;
+
+}
+
+.text-align {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+h2 {
+  position: relative;
+  text-align: center
+}
+
+.myForm {
+  /*position: absolute;*/
+  margin-left: -15px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+.filter_activity {
+  margin-left: 10px;
+  width: 45%;
+}
+.filter_activity select{
+  width:35%;
+}
+
+.filter_state {
+  margin-left: 10px;
+  width: 30%;
+}
+
+table{
+  margin-top: 15px;
+}
+
+.order_summary{
+  text-align: right
+}
+

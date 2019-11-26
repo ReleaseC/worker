@@ -1,0 +1,189 @@
+<!-- <h1 class="title">设备管理</h1> -->
+
+<div >
+
+    <!-- <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered qrcode" 
+      controls preload="auto" 
+      data-setup="{}" autoplay>
+      
+      <source [src]="safeUrl" type='rtmp/flv'>
+      
+      <p class="vjs-no-js">播放视频需要启用JavaScript，推荐使用支持HTML5的浏览器访问。
+          To view this video please enable JavaScript, 
+          and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">
+          supports HTML5 video</a>
+      </p>
+    </video> -->
+    <!-- <h1>
+
+      {{receivePreview}}
+    </h1> -->
+    <video *ngIf='isReceiveLive' id="videoElement" width="100%" ></video>
+    <!-- <video *ngIf='!receivePreview' id="videoElement" width="100%" autoplay controls ></video> -->
+    
+    <img *ngIf='receivePreview' style="width: 384px; height: 216px" src="{{receivePreview}}" alt="无法显示图片" />
+</div>
+<div class="container">
+
+  
+<form  id="manageForm"  (submit)="preview()">
+  <div class="flexForm">
+    
+  <div>
+      <label for="active" >项目</label>  
+      <select id="active"  (change)="getActivityList()" [(ngModel)]="selProjectId" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let project of porjectList" value="{{project.project_id}}">{{ project.project_name }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="device">活动</label>
+      <select id="device" (change)="getSetting()"  [(ngModel)]="selActivityId" [ngModelOptions]="{standalone: true}"  >
+          <option *ngFor="let activity of activityList" value="{{activity.activity_id}}">{{ activity.activity_name }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="deviceTypeName" >设备类型</label>
+      
+      <select id="deviceTypeName" [(ngModel)]="deviceTypeName"  [ngModelOptions]="{standalone: true}"  (change)="changedManufacturer()">
+        <option value='hikvision'>海康</option>
+        <option value='gkuvision'>极酷</option>
+        <option value='uniview'>宇视</option>
+      </select>
+    </div>
+    <div>
+      <label for="deviceType" >摄像头</label>
+        
+        <select id="deviceType" [(ngModel)]="deviceType" [ngModelOptions]="{standalone: true}"   (change)="changeDeviceType()">
+            <option value='cam'>backcam</option>
+            <option value='ipc'>IPC</option>
+            <option value='uvc'>UVC</option>
+          </select>
+        <!-- <optgroup label="active" >
+          <option value ="volvo">Volvo</option>
+          <option value ="saab">Saab</option>
+        </optgroup> -->
+    </div>
+  </div>
+    <div *ngIf="deviceType === 'ipc'"  >
+      <div class="flexForm" [formGroup]="ipcBaseForm">
+        <div>
+          <label for="url" >URL</label>
+          <input id="url" type="text"  placeholder="192.168.1.164" formControlName="url"> 
+        </div>
+        <div>
+          <label for="account" >账号</label>
+          <input id="account" type="text" formControlName="uid"  >
+        </div>
+        <div>
+          <label for="passwd" >密码</label>
+          <input id="passwd" type="password" formControlName="pwd"   >
+        </div>
+        
+        <div>
+            <label for="port" >端口</label>
+            <input id="port" type="number" formControlName="port"   placeholder="554" >
+          </div>
+        <div>
+            <label for="subtype" >码流</label>
+        <select id="subtype" [(ngModel)]="subtype" [ngModelOptions]="{standalone: true}" >
+          <option value='sub'>sub</option>
+          <option value='main'>main</option>
+        </select>
+          </div>
+      </div>
+      <!-- <div class="flexForm" [formGroup]="ipcLiveForm">
+
+        <div>
+          <label for="portDes" >目标端口</label>
+          <input id="portDes" type="number" formControlName="portDes"   placeholder="1935" >
+        </div>
+        <div>
+          <label for="portRes" >接收端口</label>
+          <input id="portRes" type="number" formControlName="portRes"   placeholder="8080" >
+        </div>
+        <div>
+          <label for="myapp">myapp</label>
+          <input id="myapp" formControlName="myapp" >
+        </div>
+        <div>
+          <label for="stream">stream</label>
+          <input id="stream" formControlName="stream"  >
+        </div>
+        <div>
+          <label for="codec">codec</label>
+          <input id="codec" formControlName="codec"   placeholder="h264">
+        </div>
+        <div>
+          <label for="channel">channel</label>
+          <input id="channel" formControlName="channel"   placeholder="ch1">
+        </div>
+        <div>
+          <label for="subtype">subtype</label>
+          <input id="subtype" formControlName="subtype"   placeholder="sub">
+        </div>
+      </div> -->
+      <!-- <div class="flexForm" [formGroup]="ipcSetForm">
+        <div>
+          <label for="method">method</label>
+          <input id="method" formControlName="method"   placeholder="method">
+        </div>
+        <div>
+          <label for="path">path</label>
+          <input id="path" formControlName="path"   placeholder="path">
+        </div>
+        <div>
+          <label for="params">params</label>
+          <input id="params" formControlName="params"   placeholder="params">
+        </div>
+        <div>
+          <label for="focus">焦距</label>
+          <input id="focus" type='number' formControlName="focus"   placeholder="sub">
+        </div>
+        <div>
+          <label for="shutter">快门</label>
+          <select id="active"  (change)="touchToShutter()" formControlName="ShutterLevel" >
+              <option *ngFor="let shutter of shutterList" >{{ shutter }}</option>
+            </select>
+          <select id="active"  (change)="touchToShutter()" formControlName="maxShutterLevelLimit" >
+              <option *ngFor="let shutter of shutterList" >{{ shutter }}</option>
+            </select>
+          <select id="active"  (change)="touchToShutter()" formControlName="minShutterLevelLimit" >
+              <option *ngFor="let shutter of shutterList" >{{ shutter }}</option>
+            </select>
+        </div>
+        <div>
+          <label for="codeRate">码率</label>
+          <input id="codeRate" type='number' formControlName="codeRate"   placeholder="sub">
+        </div>
+        <div>
+          <label for="FPs">帧率</label>
+          <input id="FPs" type='number' formControlName="FPs"   placeholder="sub">
+        </div>
+      </div> -->
+    </div>
+  <div class="device_browser">
+    <div>deviceId: {{settingDeviceId}}</div>
+    <div>browser: {{browser_device_id}}</div>
+    <div>备注
+      <input type="text" [(ngModel)]="mark" [ngModelOptions]="{standalone: true}" name='mark' >
+    </div>
+    <div>{{temp_showdevcam}}</div>
+    <button (click)="touchToShutter()">快门</button>
+    <button (click)="touchToFocus()">焦距</button>
+    <button (click)="touchToCodeRate()">码率</button>
+    <button (click)="touchToFPs()">帧率</button>
+  </div>
+  
+  
+  
+</form>
+</div>
+      <div class="btn-group btn-block footer" role="group">
+        <button type="button" class="btn btn-secondary" (click)="preview()">预览</button>
+        <button *ngIf="!isReceiveLive" type="button" class="btn btn-secondary" (click)="live()">直播</button>
+        <button *ngIf="isReceiveLive" type="button" class="btn btn-secondary" (click)="live_stop()">取消直播</button>
+        <!-- <button type="button" class="btn btn-secondary" (click)="settingParam()">调整</button> -->
+        <button type="button" class="btn btn-secondary" (click)="sendParam()">应用</button>
+        <!-- <button type="button" class="btn btn-secondary" (click)="touchToCancel()">美团</button> -->
+      </div>

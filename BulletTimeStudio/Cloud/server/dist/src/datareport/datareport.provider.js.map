@@ -1,0 +1,1 @@
+{"version":3,"file":"datareport.provider.js","sourceRoot":"","sources":["../../../src/datareport/datareport.provider.ts"],"names":[],"mappings":";;AACA,mEAA+D;AAElD,QAAA,mBAAmB,GAAG;IACjC;QACE,OAAO,EAAE,sBAAsB;QAC/B,UAAU,EAAE,CAAC,QAAQ,EAAE,EAAE,CAAC,QAAQ,CAAC,UAAU,CAAC,KAAK,CAAC,aAAa,EAAE,oCAAgB,CAAC;QACpF,MAAM,EAAE,CAAC,SAAS,CAAC;KACpB;CACF,CAAC"}

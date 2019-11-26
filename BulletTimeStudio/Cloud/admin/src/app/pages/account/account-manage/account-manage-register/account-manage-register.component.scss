@@ -1,0 +1,221 @@
+.contain {
+    // display: flex;flex-direction: column;align-items: center;
+    // >div{
+    //     min-width: 300px;display: flex;
+    //     font{
+    //         width: 100px;
+    //     }
+    // }
+    position: relative;
+    width:70%;
+    left:15%;
+    .line{
+        position: absolute;
+        width: 8%;
+        height: 20%;
+        left: 100%;
+        top: 55%;
+        border:1px solid #acaeb0;
+        border-left: transparent;
+        .btn_bind{
+            position: relative;
+            left: 50%;
+            top: 40%;
+            background-color: transparent;
+            padding: 3px 15px;
+            border-radius: 5px;
+            color: black;
+            background: rgba(243, 6, 6, 0.8);
+        }
+    }
+    input::-webkit-input-placeholder {
+        color: #aab2bd;
+        font-size: 12px;
+    }
+    .border{
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        padding: 2% 0;
+        margin-top: 2%;
+        input{
+            margin-left: 5px;   
+        }
+        font{
+            color:black;
+        }
+        div{
+            display: inline-block;
+        }
+        .select_company{
+            position: absolute;
+            width: 35%;
+            text-align: right;
+            select{
+                margin-left:5px;
+                width: 65%;
+            }
+        }
+        .right{
+            position: relative;
+            left: 45%;
+            width: 33%;
+            text-align: right;
+            .summary{
+                position: relative;
+                width: 100%;
+                font{
+                    position: absolute;
+                    margin-left:-12%;
+                }
+            textarea{
+                width:70%;
+                height:80px;
+                margin-left:5px;
+            }
+        
+            }
+            .Name{
+                margin-top:5px;
+            }
+            .phoneNumber{
+                margin-top:5px;
+            }
+            .upload_img{
+                margin-top: 5px;
+                .input_img{
+                    position: absolute;
+                    width:80%;
+                    margin-left: 22px;
+                }
+                img{
+                    position: absolute;
+                    width: 20px;
+                }
+               }
+
+        }
+        .btn_group{
+            position: relative;
+            margin-left: 44%;
+            margin-top: 2%;
+            button{
+                background-color: transparent;
+                margin-left: 5px;
+                padding: 3px 20px;
+                border-radius: 5px;
+                color: black;
+            }
+            .btn_add{
+                border:1px solid green;
+                box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+            }
+            .btn_revise{
+                border:1px solid black;
+                box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+            }
+            .btn_delete{
+                border:1px solid red;
+                box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+            }
+            // .btn_next{
+            //     background: green;
+            //     color:white;
+            //     margin-left:80px;
+            // }
+      }
+      .state{
+        position: absolute;
+        width: 2%;
+        left:100%;
+        top:50%;
+        img{
+            position: relative;
+            width:100%;
+            background-size: contain;
+        }
+   }
+   .mengban{
+       position: absolute;
+       width:100%;
+       height:100%;
+       left:0%;
+       top:0%;
+    background: rgba(235,239,245,.5)
+   }
+}
+    // hr{width: 100%;margin: 4% 0;}
+    .account_msg{
+        position: relative;
+        input{
+            margin-left: 5px;   
+        }
+        .right{
+            position: relative;
+            left: 45%;
+            width: 33%;
+            text-align: right;
+            .password{
+                margin-top: 5px;
+            }
+        }
+        .btn_group{
+            position: relative;
+            margin-left: 44%;
+            margin-top: 2%;
+            button{
+                background-color: transparent;
+                margin-left: 5px;
+                padding: 3px 20px;
+                border-radius: 5px;
+                color: black;
+            }
+            .btn_add{
+                border:1px solid green;
+                box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+            }
+            .btn_revise{
+                border:1px solid black;
+                box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+            }
+            .btn_delete{
+                border:1px solid red;
+                box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+            }
+        }
+    }
+    .btn_group_end{
+        position: relative;
+        width: 100%;
+        text-align: center;
+        display: inline-block;
+        margin-top:3%;
+        button{
+            background-color: transparent;
+            margin-left: 5px;
+            padding: 3px 20px;
+            border-radius: 10px;
+            color: black;
+        }
+        .btn_add{
+            border:1px solid black;
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+        }
+        .btn_revise{
+            border:1px solid black;
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+        }
+        .btn_delete{
+            border:1px solid black;
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+        }
+        .btn_send{
+            border:1px solid green;
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+        }
+        .btn_quit{
+            border:1px solid red;
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+        }
+    }
+}

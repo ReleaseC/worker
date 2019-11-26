@@ -1,0 +1,84 @@
+.container{
+    position: relative;
+    left: 0%;
+    top: 0%;
+}
+.underline{ 
+    position:relative;
+    padding: 10px;
+ }
+.underline:after {
+ position: absolute;
+ bottom: 0;
+ left: 20px;
+ right: 20px;
+ height: 1px;
+ content: '';
+ -webkit-transform: scaleY(.5);
+ transform: scaleY(.5);
+ background-color: #3f51b5;
+}
+
+.underline:last-child:after{
+    height:0;
+}
+button {
+    padding: 50px, 80px;
+}
+.flexFour {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0 10px 0;
+
+}
+ul li{
+
+    list-style: none;
+    
+    }
+.activity_name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 25px;
+}
+.container {
+    margin: 20px 0 0;
+    width: 100%
+}
+.btn {
+    margin-right: 2px;
+    background: #3f51b5;
+    font-size: 20px;
+    border-radius:10px
+}
+.btn:last-child {
+    margin-right: 0;
+}
+.statistic {
+    width: 40px;
+    /* max-width: 50px; */
+    border-color: white;
+    background: rgba(0, 0, 0, 0);
+    margin: 0;
+    border: 0;
+}
+.block {
+    top:0;
+    left:0;
+    position: absolute;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+}
+.modal-center{
+    position: absolute;
+    top:50%;
+    left:20px;
+}
+.imgShow {
+    position: relative;
+    width:40%;
+    left: 30%;
+}

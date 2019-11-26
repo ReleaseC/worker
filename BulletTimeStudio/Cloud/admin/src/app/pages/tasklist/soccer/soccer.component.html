@@ -1,0 +1,59 @@
+<div>
+    <!-- <p>
+        <button (click)="getTasklist()">get tasklist</button>
+    </p> -->
+    <div class="option_group">
+        <input type="date" [(ngModel)]="time" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        siteIdd :
+        <!-- <select [(ngModel)]="siteValue" (change)="getTasklist()"> 
+            <option *ngFor="let site of sitelist" [ngValue]="site">{{site.siteName}}</option>
+        </select> -->
+        <!-- <div *ngFor="let site of sitelist" [(ngModel)]="siteValue">
+            
+            <span>{{site.siteName}}</span>
+        </div> -->
+        <div [class]="siteId.checked?'siteIdBtn siteIdChecked':'siteIdBtn'" *ngFor="let siteId of sitelist;index as i" (click)='selectSiteId(siteId)'>
+            <span class="checkBox"></span>
+            <span>{{siteId.id}}</span>
+        </div>
+    </div>
+    <p>
+        Site Name: {{siteValue ? siteValue.siteName : ''}}&nbsp;/&nbsp;Site ID: {{siteValue ? siteValue.siteId : ''}}<br>
+        Date: {{time}}&nbsp;&nbsp;&nbsp; Task总数：{{taskNumber}}&nbsp; &nbsp;&nbsp;视频产出量：{{videoNumber}}
+    </p>
+    {{msg}}
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let header of taskheader">{{header}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasklist">
+                <td>
+                    {{task.task.taskId}}
+                </td>
+                <td>
+                    {{task.createdAt}}
+                </td>
+                <td>
+                    {{task.updatedAt}}
+                </td>
+                <td>
+                    {{task.state}}
+                </td>
+                <td>
+                    {{task.msg}}
+                </td>
+                <td>
+                    <a *ngIf="task.state === 'complete'" href="http://siiva.cn-sh2.ufileos.com/soccer_{{task.task.taskId}}.mp4" target="_blank">視頻連結</a>
+                </td>
+                <td>
+                    <button (click)="reDoTask(task.task)">restart</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

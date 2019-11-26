@@ -1,0 +1,282 @@
+
+
+@import "../../../../../node_modules/ng-zorro-antd/style/index.min.css";
+@import "../../../../../node_modules/ng-zorro-antd/date-picker/style/index.min.css";
+@import "../../../../../node_modules/ng-zorro-antd/message/style/index.min.css";
+nz-date-picker,
+nz-month-picker,
+nz-year-picker,
+nz-range-picker,
+nz-week-picker {
+  margin: 0 8px 12px 0;
+}
+body {
+  background-color: #f3f7f9;
+}
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+}
+.sliderNav {
+  position: absolute;
+  height: 102%;
+  border-right: 1px solid #babdbf;
+  text-align: center;
+  background: #fff;
+}
+.box {
+  position: relative;
+}
+.filter_activity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* align-items: center; */
+  background-color: #fff;
+  position: relative;
+  /* top: 50px; */
+  top: 5rem;
+  font-size: 17px;
+  
+  flex-wrap: wrap;
+
+}
+
+.select {
+  
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  /* width: 205px; */
+  border: 0;
+  background: #fff;
+  border-bottom: 1px solid #000;
+
+  /*很关键：将默认的select选择框样式清除*/
+  -moz-appearance:none;
+  /* -webkit-appearance:none; */
+
+
+}
+.total {
+  background: #fff;
+  position: relative;
+  top: 90px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* .total::before{
+  content:' ';
+  display:table;
+} */
+.total div {
+  max-width: 190px;
+  text-align: center;
+  overflow: hidden;
+}
+.view {
+  padding: 1rem 2rem 1rem;
+  margin: 10px;
+  align-items: center;
+  /* padding-top: 35px; */
+  border-right: 1px solid #babdbf;
+}
+.rowpadding{
+  margin: 0 5rem;
+}
+.row {
+  text-overflow: ellipsis;
+  flex-wrap: nowrap;
+
+  align-items: center;
+}
+.rowTitle {
+  text-overflow: ellipsis;
+  align-items: center;
+}
+.thead {
+  position: relative;
+  top: 120px;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  background: #f0f0f0;
+  padding: 7px;
+  font-size: 17px;
+}
+.text {
+  word-wrap: break-word;
+}
+.text-align {
+  font-size: 14px;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+h2 {
+  position: relative;
+  text-align: center;
+}
+
+.filter_state {
+
+  width: 30%;
+}
+
+table {
+  position: relative;
+  top: 120px;
+  background: #fff;
+}
+.filter {
+  float: right;
+}
+.order_summary {
+  text-align: right;
+}
+.page_select {
+  position: relative;
+  top: 120px;
+  font-size: 16px;
+  float: right;
+  right: 10rem;
+  margin: 5px 0 20px 0;
+}
+.msg {
+  position: relative;
+  top: -40px;
+  font-size: 14px;
+  width: 120px;
+  height: 20px;
+  display: none;
+}
+
+/* .help:hover + .msg {
+  display: block;
+} */
+.label_title {
+  max-width: 190px;
+  min-width: 100px;
+  /* padding: 1rem; */
+  /* font-weight: normal; */
+}
+.label_title::after {
+  content: ':';
+  /* font-weight: normal; */
+}
+.label_total::after:hover {
+  /* border-bottom:5px solid #000;
+  border-right:5px solid #000; */
+  display: none;
+}
+/* .label_total::after {
+  content: ':';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #555555;
+  content: "";
+  position: relative;
+  left: -1.55rem;
+  width: 0;
+} */
+input {
+  border: none;
+  text-align: center;
+  font-weight: normal;
+  /* width: 120px; */
+  /* padding-left: 50px; */
+}
+font {
+  font-weight: normal;
+
+  display: block;
+  /* margin-top: -0.8rem; */
+}
+a:active
+{ 
+background-color:yellow;
+}
+a:hover
+{ 
+  cursor: pointer;
+}
+label div {
+  margin-bottom: 1rem;
+}
+::ng-deep .ant-calendar-picker-clear {
+  display: none;
+}
+::ng-deep .anticon{
+  
+  vertical-align: 0rem;
+}
+.showClass{
+  display: inline;
+}
+::ng-deep .btnclear {
+  display: none;
+}
+::ng-deep a,::ng-deep  area,::ng-deep button,::ng-deep [role='button'],::ng-deep input:not([type='range']),::ng-deep label,::ng-deep select,::ng-deep summary,::ng-deep textarea{
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+:root .clearBorder{
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+.isHide{
+  display: none !important;
+}
+.isFlag {
+  /* color: red; */
+  display: none !important;
+}
+.sumTotal{
+  display: flex;
+
+  flex-direction: column;
+}
+.sumTotal {
+  flex-direction: column;
+  display: flex;
+  
+  min-width: 60rem;
+  
+}
+.sumTotal tr {
+  justify-content: space-between;
+  display: flex;
+  
+}
+.rowTitle td{
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .rowpadding {
+    margin: 0;
+  }
+  .view {
+    display:none;
+  }
+  .label_total::after{
+    display: none;
+  }
+  
+ 
+.sumTotal {
+  min-width: unset;
+}
+  
+  .showClass{
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+{
+    "_id": "5c983a3d69f63b19d5e9cf07",
+    "task": {
+        "taskId": "1561625901uq_1563074374479",
+        "mode": "video",
+        "type": "common",
+        "local": false,
+        "fileName1": "1541475970_1553480253975_0_A58FE68F_0.mp4",
+        "provider": { "mate": "siiva-oss" },
+        "later_setting":
+            {
+             "source":{
+                "bgm": {"src":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1557886955xa/jialebihaidao.mp3"},
+                "frame":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1557886955xa/template_jinjiang.png",
+                "ground_video":{},
+                "effect_speed":{},
+                "effect_rotate":{},
+                "green_screen":{},
+                "logo":{}
+               },
+                "cut_param":{
+                    "enablebgm":false,
+                    "enableborder":false,
+                    "enablebggreen":false,
+                    "enableeffect_speed":false,
+                    "enableeffect_rotate":false,
+                    "enablegreenscreen":false,
+                    "enableaudio":false,
+                    "enablelogo":false},
+                    "record":[{"deviceId":"7239040C6152","order":0,"duration":5000,"begin":0,"effect":"1","paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/go.mov","fileName":"1561625901uq_1563074374479_0_7239040C6152_0.mp4"},{"deviceId":"FAEC99F31371","order":1,"duration":10000,"begin":0,"effect":"1","paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/oh.mov","fileName":"1561625901uq_1563074374479_0_FAEC99F31371_1.mp4"},{"deviceId":"72D9C640FD7B","order":2,"duration":5000,"begin":0,"effect":"1","paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/joy.mov","fileName":"1561625901uq_1563074374479_0_72D9C640FD7B_2.mp4"}]
+            }
+    },
+    "activity_id": "1561625901uq",
+    "state": "data.ready",
+    "createdAt": "2019-03-25 10:17:33",
+    "updatedAt": "2019-3-25 10:52:38",
+    "workerId": "192.168.1.131_8000"
+}
+

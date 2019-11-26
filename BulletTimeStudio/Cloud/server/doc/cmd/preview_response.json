@@ -1,0 +1,10 @@
+{
+    "deviceId": "deviceId_who",         // preview.json裡頭的deviceId_who，就是要求preview的設備，通常是Cloud Admin，也可以是MoMe Admin
+    "requestId": "requestId",     
+    "from": "deviceId_from",      // 哪個deviceId的response
+    "preview": "base64 image in jpg" ,   // preview圖檔
+    "action": "post_preview",
+    "status": 0, // 0: success, -1: fail
+    "url": "url",  // 取得預覽圖的url
+    "reason": ""
+}

@@ -1,0 +1,12 @@
+// mome收到该指令,  访问https://iva.siiva.com/activity/setting?activity_id=1541475970, 更新设定
+{
+  "deviceId": "deviceId",
+  "from": "deviceId_who",
+  "requestId": "requestId",
+  "param": {
+    "action": "update_device_settings",
+    "activity": {
+      "activity_id": "activity_id"
+    }
+  }
+}

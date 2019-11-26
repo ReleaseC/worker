@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    top:0;
+}
+.activity_select{
+    margin-top: 10px;
+   position: relative;
+   width: 90%;
+   top: 0px;
+   left: 5%;
+   font-size: 16px;
+   
+   padding-bottom: 12px;
+}
+
+.activity_select:after {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #fff;
+   }
+   
+   
+.tasklist{
+    /* position: fixed; */
+    margin-top: 10px;
+    width: 100%;
+    height:100%;
+    overflow: scroll;
+}
+.border1{
+    position: relative;
+    background:	white;
+    width: 50%;
+    left:0%;
+    top:0%;
+    margin:0;
+    padding:3px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  ngui-in-view{
+    margin:0;
+    padding:0;
+    /* border-top:0.1px solid #dbdbdb */
+  }
+  .tasklist .border1 img{
+    position:relative;
+    border-radius: 10px;
+    left:0%;
+    top:0%;
+    width:100%;
+
+  }
+  .tasklistBottom {    
+    margin-top: 20px;
+    margin-bottom: 5%;
+  }
+
+
+
+
+  .showphoto{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height:100%;
+    text-align: center;
+}
+.firstline{
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    background: rgba(0,0,0,.1);
+    align-items: center;
+    font-size: 15px;
+}
+.back{
+    position: relative;
+    text-align: right;
+    width: 15%;
+}
+.back img{
+    width: 65%;
+}
+.time{
+    position: absolute;
+    width: 30%;
+    text-align: left;
+    margin-left: 15%;
+    font-size: 12px;
+}
+.qrcode{
+  position: relative;
+  width: 30%;
+  margin-left: 30%;
+  text-align: center;
+}
+.qrcode img{
+   position: relative;
+   width: 45%;
+}
+.showBigImage{
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+}
+.secondline{
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+}
+.secondline img{
+    width: 100%;
+    border-radius: 5px;
+}
+.secondline video{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    
+    /* overflow-y: hidden; */
+}
+.imgqrcode {
+    z-index: 2;
+    position: fixed;
+    width:50%;
+    
+    top: 20rem;
+    left: 25%;
+    margin-top: 10px;
+}
+.imgqrcode  img{
+    width: 100%;
+}
+.fixed {
+    
+    position: fixed;
+    bottom: 10%;
+    width: 10%;
+    right: 15px;
+    color: #ffffff;
+    font-size: 9px;
+    text-align: center;
+}
+.fixed_bottom {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    bottom: 20px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+}
+.fixed input {
+    /* transform: translate(-50%, -50%); */
+}
+/* .fixed input:active { 
+    width: 36px;
+} */
+.btnClass {
+    font-size: 1.5rem;  
+    width:50%;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+#toast {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 12px;
+    background-color: #fafafa;
+    text-align: center;
+}
+.tip {
+    
+    margin-top: 50%;
+    font-size: 25px;
+}
+.print {
+    background: rgba(63,81,181, .8);
+    
+    border-radius: 13px;
+    padding: 5px 10px;
+}
+
+.print:active {
+    font-size: 12px;
+
+}
+.delete_btn {
+    
+    border-radius: 13px;
+    padding: 5px 10px;
+}
+
+.checkbox{
+    /* position: absolute; */
+    zoom: 2;
+    position: relative;
+    display: block;
+    float: right;
+    margin-top: -20px;
+}
+.delete {
+    background: rgba(100,100,100,.9);
+    border-radius: 40px;
+
+}
+.leftBigImage{
+    width: 20px;
+    height: auto;
+    align-items: center;
+    margin-left: -20px;
+    
+}
+.rightBigImage{
+    width: 10px;
+    height: auto;
+    padding-top:15%;
+    align-items: center;
+    margin-right: -20px;
+
+}

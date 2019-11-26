@@ -1,0 +1,146 @@
+<mat-tab-group class="demo-tab-group">
+   <mat-tab label="相机参数">
+     <div class="demo-tab-content" style="height:500px;">
+        <mat-form-field class="full-width">
+            <mat-select name="sampleType" placeholder="选择相机" [ngModel]="selected" (ngModelChange)="selected=$event;get_camera_config()">
+               <mat-option value="0">相机1</mat-option>
+               <mat-option value="1">相机2</mat-option>
+               <mat-option value="2">相机3</mat-option>
+               <mat-option value="3">相机4</mat-option>
+               <mat-option value="4">相机5</mat-option>
+               <mat-option value="5">相机6</mat-option>
+               <mat-option value="6">相机7</mat-option>
+               <mat-option value="7">相机8</mat-option>
+               <mat-option value="8">相机9</mat-option>
+               <mat-option value="9">相机10</mat-option>
+               <mat-option value="10">相机11</mat-option>
+               <mat-option value="11">相机12</mat-option>
+               <mat-option value="12">相机13</mat-option>
+               <mat-option value="13">相机14</mat-option>
+               <mat-option value="14">相机15</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <button class="btn btn-sm btn-default"  style="margin-left:2%;">试拍</button> -->
+          <!-- <button class="btn btn-sm btn-default" style="margin-left:2%;">套用其他相机</button> -->
+          <table class="table table-hover text-nowrap">
+              <tr>
+                  <td>ISO</td>
+                  <td>快门</td>
+                  <td>解析度</td>    
+               </tr>
+               <tr>
+                <td>{{iso}}</td>
+                <td>{{photo_shutter}}</td>
+                <td>{{photo_size}}</td>    
+              </tr>
+          </table>
+        </div>
+   </mat-tab>
+   <mat-tab label="校正">
+      <div class="demo-tab-content">
+          <mat-form-field class="full-width">
+              <mat-select name="sampleType" >
+                    <mat-option value="0">相机1</mat-option>
+                    <mat-option value="1">相机2</mat-option>
+                    <mat-option value="2">相机3</mat-option>
+                    <mat-option value="3">相机4</mat-option>
+                    <mat-option value="4">相机5</mat-option>
+                    <mat-option value="5">相机6</mat-option>
+                    <mat-option value="6">相机7</mat-option>
+                    <mat-option value="7">相机8</mat-option>
+                    <mat-option value="8">相机9</mat-option>
+                    <mat-option value="9">相机10</mat-option>
+                    <mat-option value="10">相机11</mat-option>
+                    <mat-option value="11">相机12</mat-option>
+                    <mat-option value="12">相机13</mat-option>
+                    <mat-option value="13">相机14</mat-option>
+                    <mat-option value="14">相机15</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button class="btn btn-sm btn-default"  style="margin-left:2%;" (click)="TakePhoto()">试拍</button>
+            <!-- <button class="btn btn-sm btn-default"  style="margin-left:2%;" (click)="getPictures()">获取校正图片</button> -->
+        <div class="image_deitor" style="width:100%;">
+          <div class="parent" style="width:100%;">
+         <img id='img1' src={{image_url}} alt="" style="width:100%;background-size:contain;">
+         <div id="border1">下</div>
+         <div id="border">上</div>
+         </div>
+         <div>当前图片:{{image_url}}</div>
+         <div>上方的点：<br/>offsetX:{{top_offsetX}} offsetY:{{top_offsetY}}<br/>
+          下方的点：<br/>offsetX:{{center_offsetX}} offsetY:{{center_offsetY}}<br/>
+        </div>
+         <button class="btn btn-sm btn-primary" (click)="confirm()">确认该图片校正点</button>
+         <button class="btn btn-sm btn-default" (click)="previous()">上一张</button>
+         <button class="btn btn-sm btn-default" (click)="next()">下一张</button>
+         <button class="btn btn-sm btn-success" (click)="push()">提交</button>
+      </div>
+      </div>
+    </mat-tab>
+</mat-tab-group>
+<!-- <ul class="nav nav-pills ">
+    <li style="width:50%;" class="active"><a data-toggle="tab" href="#menu1">设定</a></li>
+    <li style="width:50%;"><a data-toggle="tab" href="#menu2">校正</a></li>
+</ul>  
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="menu1">
+      <mat-form-field class="full-width">
+          <mat-select name="sampleType">
+             <mat-option value="1">相机1</mat-option>
+             <mat-option value="2">相机2</mat-option>
+             <mat-option value="2">相机3</mat-option>
+             <mat-option value="2">相机4</mat-option>
+             <mat-option value="2">相机5</mat-option>
+             <mat-option value="2">相机6</mat-option>
+             <mat-option value="2">相机7</mat-option>
+             <mat-option value="2">相机8</mat-option>
+             <mat-option value="2">相机9</mat-option>
+             <mat-option value="2">相机10</mat-option>
+             <mat-option value="2">相机11</mat-option>
+             <mat-option value="2">相机12</mat-option>
+             <mat-option value="2">相机13</mat-option>
+             <mat-option value="2">相机14</mat-option>
+             <mat-option value="2">相机15</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="btn btn-sm btn-default"  style="margin-left:2%;">试拍</button>
+        <button class="btn btn-sm btn-default" style="margin-left:2%;">套用其他相机</button>
+    <h1>设定</h1>
+  </div>
+  <div class="tab-pane fade" id="menu2">
+      <mat-form-field class="full-width">
+          <mat-select name="sampleType">
+             <mat-option value="1">相机1</mat-option>
+             <mat-option value="2">相机2</mat-option>
+             <mat-option value="2">相机3</mat-option>
+             <mat-option value="2">相机4</mat-option>
+             <mat-option value="2">相机5</mat-option>
+             <mat-option value="2">相机6</mat-option>
+             <mat-option value="2">相机7</mat-option>
+             <mat-option value="2">相机8</mat-option>
+             <mat-option value="2">相机9</mat-option>
+             <mat-option value="2">相机10</mat-option>
+             <mat-option value="2">相机11</mat-option>
+             <mat-option value="2">相机12</mat-option>
+             <mat-option value="2">相机13</mat-option>
+             <mat-option value="2">相机14</mat-option>
+             <mat-option value="2">相机15</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="btn btn-sm btn-default"  style="margin-left:2%;" (click)="TakePhoto()">试拍</button>
+    <div class="image_deitor" style="width:100%;">
+      <div class="parent" style="width:100%;">
+     <img id='img1' src={{image_url}} alt="" style="width:100%;background-size:contain;">
+     <div id="border1">下</div>
+     <div id="border">上</div>
+     </div>
+     <div>当前图片:{{image_url}}</div>
+     <div>上方的点：<br/>offsetX:{{top_offsetX}} offsetY:{{top_offsetY}}<br/>
+      下方的点：<br/>offsetX:{{center_offsetX}} offsetY:{{center_offsetY}}<br/>
+    </div>
+     <button class="btn btn-sm btn-primary" (click)="confirm()">确认该图片校正点</button>
+     <button class="btn btn-sm btn-default" (click)="next()">下一张</button>
+     <button class="btn btn-sm btn-success" (click)="push()">提交</button>
+  </div>
+  </div> -->
+
+<!-- </div> -->

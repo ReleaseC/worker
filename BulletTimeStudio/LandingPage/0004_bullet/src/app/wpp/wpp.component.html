@@ -1,0 +1,68 @@
+<div style="position:fixed;top:0%;left:0%;width:100%;height:10%;text-align:center;background:white;z-index:1;" >
+    <img class="nav" src="assets/image/line.png" alt="图片">
+    <!-- <h2>领<strong>券</strong>中心</h2> -->
+    <h2>红包/抵用券</h2>
+  </div>
+  <!-- <ul>
+    <li>
+      <div class="border1">
+         
+      </div>    
+    </li>
+    <li>
+    </li>
+  </ul> -->
+  <!-- <table>
+      <tr><td><div class="border1">
+            
+         </div>  </td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
+  </table> -->
+  <div class="parent">
+  <div class="border1">
+        <span>&yen;</span>
+        <div class="money">10</div>
+        <div class="ticket">抵用券</div>
+        <div class="product">巧克力</div>
+        <div class="condition">满78元使用</div>
+        <div class="discount">减10元</div>
+        <img  class='btn' src="assets/image/now.png" alt="图片" (click)="click1()">
+        <img *ngIf="isShow1" class='btn1' src="assets/image/get.png" alt="图片">
+        <div class="deadline">今日到期</div>
+  </div>
+  <div class="border1">
+        <span>&yen;</span>
+        <div class="money">20</div>
+        <div class="ticket">抵用券</div>
+        <div class="product">五谷杂粮</div>
+        <div class="condition">满108元使用</div>
+        <div class="discount">减20元</div>
+        <img  class='btn' src="assets/image/now.png" alt="图片" (click)="click2()">
+        <img *ngIf="isShow2" class='btn1' src="assets/image/get.png" alt="图片">
+        <div class="deadline">今日到期</div>
+  </div>
+  <div class="border1">
+    <span>&yen;</span>
+    <div class="money">5</div>
+    <div class="ticket">抵用券</div>
+    <div class="product">轮胎保养</div>
+    <div class="condition">满99元使用</div>
+    <div class="discount">减5元</div>
+    <img  class='btn' src="assets/image/now.png" alt="图片" (click)="click3()">
+    <img *ngIf="isShow3" class='btn1' src="assets/image/get.png" alt="图片">
+    <div class="deadline">今日到期</div>
+  </div>
+  <div class="border1">
+    <span>&yen;</span>
+    <div class="money">50</div>
+    <div class="ticket">抵用券</div>
+    <div class="product">无人机</div>
+    <div class="condition">满600元使用</div>
+    <div class="discount">减50元</div>
+    <img  class='btn' src="assets/image/now.png" alt="图片" (click)="click4()">
+    <img *ngIf="isShow4" class='btn1' src="assets/image/get.png" alt="图片">
+    <div class="deadline">今日到期</div>
+  </div>
+
+  </div>

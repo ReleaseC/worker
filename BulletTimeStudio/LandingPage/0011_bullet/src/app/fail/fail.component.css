@@ -1,0 +1,81 @@
+*{
+    margin:0;
+    padding:0;
+}
+.border_background{
+    position: absolute;
+    width:84%;
+    left:8%;
+    height:35%;
+    top:31%;
+    background-color: white;
+    border-radius: 10px;
+}
+.smile{
+    position: absolute;
+    width:25%;
+    top:4%;
+    left:22%;
+    pointer-events: none;
+  }
+  .weiai{
+    position: absolute;
+    width:26%;
+    top:4%;
+    left:54%;
+    pointer-events: none;
+  }
+.end{
+    position: absolute;
+    width:48%;
+    top:37%;
+    left:26%;
+    pointer-events: none; 
+}
+  .hr3{
+    background: #CCCCCC;
+    position:absolute;
+    left:29%;
+    top:47%;
+    width:5%;
+    opacity:0.5;
+}
+.hr4{
+    background: #CCCCCC;
+    position:absolute;
+    left:65%;
+    top:47%;
+    width:5%;
+    opacity:0.5;
+}
+.title{
+    position: absolute;
+    width:96%;
+    /* top:5%; */
+    top:45%;
+    font-size: 19px;
+    color: #2d2d2d;
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 400;
+}
+
+
+.text3{
+   position: absolute;
+   width:96%;
+   text-align: center;
+   top:52%;
+   color:#acacac;
+   letter-spacing: 1.29px;
+}
+.text4{
+    position: absolute;
+    width:98%;
+    text-align: center;
+    top:56%;
+    color:#acacac;
+    letter-spacing: 1.29px;
+}
+
+

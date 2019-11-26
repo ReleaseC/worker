@@ -1,0 +1,14 @@
+<div class="uploadphoto">
+    <div class="tittle">上传照片进行人脸识别，可快速查找自己的视频</div>
+    <div class="face">
+            <img class="border" src="assets/images/pic_border.png" alt="图片">
+            <img *ngIf="isshow_facedemo" class="face_demo" src="assets/images/face_demo.png" alt="图片">
+            <img class="face_real" [src]="imageUrl" alt="">
+            <!-- <img class="add" src="assets/images/add.png" alt="图片"> -->
+    </div>
+    <!-- <img [src]="small_img" alt=""> -->
+    <div class="cancel" (click)="cancel($event.target)"><img src="assets/images/icon_del.png" alt="图片"></div>
+    <div class="txt">请上传单人正面照片</div>
+    <div class="btn" *ngIf="!isshow_search"><input type="file" #Image accept="image/*" value="上传照片" (change)="handleFileInput($event.target.files)"><span>选择照片</span></div>
+    <div class="btn1" (click)="OnSubmit($event.target)" *ngIf="isshow_search"><span>搜索我的视频</span></div>
+</div>

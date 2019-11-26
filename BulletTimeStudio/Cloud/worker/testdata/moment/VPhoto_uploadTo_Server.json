@@ -1,0 +1,30 @@
+{
+    "activity_id": "activity_id",
+    "files":["15603098957ij_15555555555_0_123456.jpg"],
+    "tasks":[
+        {
+            "taskId":"15603098957ij_15555555555_0",
+            "later_setting":"1",
+            "pay_photo":false,
+            "pay_video":true,
+            "background_url":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_background_1.mp4",
+            "front_urls":[
+                "https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_role1_late_effect.mov",
+                "https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_role2_late_effect.mov",
+                "https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_role3_late_effect.mov"
+            ]
+        },
+        {
+            "taskId":"15603098957ij_15555555555_1",  
+            "later_setting":"1",
+            "pay_photo":true,
+            "pay_video":false,
+            "background_url":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_background_1.jpg",
+            "front_urls":[
+                "https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_role1_late_effect_picture_1.png",
+                "https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_role2_late_effect_picture_2.png",
+                "https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/activity_id/sea_role3_late_effect_picture_1.png"
+            ]
+        }
+    ]
+}

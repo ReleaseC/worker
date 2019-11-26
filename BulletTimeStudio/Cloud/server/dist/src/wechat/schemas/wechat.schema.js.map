@@ -1,0 +1,1 @@
+{"version":3,"file":"wechat.schema.js","sourceRoot":"","sources":["../../../../src/wechat/schemas/wechat.schema.ts"],"names":[],"mappings":";;AAAA,qCAAqC;AAExB,QAAA,YAAY,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IAC9C,MAAM,EAAE,MAAM;IACd,IAAI,EAAE,MAAM;IACZ,MAAM,EAAE,MAAM;IACd,IAAI,EAAE,MAAM;IACZ,UAAU,EAAE,MAAM;IAClB,QAAQ,EAAC,MAAM;IACf,KAAK,EAAE,MAAM;CACd,CAAC,CAAC"}

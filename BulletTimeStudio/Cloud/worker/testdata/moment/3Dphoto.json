@@ -1,0 +1,50 @@
+{
+    "_id": "5c983a3d69f63b19d5e9cf07",
+    "task": {
+        "later_setting": {
+            "cut_param": {
+                "enablebgm": false,
+                "enableborder": false,
+                "enablebggreen": true,
+                "enableeffect_speed": false,
+                "enableeffect_rotate": false,
+                "enablegreenscreen": false,
+                "enableaudio": false,
+                "enablelogo": false,
+                "pay_photo": false, 
+                "pay_video": true 
+            },
+            "source": {
+                "bgm": {},
+                "ground_video": {},
+                "effect_speed": {},
+                "effect_rotate": {},
+                "green_screen": {},
+                "logo": {},
+                "pay_photo_template":{   
+                    "background_url":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/siiva123456/template1.jpg"
+                },
+                "pay_video_template":{  
+                    "background_url":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1560309857ij/2880_2160_2.mp4",
+                    "front_urls":["https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1560309857ij/2880_2160_2.mov"]
+                }
+            },
+            "record":[
+                {
+                    "deviceId":"ABCDEFG",
+                    "fileName":"1560309857ij_1569312265510_0_AAB008EA5581_0.jpg"
+                }
+            ]
+        },
+        "taskId": "siiva123456_12345678",
+        "mode": "VPhoto",
+        "type": "common",
+        "local": false,
+        "fileName1": "https://siiva-video.oss-cn-hangzhou.aliyuncs.com/siiva123456_123456_ABCDEFG_0.jpg"
+    },
+    "activity_id": "3Dphoto",
+    "state": "data.ready",
+    "createdAt": "2019-03-25 10:17:33",
+    "updatedAt": "2019-3-25 10:52:38",
+    "workerId": "192.168.1.131_8000"
+}

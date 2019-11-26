@@ -1,0 +1,40 @@
+<div>
+  <select name="" id="" [(ngModel)]="type" (change)="makeSiteIdList()">
+    <option value="{{type}}" *ngFor="let type of typeList">{{type}}</option>
+  </select>
+  {{type}}
+  <select [(ngModel)]="selSite" (change)="selectSite()">
+    <!-- <option [value]="" ></option> -->
+    <option *ngFor="let arr of siteListArr" value="{{arr.siteId}}">
+      {{arr.siteId}}
+    </option>
+    
+  </select>
+  {{selSite}}
+</div>
+
+<div align="center">
+  <h4>update time: {{updateTime}}</h4>
+</div>
+<div align="center">
+  <h2>Camera State</h2>
+</div>
+
+<div>
+  <table border="1" >
+    <tr align="center">
+      <th>IP</th>
+      <th>INDEX</th>
+      <th>PHOTO</th>
+      <th>ISALIVE</th>
+      <th>BATTERY</th>
+    </tr>
+    <tr align="center" *ngFor="let arr of cameraDataSource; let i = index">
+      <!-- <td>{{arr.ip.split('.')[3]}}</td>
+      <td>{{arr.index}}</td>
+      <td>{{arr.photo}}</td>
+      <td>{{arr.isalive}}</td>
+      <td>{{arr.battery}}</td> -->
+    </tr>
+  </table>
+</div>

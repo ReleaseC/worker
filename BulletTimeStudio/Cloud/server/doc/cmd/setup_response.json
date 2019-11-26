@@ -1,0 +1,9 @@
+{
+    "deviceId": "deviceId",
+    "from": "deviceId_from",      // 哪個deviceId的response
+    "requestId": "requestId", // response供caller識別用
+    "url": "",  // ipc的url
+    "status": 0, // 0: success, -1: invalid parameter, -2: cannot setup, e.g. api fail
+    "reason": "reasonf or fail",
+    "action": "setup_response"
+}

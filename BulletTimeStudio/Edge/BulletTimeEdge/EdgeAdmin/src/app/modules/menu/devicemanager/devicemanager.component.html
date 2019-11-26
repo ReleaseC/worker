@@ -1,0 +1,73 @@
+<div align="center">
+
+  <button id="FirstButton" style="position:absolute;left:2%" class="btn btn-success" (click)="scan()">扫描1</button>
+  <button id="SecondButton" style="position:absolute;left:20%" class="btn btn-success" (click)="re_scan()">扫描2</button>
+  <!-- <a style="color:#cdcdcd">设备变更</a> -->
+  <!-- <button style="position:absolute;left:70%" class="btn btn-primary" (click)="update_sort()">更新顺序</button> -->
+
+
+  <!-- <div align="center">
+    <h2>Camera State</h2>
+  </div> -->
+  <!-- <mat-table [dataSource]="cameraDataSource">
+    <ng-container matColumnDef="ip">
+      <mat-header-cell *matHeaderCellDef>IP</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.ip.split('.')[3]}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef>INDEX</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.index}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="photo">
+      <mat-header-cell *matHeaderCellDef>PHOTO</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-icon color="{{row.photo ? '': 'warn'}}">{{row.photo ? 'done': 'clear'}}</mat-icon>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="isalive">
+      <mat-header-cell *matHeaderCellDef>ISALIVE</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-icon color="{{row.isalive ? '': 'warn'}}">{{row.isalive ? 'done': 'clear'}}</mat-icon>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="battery">
+      <mat-header-cell *matHeaderCellDef>BATTERY</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-icon color="{{row.icon}}">battery_full</mat-icon>{{row.battery}}
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="['ip', 'index', 'photo', 'isalive', 'battery']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['ip', 'index', 'photo', 'isalive', 'battery']"></mat-row>
+  </mat-table> -->
+  <!-- <h1><a routerLink="/menu/more">更多</a></h1> -->
+  <div id="outer" style="width:100%;height:100%">
+      <div id="inner">
+        <table class="table table-hover text-nowrap">
+          <tr>
+            <td>编号</td>
+            <td>名称</td>
+            <!-- <td>IP</td> -->
+            <!-- <td>PHOTO</td> -->
+            <!-- <td>ISALIVE</td> -->
+            <!-- <td>BATTERY</td> -->
+            <td>状态</td>
+            <td>警示</td>
+            <td>更多</td>      
+          </tr>
+          <tr *ngFor="let index of ret1,let i=index">
+            <td><input type="text" value="{{index.index}}"></td>
+            <td>{{index.name}}</td>
+            <!-- <td>{{index.ip}}</td> -->
+            <!-- <td>{{index.photo}}</td> -->
+            <!-- <td>{{index.isalive}}</td> -->
+            <!-- <td>{{index.battery+'%'}}</td> -->
+            <!-- <td><div style="color:{{index.isalive?green:red}}">{{index.state}}</div></td>    -->
+            <td> <mat-icon color="{{index.isalive ? 'primary': 'warn'}}">{{index.isalive ? 'done': 'clear'}}</mat-icon><span>{{index.battery+'%'}}</span></td>
+            <td><mat-icon color="{{index.state==='ok' ? 'primary': 'warn'}}">brightness_1</mat-icon></td>
+            <!-- <td><div style="width:20px;height:20px;border-radius:50%;background-color:'{{index.state==='ok' ? 'green': 'red'}}'"></div></td> -->
+            <td><a routerLink="/menu/more"><mat-icon>navigate_next</mat-icon></a></td>  
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

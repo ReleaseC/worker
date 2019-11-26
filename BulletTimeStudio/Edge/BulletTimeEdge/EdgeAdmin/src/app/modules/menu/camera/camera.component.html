@@ -1,0 +1,37 @@
+<div align="center">
+  <h4>update time: {{updateTime}}</h4>
+  <h4>photo  time: {{photoTime}}</h4>
+</div>
+<div align="center">
+  <h2>Camera State</h2>
+</div>
+<mat-table [dataSource]="cameraDataSource">
+  <ng-container matColumnDef="ip">
+    <mat-header-cell *matHeaderCellDef>IP</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.ip.split('.')[3]}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="index">
+    <mat-header-cell *matHeaderCellDef>INDEX</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.index}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="photo">
+    <mat-header-cell *matHeaderCellDef>PHOTO</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-icon color="{{row.photo ? '': 'warn'}}">{{row.photo ? 'done': 'clear'}}</mat-icon>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="isalive">
+    <mat-header-cell *matHeaderCellDef>ISALIVE</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-icon color="{{row.isalive ? '': 'warn'}}">{{row.isalive ? 'done': 'clear'}}</mat-icon>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="battery">
+    <mat-header-cell *matHeaderCellDef>BATTERY</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-icon color="{{row.icon}}">battery_full</mat-icon>{{row.battery}}
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="['ip', 'index', 'photo', 'isalive', 'battery']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['ip', 'index', 'photo', 'isalive', 'battery']"></mat-row>
+</mat-table>

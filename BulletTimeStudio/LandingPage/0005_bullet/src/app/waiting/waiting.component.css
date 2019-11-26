@@ -1,0 +1,69 @@
+.border_background{
+    position: absolute;
+    width:90%;
+    left:5%;
+    height:16%;
+    top:39%;
+    background-color: white;
+    border-radius: 10px;
+}
+.code{
+    width:26.7%; 
+    position:absolute;
+    left:36.8%;
+    top:67.8%;
+}
+.end{
+    position: absolute;
+    width:60%;
+    top:18%;
+    left:20%;
+}
+.logo{
+    position: absolute;
+    width:26%;
+    top:2%;
+    left:37%;
+}
+.text1{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    top:85.7%;
+    font-size: 14px;
+    color: #004393;
+    letter-spacing: 0.7px;
+}
+.text2{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    font-size: 14px;
+    top:89%;
+    color: #004393;
+    letter-spacing: 0.7px;
+}
+.text3{
+   position: absolute;
+   width:100%;
+   text-align: center;
+   top:42%;
+   color:#004393;
+   letter-spacing: 2.29px;
+}
+.text4{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top:46%;
+    color:#004393;
+    letter-spacing: 2.29px;
+}
+.text5{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top:48%;
+    color:#004393;
+    letter-spacing: 2.29px;
+}

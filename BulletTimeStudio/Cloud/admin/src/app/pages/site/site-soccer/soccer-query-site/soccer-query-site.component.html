@@ -1,0 +1,16 @@
+<table border="1" >
+  <tr>
+    <td>Site Id</td>
+    <td>Name</td>
+    <td>Type</td>
+  </tr>
+  <tr *ngFor="let arr of siteListArr">
+    <td>{{arr.siteId}}</td>
+    <td>{{arr.siteName}}</td>
+    <td>
+      <div *ngFor="let arr2 of arr.deviceConfig">
+        {{arr2.role}}, {{arr2.deviceId}} <br>
+      </div>
+    </td>
+  </tr>
+</table>

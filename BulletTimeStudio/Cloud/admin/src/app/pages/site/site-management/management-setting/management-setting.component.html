@@ -1,0 +1,32 @@
+類型：
+<select [(ngModel)]="selectType" (change)="onSelect()">
+  <option value="">請選擇類型</option>
+  <option value="BT">BT</option>
+  <option value="Soccer">Soccer</option>
+  <option value="Basketball">Basketball</option>
+</select>
+<br>
+<table border="1" *ngIf="selectType != ''">
+  <tr>
+    <td style="color:black;">參考設定</td>
+    <td></td>
+  </tr>
+  <tr *ngIf="(selectType === 'Soccer') || (selectType === 'Basketball')">
+    <td colspan="2" style="color:black;" >
+      UUID: {{uuid}}
+      <button (click)="refreshUUID()">Refresh</button>
+    </td>
+  </tr>
+  <tr>
+    <td class="site_reference">{{referenceSetting}}</td>
+    <td>
+      <textarea rows="10" cols="50" [(ngModel)]="inputSetting"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button (click)="postSiteSetting()">確定</button>
+      <p class="siteMsg">{{siteMsg}}</p>
+    </td>
+  </tr>
+</table>

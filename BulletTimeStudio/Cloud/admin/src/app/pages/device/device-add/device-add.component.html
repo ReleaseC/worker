@@ -1,0 +1,29 @@
+<div>
+  <p>
+      NAME: <input type="text" [(ngModel)]="name" required placeholder="please input camera name">
+      MAC ADDRESS: <input type="text" [(ngModel)]="mac" required placeholder="please input mac address">
+      <button (click)="addDevice()">add device</button>
+  </p>
+  <p>
+      DEVICE NUMBER: {{devicelist.length}}
+  </p>
+</div>
+<div>
+  <table>
+      <thead>
+          <tr>
+              <th *ngFor="let header of deviceheader">{{header}}</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let device of devicelist">
+              <td>
+                  {{device.name}}
+              </td>
+              <td>
+                  {{device.mac}}
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

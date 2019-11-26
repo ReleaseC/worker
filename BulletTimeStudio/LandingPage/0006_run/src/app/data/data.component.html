@@ -1,0 +1,88 @@
+<div class="data" style="position:relative;text-align:center">
+   <h1>数据统计平台</h1>
+   <!-- <button >金东时光子弹</button> -->
+   <a href="javascript:void(0)" [style.color]="isHoussein1 ? 'red': 'black'" (click)="Click1()">金东时光子弹</a> 
+   <a href="javascript:void(0)" [style.color]="isHoussein2 ? 'red': 'black'" (click)="Click2()">金东冲刺10秒</a> 
+   <a href="javascript:void(0)" [style.color]="isHoussein3 ? 'red': 'black'" (click)="Click2()">武胜时光子弹</a> 
+   <a href="javascript:void(0)" [style.color]="isHoussein4 ? 'red': 'black'" (click)="Click2()">武胜冲刺10秒</a> 
+   <div *ngIf="isShow1" id="outer" style="width:100%">
+    <div id="inner">
+      <table border=1>
+        <tr>
+          <td>日期</td>
+          <td>视频访问量</td>
+          <td>视频播放量</td>
+          <td>转发量</td>
+          <td>点赞量</td>      
+        </tr>
+        <tr>
+          <td>{{time}}</td>
+          <td>{{urlnumber1}}</td>
+          <td>{{playnumber1}}</td>
+          <td>{{sharenumber1}}</td>
+          <td>{{likenumber1}}</td>     
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="isShow2" id="outer" style="width:100%">
+    <div id="inner">
+      <table border=1>
+        <tr>
+          <td>日期</td>
+          <td>视频访问量</td>
+          <td>视频播放量</td>
+          <td>转发量</td>
+          <td>点赞量</td>      
+        </tr>
+        <tr>
+          <td>{{time}}</td>
+          <td>{{urlnumber2}}</td>
+          <td>{{playnumber2}}</td>
+          <td>{{sharenumber2}}</td>
+          <td>{{likenumber2}}</td>     
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="isShow3" id="outer" style="width:100%">
+    <div id="inner">
+      <table border=1>
+        <tr>
+          <td>日期</td>
+          <td>视频访问量</td>
+          <td>视频播放量</td>
+          <td>转发量</td>
+          <td>点赞量</td>      
+        </tr>
+        <tr>
+          <td>{{time}}</td>
+          <td>{{urlnumber3}}</td>
+          <td>{{playnumber3}}</td>
+          <td>{{sharenumber3}}</td>
+          <td>{{likenumber3}}</td>     
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="isShow4" id="outer" style="width:100%">
+    <div id="inner">
+      <table border=1>
+        <tr>
+          <td>日期</td>
+          <td>视频访问量</td>
+          <td>视频播放量</td>
+          <td>转发量</td>
+          <td>点赞量</td>      
+        </tr>
+        <tr>
+          <td>{{time}}</td>
+          <td>{{urlnumber4}}</td>
+          <td>{{playnumber4}}</td>
+          <td>{{sharenumber4}}</td>
+          <td>{{likenumber4}}</td>     
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

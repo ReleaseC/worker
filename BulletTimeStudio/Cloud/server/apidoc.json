@@ -1,0 +1,38 @@
+//{
+//  "name": "Siiva Cloud Server",
+//  "version": "1.1.0",
+//  "description": "Siiva cloud server apidoc"
+//}
+
+
+{
+  "activity_id": "1541732870qz",
+  "trigger": "sync",
+  "direction": "horizontal",
+  "collects": [
+    {
+      "position": 2,
+      "collect": {
+        "len": "100",
+        "prev": "2.100",
+        "next": "300",
+        "order": "400",
+        "wait": "200"
+      },
+      "mark": "markad",
+      "deviceId": "ABCED123",
+      "video_source": {
+        "abc": 123
+      }
+    },
+    {
+      "position": 6,
+      "collect": {
+        "len": "5",
+        "prev": "200",
+        "next": "3",
+        "order": "4.1"
+      }
+    }
+  ]
+}

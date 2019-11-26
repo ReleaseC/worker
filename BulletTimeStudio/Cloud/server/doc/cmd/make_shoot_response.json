@@ -1,0 +1,11 @@
+/* 在一台mome收到make_shoot时, 会多次送出 post_make_shoot */
+{
+  "deviceId": "deviceId_who", // make_shoot.json裡頭的deviceId_who，就是要求远端拍摄的設備，通常是Cloud Admin
+  "requestId": "requestId",
+  "from": "deviceId_from", // 哪個deviceId的response
+  "action": "post_make_shoot",
+  "state":"shoot_start", // 开始拍摄:shoot_start, 录制中:shooting, 剪辑中:triming, 剪辑完成: trimed , 剪辑失败: trim_fail,录制失败:shoot_fail, 开始上传:upload_start, 上传中:uploading, 上传完成:uploaded, 上传失败:upload_fail
+  "rate": 0.2, // 上传的进度, 完成为1
+  "reason": "", // 当state是shoot_fail, upload_fail时, 给出错误原因
+  "fileName":"1541132118ed_1552989480002_0_BE43498A.mp4" // taskId_order_deviceId.mp4, 当state=upload时, 上传fileName
+}

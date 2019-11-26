@@ -1,0 +1,70 @@
+
+
+<!--付费下载按钮-->
+  <!-- <div ng-app="app" ng-controller="test" ng-click="upDown()" class="download">
+    <div class="border2">點我下載</div>
+  </div> -->
+  <!-- <div ng-app="app" ng-controller="test">
+    <button ng-click="upDown()">下载</button>
+  </div> -->
+<!-- <button (click)="download()">xiazia</button> -->
+
+
+
+
+
+
+
+
+<div class="result" *ngIf="isResult">
+    <video id="video" class="video" loop="loop" preload="auto"  playsinline
+    x5-video-player-type="h5" x5-video-player-fullscreen="true" webkit-playsinline>
+    <source src="{{video_url}}" type="video/mp4"/>
+  </video>
+  <!-- <div class="share_bar1" *ngIf="isShow"> -->
+    <img class="share_bar1" *ngIf="isShow" src="assets/image/poster.jpg" alt="图片">
+  <!-- </div> -->
+    <!-- <div class="icon-logo">
+      <img src="assets/image/icon-logo.png" alt="图片" width='120px' height='35px'>
+    </div> -->
+    <div style="position:absolute;width:70%;height:50%;left:15%;top:20%;" (click)="playPause()"></div>
+    <div class="icon-play" (click)="playPause()" *ngIf="isPlay">
+      <img src="assets/image/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="wrap-icons">
+        <div class="icon-love">
+          <img src="assets/image/icon-love.png" alt="图片" width='35px' height='35px' (click)="Love()">
+        </div>
+        <div class="icon-love-active" *ngIf="isLove" >
+            <img src="assets/image/icon-love-active.png" alt="图片" width='35px' height='35px' >
+          </div>
+        <span>{{love_number}}</span>
+        <div class="icon-share" (click)="share()">
+            <img src="assets/image/icon_share.png" alt="图片" width='35px' height='35px'>
+        </div>
+        <span>转发</span>
+        <!-- <input type="button" [disabled]="isClick" class="icon-download" ng-app="app" ng-controller="test" ng-click="upDown()"> -->
+        <!-- <input type="button" class="icon-download" (click)="testDownload()"> -->
+        <!-- <div *ngIf="isPay">
+        <div class="money_bar"></div> 
+        <div class="icon-money">      
+          <img src="assets/image/money.png" alt="图片" width='20px' height='20px'>
+        </div>
+        </div> -->
+        <!-- <span>下载</span> -->
+    </div>
+    <div class="wrap-text">
+      <div class="user-name"><span class="icon-user"></span>@{{username}}</div>
+      <div class="user-des">
+          定格我的“金东乡村绿道马拉松”酷炫瞬间
+      </div>
+    </div>
+    <!-- <div *ngIf="isShare" (click)="cancelShare()"> -->
+      <!-- <div class="share_bar"></div> -->
+      <!-- <img *ngIf="isShareimg" class="share_pic" src="assets/image/share.png" alt="图片"> -->
+      <!-- <div class="share_txt">开启你的分享旅程吧</div> -->
+    <!-- </div> -->
+    <img *ngIf="isShareimg" class="share_bar" src="assets/image/share2.png" alt="图片" (click)="cancelShare()">
+</div>
+
+

@@ -1,0 +1,59 @@
+<div class="data" style="position:relative;text-align:center">
+   <h1>数据统计平台</h1>
+   <a href="javascript:void(0)" [style.color]="isHoussein1 ? 'red': 'black'" (click)="Click1()">武胜时光子弹</a> 
+   <a href="javascript:void(0)" [style.color]="isHoussein2 ? 'red': 'black'" (click)="Click2()">武胜冲刺10秒</a> 
+   <div *ngIf="isShow1" id="outer" style="width:100%">
+    <div id="inner">
+      <table border=1>
+        <tr>
+          <td>日期</td>
+          <td>视频访问量</td>
+          <td>视频播放量</td>
+          <td>转发量</td>
+          <td>点赞量</td>      
+        </tr>
+        <tr *ngFor="let index of ret1,let i=index">
+          <td>{{index.time}}</td>
+          <td>{{index.point}}</td>
+          <td>{{index.play}}</td>
+          <td>{{index.share}}</td>
+          <td>{{index.like}}</td>     
+        </tr>
+        <tr>
+          <td>总计</td>
+          <td>{{point_sum_bullet}}</td>
+          <td>{{play_sum_bullet}}</td>
+          <td>{{share_sum_bullet}}</td>
+          <td>{{like_sum_bullet}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="isShow2" id="outer" style="width:100%">
+    <div id="inner">
+      <table border=1>
+        <tr>
+          <td>日期</td>
+          <td>视频访问量</td>
+          <td>视频播放量</td>
+          <td>转发量</td>
+          <td>点赞量</td>      
+        </tr>
+        <tr *ngFor="let index of ret2,let i=index">
+            <td>{{index.time}}</td>
+            <td>{{index.point}}</td>
+            <td>{{index.play}}</td>
+            <td>{{index.share}}</td>
+            <td>{{index.like}}</td>     
+          </tr>
+          <tr>
+              <td>总计</td>
+              <td>{{point_sum_marathon}}</td>
+              <td>{{play_sum_marathon}}</td>
+              <td>{{share_sum_marathon}}</td>
+              <td>{{like_sum_marathon}}</td>
+            </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+ <div class="container" *ngIf="isshowtasklist">
+    <div class="activity_select">
+        <mat-select placeholder="请选择活动" [(value)]="selected_activity_id" (selectionChange)="touchToSelect()">
+                <mat-option *ngFor="let activity of activitylist" value="{{activity.activity_id}}">{{activity.activity_name}}</mat-option>
+        </mat-select>
+    </div>
+    <div class="btn-group btn-block" role="group">
+            <button type="button" id='payed' class="btn btnClass" [ngClass]="{'btn-secondary': is_paySelected==='1' }" (click)="touchToShowPay()">已购</button>
+            <button type="button" id='unpay' class="btn btnClass" [ngClass]="{'btn-secondary': is_paySelected==='0' }" (click)="touchToShowNotPay()">未购</button>
+          </div>
+    <div class="tasklist"  (touchstart)='onScrollBottomStart($event)' (touchend)='onScrollBottomEnd($event)' id='tasklist' >
+                    <div *ngIf="tasklist.length===0" class='tip'>暂时没有数据</div>
+                    <div class="border1" [style.width]="border1_width" [style.height]="height_value" *ngFor="let index of tasklist,let i=index">
+                                <label for="{{index.task.taskId}}">
+                                    <img  src="{{index.task.is_pay=='1'?'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/'+index.activity_id+'/'+index.task.taskId+'_min.jpg':'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/'+index.task.taskId+'_min.jpg'}}" alt="正在加载图片" (click)="goVideo(index.activity_id,index.task.taskId,index.createdAt, index.is_pay, index.task.is_pay)">
+                                    <!-- <img  src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/{{index.activity_id}}/{{index.task.taskId}}_min.jpg" alt="正在加载图片" (click)="goVideo(index.activity_id,index.task.taskId,index.createdAt, index.is_pay, index.task.is_pay)"> -->
+                                </label>
+                                <input *ngIf="delete" type="checkbox" class='checkbox' id="{{index.task.taskId}}" value="{{index.task.taskId}}" >
+                     </div>
+                     <div *ngIf="sumPage > currentPage + limit" class='tasklistBottom' >下拉加载更多</div>
+                     <div *ngIf="sumPage <= currentPage + limit && tasklist.length!==0" class='tasklistBottom' >到底了</div>
+    </div>
+
+    <div class="fixed"  >
+        <ul [ngSwitch]='delete' class="delete">
+           <img *ngSwitchCase="false" src='assets/images/checkbox.png' alt="批量删除" width="100%" (click)='showCheck()'  >
+           <img *ngSwitchDefault src='assets/images/delete.png' alt="批量删除" width="100%" (click)='touchToDelete()' >
+            
+        </ul>
+        <div (click)='onActivitySelected()'>
+            <img src='assets/images/refresh.png' alt="图片" width="100%"  >
+        </div>
+      </div>
+</div>
+
+
+<div class="showphoto" (touchstart)='onScrollRightStart($event)' (touchend)='onScrollRightEnd($event)' *ngIf="!isshowtasklist">
+        <div class="firstline">
+            <div class="back" (click)="goback()">
+                <img src="assets/images/back.png" alt="图片">
+            </div>
+            <time class="time">{{create_time}}</time>
+            <div class="qrcode">
+                <img *ngIf="!is_pay || is_pay==='0'" (click)="toggleBigger()" src="{{qrcode_url}}" alt="图片">
+                <!-- <a *ngIf="!''" (click)='throttle(sendPrint, 2000).bind(this)()' >打印</a> -->
+                <!-- <img *ng-if="qrcode_url" (click)="toggleBigger()" src="{{qrcode_url}}" alt="图片">
+                    <button *ng-if="!qrcode_url" >打印</button> -->
+                <button *ngIf="is_pay==='1' && !isVideo" class='print' (click)='touchToPrint()' >打印</button>
+                <a *ngIf="is_pay==='1' && isVideo" (click)="toggleBigger()">
+                    视频连接
+                    <!-- <qrcode *ngIf="is_pay==='1' && isVideo" [qrdata]="myAngularxQrCode" [size]="256" [level]="'L'"></qrcode> -->
+                </a>
+
+                </div>
+        </div>
+        <div class="showBigImage" id='bigImg'>
+            <!-- <span class="leftBigImage">
+                左滑加载上一张
+            </span> -->
+            <span class="secondline">
+                <img *ngIf="!isVideo; else showVideo" src="{{task_url}}" alt="图片">
+                <ng-template #showVideo>
+                    <video  x5-video-player-type='h5' x5-video-player-fullscreen="true" playsinline="true" webkit-playsinline="true"  src="{{task_url_mp4}}"  alt="图片" controls="controls" autoplay="autoplay"></video>
+                </ng-template>
+            </span>
+            <!-- <span class="rightBigImage">
+                右滑加载下一张
+            </span> -->
+        </div>
+        <div   class="imgqrcode" *ngIf="isshow_qrcode">
+            <img *ngIf="is_pay!=='1'; else showqrcode" src="{{qrcode_url}}" alt='未显示图片'>
+            <ng-template #showqrcode>
+                <qrcode  [qrdata]="myAngularxQrCode" [size]="256" [level]="'L'"></qrcode>
+            </ng-template>
+        </div>
+    </div>
+    
+    <div class="fixed_bottom" *ngIf="delete">
+            <button class="delete_btn"  (click)="touchToCheckdAll()">全选</button>
+            <button class="delete_btn" (click)="touchToCheckedTaggle()">反选</button>
+    </div>
+    
+    <div id="toast"></div>
+    

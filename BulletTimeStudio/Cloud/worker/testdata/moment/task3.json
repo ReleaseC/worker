@@ -1,0 +1,21 @@
+{ 
+    "task" : {
+        "siteId" : "1541382418", 
+        "taskId" : "1541382418_1548139153534", 
+        "output" : "11112947", 
+        "triggerBy" : "handshake_event", 
+        "cameraNum" : 1, 
+        "mode" : "moment", 
+        "fileName1" : "1541382418_1548139153534_0_B8CFBD86.mp4", 
+        "type" : "moment", 
+        "local" : false, 
+        "version" : "2.9.0121.1815", 
+        "param": {
+            "light": 0,
+            "rmturn": false,
+            "rmborder": false,
+            "rmbgm": false
+          }
+    }, 
+    "activity_id" : "1541382418"  
+}

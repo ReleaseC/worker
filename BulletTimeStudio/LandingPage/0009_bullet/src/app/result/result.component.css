@@ -1,0 +1,231 @@
+
+/* ideo全屏 */
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.result{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0%;
+    left:0%;
+}
+video {
+    object-fit: fill;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+video::-webkit-media-controls-start-playback-button {
+    opacity: 0;
+    pointer-events: none;
+    width: 5px;
+}
+
+.wrap-icons {
+    position: absolute;
+    bottom: 145px;
+    width: 38px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+}
+/* .icon-logo{
+    position: absolute;
+    left:8%;
+    top:5%;
+} */
+.icon-play {
+    position: absolute;
+    left: 52%;
+    top: 48%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transform-origin: center center !important;
+    -moz-transform-origin: center center !important;
+    -ms-transform-origin: center center !important;
+    -o-transform-origin: center center !important;
+    transform-origin: center center !important;
+}
+.icon-play-number{
+    position: absolute;
+    left: 52%;
+    top: 48%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transform-origin: center center !important;
+    -moz-transform-origin: center center !important;
+    -ms-transform-origin: center center !important;
+    -o-transform-origin: center center !important;
+    transform-origin: center center !important;
+}
+.icon-download{
+    margin-top:10px;
+    width: 30px;
+    height: 35px;
+    display: inline-block;
+    background: url("../../assets/image/icon_download.png") no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    border:none;
+    box-shadow: none
+}
+.money_bar{
+    position: absolute;
+    width:35px;
+    height:40px;
+    left:0%;
+    top:60%;
+}
+.icon-money{
+    width:20px;
+    height:20px;
+    position: absolute;;
+    left:40%;
+    top:72%;
+}
+
+.icon-love {
+    position: absolute;
+    left:0px;
+    top:-49px;
+    margin-top: 10px;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.icon-love-active {
+    position: absolute;
+    left:0px;
+    top:-49px;
+    margin-top: 10px;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.icon-share {
+    margin-top: 10px;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-size: 100% 100%;
+    background-position: center;
+}
+.icon-pay {
+    margin-top: 10px;
+}
+
+
+.wrap-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px 35px 50px 35px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    color: #fff;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5)); 
+    background: -o-linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5)); 
+    background: -moz-linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5));
+    background: linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .5)); 
+}
+
+.user-name {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.user-des {
+    font-size: 14px;
+    line-height: 1.5;
+}
+.share_bar{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0%;
+    top:0%;
+    background-color:	#808080;
+    opacity:0.7;
+    z-index:100;
+}
+.share_bar1{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0%;
+    top:0%;
+}
+.share_pic{
+    position: absolute;
+    right:5%;
+    top:0%;
+}
+.share_txt{
+    position: absolute;
+    width:70%;
+    left:15%;
+    top:270px;
+    font-size:18px;
+    letter-spacing: 4.19px;
+    color:white;
+    text-align: center;
+}
+
+input:disabled{
+    opacity:0.5
+}
+.logo1{
+    position: absolute;
+    width:25%;
+    top:6%;
+    left:10%;
+  }
+  .slogin{
+    position: absolute;
+    width:52%;
+    top:5%;
+    left:40%;
+  }
+  .bullettime{
+    position: absolute;
+    width:66%;
+    top:8%;
+    left:17%;
+  }
+  .mengban{
+      position: absolute;
+      width:100%;
+      height:100%;
+      background-color: black;
+      opacity:0.4;
+
+  }
+
+

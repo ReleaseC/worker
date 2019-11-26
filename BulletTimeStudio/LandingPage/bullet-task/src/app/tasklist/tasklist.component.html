@@ -1,0 +1,86 @@
+<div class="grid-container">
+  <mat-grid-list cols="6" rowHeight="270px">
+    <mat-grid-tile [colspan]="2">
+      <mat-card>
+        <mat-card-content>
+          查詢數: 最新{{limit === 0 ? taskDataSource.data.length : limit}}筆 / 共 {{taskDataSource.data.length}} 筆
+          <br>查詢日期 : {{time}}
+          <input type="date" [(ngModel)]="time" (change)="getTasklist(100)" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+          <br>更新時間: {{updateTime}}
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="getTasklist(50)">50</button>
+          <button mat-raised-button (click)="getTasklist(100)">100</button>
+          <button mat-raised-button color="primary" (click)="getTasklist(0)">全部</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+    <!-- <mat-grid-tile [colspan]="3">
+      <mat-card>
+        搜尋地區&nbsp;:&nbsp;
+        <mat-checkbox [(ngModel)]="checkArray[0]" (change)="checkFilter()">測試</mat-checkbox>&nbsp;
+        <mat-checkbox [(ngModel)]="checkArray[1]" (change)="checkFilter()">上海</mat-checkbox>&nbsp;
+        <mat-checkbox [(ngModel)]="checkArray[2]" (change)="checkFilter()">北京</mat-checkbox>&nbsp;
+        <mat-checkbox [(ngModel)]="checkArray[3]" (change)="checkFilter()">廣州</mat-checkbox>
+        <br>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value, 'siteName')" placeholder="搜尋球場名">
+        </mat-form-field>
+        &nbsp;輸入範例 : 四德,淺水灣,番茄...
+        <br>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value, 'state')" placeholder="搜尋任務狀態">
+        </mat-form-field>
+      </mat-card>
+    </mat-grid-tile> -->
+    <mat-grid-tile [colspan]="1">
+      <mat-card>
+        更新資料
+        <br> 關&nbsp;
+        <mat-slide-toggle [(ngModel)]="hasRefresh" (change)="refreshSwitch()"></mat-slide-toggle>&nbsp;開
+        <br><br>
+        <mat-form-field>
+          <input matInput [(ngModel)]="refreshTime" placeholder="資料更新間隔(秒)">
+        </mat-form-field>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-table [dataSource]="taskDataSource">
+    <ng-container matColumnDef="taskId">
+      <mat-header-cell *matHeaderCellDef>任務ID</mat-header-cell>
+      <mat-cell *matCellDef="let task">{{task.task.taskId}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="userId">
+        <mat-header-cell *matHeaderCellDef>使用者ID</mat-header-cell>
+        <mat-cell *matCellDef="let task">{{task.task.userId}}</mat-cell>
+      </ng-container>
+    <ng-container matColumnDef="createdTime">
+      <mat-header-cell *matHeaderCellDef>建立時間</mat-header-cell>
+      <mat-cell *matCellDef="let task">{{task.createdAt}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="updatedTime">
+        <mat-header-cell *matHeaderCellDef>更新時間</mat-header-cell>
+        <mat-cell *matCellDef="let task">{{task.updatedAt}}</mat-cell>
+      </ng-container>
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef>任務狀態</mat-header-cell>
+      <mat-cell *matCellDef="let task">{{task.state}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef>影片連結</mat-header-cell>
+      <mat-cell *matCellDef="let task">
+        <a *ngIf="task.state === 'complete'" href="http://siiva.cn-sh2.ufileos.com/ucloud/{{task.task.output.name}}" target="_blank">視頻連結</a>
+      </mat-cell>
+    </ng-container>
+    <!-- <ng-container matColumnDef="operate">
+      <mat-header-cell *matHeaderCellDef>操作</mat-header-cell>
+      <mat-cell *matCellDef="let task">
+        <button mat-raised-button color="warn" (click)="cancelTask(task)" [disabled]="task.state === 'cancel'">捨棄任務</button>
+        <button mat-raised-button (click)="checkVideo(task)">檢查影片</button>
+        <button mat-raised-button color="primary" (click)="updateTask(task)" [disabled]="task.state === 'cancel'">啟動任務</button>
+      </mat-cell>
+    </ng-container> -->
+    <mat-header-row *matHeaderRowDef="['taskId', 'userId', 'createdTime', 'updatedTime', 'state', 'url']"></mat-header-row>
+    <mat-row *matRowDef="let task; columns: ['taskId', 'userId', 'createdTime', 'updatedTime', 'state', 'url']"></mat-row>
+  </mat-table>
+</div>

@@ -1,0 +1,68 @@
+<div class="result">
+    <video id="video" class="video" loop="loop" preload="auto"  playsinline
+    x5-video-player-type="h5" x5-video-player-fullscreen="true" webkit-playsinline>
+    <source src="{{videourl}}" type="video/mp4"/>
+  </video>
+  <!-- <div class="shuiyin"><img src="assets/images/shuiyin.ong" width="100%" height="100%" alt="水印图片"></div> -->
+  <div class="video_top">
+        <div class="share_bar1" *ngIf="isShow">
+                <img class="result_back" src="{{img_url}}" alt="图片">
+            </div>   
+    <div class="shuiyin" *ngIf="!isFree"><img src="assets/images/shuiyin.png" width="100%" height="100%" alt="水印图片"></div>
+    <div style="position:absolute;width:70%;height:50%;left:15%;top:20%;" (click)="playPause()" *ngIf="!isShow"></div>
+    <div class="icon-play" (click)="playPause()" *ngIf="isPlay">
+        <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="icon-play-number" (click)="count_play_number()" *ngIf="isPlay_number">
+        <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="wrap-icons">
+          <div class="icon-back" (click)="goback_home()">
+              <img src="assets/images/backhome.png" alt="图片" width='30px' height='30px'>
+          </div>
+          <span>主页</span>
+          <div class="icon-share" (click)="share()">
+              <img src="assets/images/icon_share.png" alt="图片" width='30px' height='30px'>
+          </div>
+          <span>转发</span>
+          <div *ngIf="isshowdownload">
+          <div class="icon-download">
+              <img src="assets/images/icon_download.png" alt="图片" width='30px' height='30px' *ngIf="isFree" (click)="freeTodownload()">
+              <img src="assets/images/icon_download.png" alt="图片" width='30px' height='30px' *ngIf="!isFree" (click)="payTodownload()">
+          </div>
+          <span>下载</span>
+         </div>
+      </div>
+      <div class="task_del_info" *ngIf="isshowTaskDelInfo">
+        <div class="task_del_info_text">支付0.01元可免费观看并下载您当前所有无水印版短视频</div>
+        <div class="cancel_info" (click)="pay_cancel()">取消支付</div>
+        <div class="confirm_info" (click)="pay_confirm()">前往支付</div>
+     </div>
+      <div class="icon-information" (click)="show_info()">
+        <img src="assets/images/icon_information.png" alt="图片" width='25px' height='25px'>
+      </div>
+      <div class="info" *ngIf="isshowInfo" (click)="cancel_showinfo()">
+          <div class='triangle-up'></div> <!--向下三角形-->
+          <div class="info_text">
+              <div class="info_text_item"><span class="info_text_item_left">活动名称：</span><span class="info_text_item_right">{{activityName}}</span></div>
+              <div class="info_text_item"><span class="info_text_item_left">拍摄时间：</span><span class="info_text_item_right">{{createdAt}}</span></div>
+              <div class="info_text_item info_text_item_last"><span class="info_text_item_left">拍摄作者：</span><span class="info_text_item_right">{{author}}</span></div>
+          </div>
+      </div>
+      <!-- <div class="icon-del" (click)="task_del()">
+          <img src="assets/images/icon_del.png" alt="图片" width='28px' height='28px'>
+      </div> -->
+      <!-- <div class="task_del_info" *ngIf="isshowTaskDelInfo">
+          <div class="task_del_info_text">是否确认删除？</div>
+          <div class="cancel_info" (click)="task_del_cancel()">取消</div>
+          <div class="confirm_info" (click)="task_del_confirm()">确认</div>
+      </div> -->
+      <img *ngIf="isShareimg" class="share_bar" src="assets/images/share2.png" alt="图片" (click)="cancelShare()">
+    </div>
+    <!-- <div class="icon-back" (click)="goback_home()">
+        <img src="assets/images/backhome1.png" alt="图片" width='100%'>
+    </div> -->
+  </div>
+
+  
+

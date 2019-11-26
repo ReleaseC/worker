@@ -1,0 +1,402 @@
+/* AnnotationTool整體Layout */
+.AnnoMain{
+    width: 99vw;
+    height: 70vh;
+    /* transform: scale(0.65);
+    transform-origin: top left; */
+    /* background: url("../../assets/main_bg.jpg"); */
+    /* background: red; */
+}
+
+/* 左邊Team player整體Layout */
+.PlayerPanel {
+    width: 20vw;
+    height: 70vh;
+    z-index:0;
+    /* 浮動(float): 該class移到上層 */
+    float: left;
+    /* background: teal; */
+    border-style: solid;
+    border-width: 5px;
+    border-color: lightblue;
+}
+
+/* SiteName下拉式選單Layout */
+/* .SiteNameMenu {
+} */
+
+select {
+    width: 50%;
+    height: 35px;
+    margin: 5px 5px;
+    font-size: 15px;
+}
+
+.HotkeyMapClass {
+    font-size: 15px;
+}
+/* Team and player 含goalbtn Layout */
+.PlayerMenu {
+    /* width: 100px; */
+    height: 75%;
+    /* background: blueviolet; */
+    z-index:0;
+}
+.TeamName{
+    font-size: 20px;
+    font-weight: bold;
+    /* color: white; */
+    margin: 5px 5px;
+}
+/* 隊伍一 Layout */
+.PlayerTeam1 {
+    width: 50%;
+    height: 100%;
+    /* background: brown; */
+    /* 浮動(float): 該class移到上層 */
+    font-weight: bold;
+    float: left;
+    overflow: auto;
+}
+/* 隊伍二 Layout */
+.PlayerTeam2 {
+    width: 50%;
+    height: 100%;
+    /* background: rebeccapurple; */
+    /* 浮動(float): 該class移到上層 */
+    font-weight: bold;
+    float: left;
+    overflow: auto;
+}
+.RadioClass {
+    width: 1em;
+    height: 1em;
+}
+/* GoalBtn Layout */
+.GoalBtnClass {
+    height: 20%;
+    /* background: gainsboro; */
+    /* margin: 0px 20px; */
+    border-width: 5px;
+}
+.GoalTypeClass {
+    height: 35%;
+    /* background: aqua; */
+}
+.GoalRadioClass {
+    width: 1em;
+    height: 1em;
+    margin: 0px 10px;
+}
+#GoalBtn{
+    width: 100%;
+    height: 65%;
+    /* background: chocolate; */
+}
+
+#RecordBtn {
+    width: 130px;
+    height: 70px;
+    border-width: 5px;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* 中間Preview含Thnmbnail整體Layout */
+.PreviewPanel {
+    width: 53vw;
+    height: 70vh;
+    /* background: url("../../assets/wood.jpg"); */
+    /* 浮動(float): 該class移到上層 */
+    float: left;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    border-color: lightblue;
+}
+/* Preview Layout */
+.MainPreview {
+    width: 53vw;
+    height: 70%;
+    position: relative;
+    /* background: gold; */
+    /* margin: 0px 3px; */
+}
+.MainPreviewChild {
+    width: 53vw;
+    height: 25%;
+    /* background: salmon; */
+    /* margin: 0px 5px; */
+    overflow: scroll;
+    white-space: nowrap;
+}
+.ChildPreview {
+    width: 10vw;
+    height: 75%;
+    display: inline-block;
+    /* background: sienna; */
+    margin: 0px 5px 0px 0px;
+}
+.ChildPreviewIndex {
+    width: 10vw;
+    height: 10%;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: lightcyan;
+    display: inline-block;
+    margin: 0px 5px 0px 0px;
+}
+.MainPreviewIndex{
+    width: 53vw;
+    height: 5%;
+    /* background: darkgray; */
+    background: url("../../assets/wood2.jpg");
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+.MainPreviewCanvas {
+  position: absolute;
+  background: gold;
+  opacity: 0.4;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+.MainPreviewImg {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+}
+
+/* 右邊Tasklist整體Layout */
+.TaskPanel {
+    width: 23vw;
+    height: 65vh;
+    /* background: url("../../assets/wood.jpg"); */
+    /* 浮動(float): 該class移到上層 */
+    float: left;
+    overflow: auto;
+    border-style: solid;
+    border-width: 5px 5px 5px 5px;
+    border-color: lightblue;
+    /* background: sienna; */
+    z-index:0;
+}
+.TaskListClass{
+    width: 96%;
+    height: 25%;
+    margin : 5px 5px;
+    background: lightblue;
+    white-space: nowrap;
+}
+.TaskListClass:hover {
+    width: 96%;
+    height: 25%;
+    margin : 5px 5px;
+    background-color: rgb(42, 248, 42);
+    white-space: nowrap;
+}
+.TaskListIndex {
+    width: 10%;
+    height: 100%;
+    font-size: 20px;
+    text-align: center;
+    border-right: 5px solid black;
+    float: left;
+    /* background: lightblue */
+}
+/* .TaskListThumbnail {
+    width: 50%;
+    height: 50%;
+    float: left;
+    background-color: firebrick;
+    margin: 5px 5px;
+} */
+.TaskListDetail{
+    width: 68%;
+    height: 100%;
+    font-size: 15px;
+    /* background-color: fuchsia; */
+    display: inline-block;
+    margin: 0px 5px;
+}
+.TaskBtnPanel{
+  width: 23vw;
+  height: 5vh;
+  /* 浮動(float): 該class移到上層 */
+  float: left;
+  overflow: auto;
+  border-style: solid;
+  border-width: 0px 5px 5px 5px;
+  border-color: lightblue;
+  /* background: sienna; */
+  z-index:0;
+}
+.TaskBtn{
+  width: 23vw;
+  height: 5vh;
+  font-size: 15px;
+  border-style: solid;
+  /* border-width: 5px 5px 5px 5px; */
+  border-color: lightblue;
+}
+
+/* 最下面SeekBar整體Layout */
+.SeekBar {
+    /* position:absolute; */
+    width: 99vw;
+    height: 25vh;
+    /* top: 500px; */
+    /* background: yellow; */
+    overflow: scroll;
+    /* overflow-y: hidden;  */
+    /* display: inline-block; */
+    white-space: nowrap;
+    background: url("../../assets/thumbnail_bg.png");
+    background-size: 102.5vw;
+    /* transform: scale(0.65);
+    transform-origin: top left; */
+}
+/* Thumbnail Layout */
+.ThumbnailPreview{
+    width: 11vw;
+    height: 70%;
+    /* background: goldenrod; */
+    /* 浮動(float): 該class移到上層 */
+    display: inline-block;
+    /* Top Right Bottom Left */
+    margin: 10px 0px 0px 5px;
+}
+.ThumbnailIndex{
+    width: 11vw;
+    height: 15%;
+    font-size: 20px;
+    text-align: center;
+    background: lightcyan;
+    display: inline-block;
+    margin : 0px 0px 0px 5px;
+}
+
+/* HotKeyMap */
+.HotKeyMap {
+    position:absolute;
+    width: 30vw;
+    height: 30vh;
+    top: 80px;
+    z-index:1;
+    color: white;
+    background: black;
+    visibility: hidden;
+    /* transform: scale(0.7);
+    transform-origin: top left; */
+    /* background-color: blue; */
+}
+
+.HotKeyPlayerTeam1 {
+    position:absolute;
+    width: 195px;
+    height: 30px;
+    top: 10px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyPlayerTeam2 {
+    position:absolute;
+    width: 195px;
+    height: 30px;
+    top: 10px;
+    left: 200px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyGoalType1 {
+    position:absolute;
+    width: 100px;
+    height: 30px;
+    top: 550px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyGoalType2 {
+    position:absolute;
+    width: 100px;
+    height: 30px;
+    top: 550px;
+    left: 100px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyGoalType3 {
+    position:absolute;
+    width: 100px;
+    height: 30px;
+    top: 550px;
+    left: 200px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyGoalType4 {
+    position:absolute;
+    width: 100px;
+    height: 30px;
+    top: 550px;
+    left: 300px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyGoalBtn {
+    position:absolute;
+    width: 390px;
+    height: 60px;
+    top: 600px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyChildPreview {
+    position:absolute;
+    width: 200px;
+    height: 60px;
+    top: 440px;
+    left: 410px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyTaskList {
+    position:absolute;
+    width: 400px;
+    height: 60px;
+    left: 1373px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+
+.HotKeyThumbnailPreview {
+    position:absolute;
+    width: 200px;
+    height: 60px;
+    top: 700px;
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}

@@ -1,0 +1,9 @@
+統計報表<br>
+  <select [(ngModel)]="selSite" (change)="selectSite()">
+    <option value="" selected>選擇Site</option>
+    <option *ngFor="let arr of siteListArr" [value]="arr.siteId">
+      {{arr.siteId}}_{{arr.name}}
+    </option>
+  </select>
+  {{selSite}}
+

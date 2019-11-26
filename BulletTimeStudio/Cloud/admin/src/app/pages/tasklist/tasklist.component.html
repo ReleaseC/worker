@@ -1,0 +1,122 @@
+<div class="tasklist">
+
+  <div class="filter">
+
+    <div>
+      <span>用户：</span>
+      <select [(ngModel)]="selPhone" (change)="onUserSelected()">
+        <option *ngFor="let user of userList" [selected]="user.user_id===selUserId">{{ user.phone }}</option>
+      </select>
+    </div>
+
+    <div>
+      <span>活动：</span>
+      <select [(ngModel)]="selActivity" (change)="onActivitySelected()">
+        <option *ngFor="let activity of activityList"  [selected]="activity.activity_id===selActivityId">{{activity.activity_name}}</option>
+      </select>
+    </div>
+
+    <div class="filter_time">
+      <a>时间：</a>
+      <input type="date" [(ngModel)]="createdAt" (change)="getTaskList(true)" id="time">
+    </div>
+
+    <div class="filter_state">
+      <a>任务状态：</a>
+      <select [(ngModel)]="state" (change)="getTaskList(true)">
+        <option value="">全部</option>
+        <option value="create">创建</option>
+        <option value="data_ready">准备</option>
+        <option value="start">开始</option>
+        <option value="progress">剪辑</option>
+        <option value="complete">完成</option>
+        <option value="abort">损坏</option>
+      </select>
+    </div>
+
+    <div>
+      <a>每页显示条数：</a>
+      <select [(ngModel)]="pageItems" (change)="getTaskList(true)">
+        <option>50</option>
+        <option>10</option>
+        <option>20</option>
+        <option>100</option>
+      </select>
+    </div>
+    <div>
+      <span>视频量:{{this.taskCount}}</span>
+    </div>
+
+
+  </div>
+  <div class="show_table">
+    <table border="1">
+      <tr>
+        <td (click)="sortByCreateTime()" style="cursor:pointer">
+          <span>创建时间</span><span>{{createTimeSort?"🔽":"🔼"}}</span>
+        </td>
+        <td>
+          <span>用户</span>
+        </td>
+        <td>
+          <span>活动</span>
+        </td>
+        <td>类型</td>
+        <td>状态</td>
+        <td>产出</td>
+        <td>是否购买</td>
+        <td>原始文件</td>
+        <td>启动任务</td>
+        <td>操作</td>
+      </tr>
+
+      <tr *ngFor="let task of taskList;index as i">
+        <td>{{task.createdAt}}</td>
+        <td>{{task.phone || '----'}}</td>
+        <td>{{task.activity_name || '----'}}</td>
+        <td>{{replaceTaskMode(task.task.mode)}}</td>
+        <td [ngStyle]="{'color':task.state == 'abort' ? 'red':''}">{{ replaceTaskState(task.state) }}</td>
+        <!--<td>-->
+          <!--<ul style="text-align: center;">-->
+            <!--<li *ngFor="let device of task.task.detail" style="height:21px;overflow:hidden;">{{device.role=="VideoCam"?"vc":device.role}}{{device.position.length>2?"":device.position}}</li>-->
+          <!--</ul>-->
+        <!--</td>-->
+        <!--<td>-->
+          <!--<ul>-->
+            <!--<li *ngFor="let device of task.task.detail" style="height:21px;overflow: hidden;"-->
+                <!--title="{{device.msg?device.msg:'&nbsp;'}}">{{device.msg?device.msg:"&nbsp;"}}-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</td>-->
+
+        <td>
+          <a *ngIf="task.state === 'complete' && task.task.mode === 'photo' " href="{{task.activity_id=='1541382418'||task.activity_id=='1541732870qz'?'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_'+task.task.taskId+'.jpg':'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/'+task.activity_id+'/'+task.task.taskId+'.jpg'}}"
+             target="_blank" style="display:block">查看</a>
+          <a *ngIf="task.state === 'complete' && task.task.mode !== 'photo' " href="{{task.activity_id=='1541382418'||task.activity_id=='1541732870qz'?'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_'+task.task.taskId+'.mp4':'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/'+task.activity_id+'/'+task.task.taskId+'.mp4'}} "
+             target="_blank" style="display:block">查看</a>
+        </td>
+        <td [ngStyle]="{'color':task.task.is_pay==1? '#3dcc6d':'#a4abb3'}">{{task.task.is_pay=='1'?'是':'否'}}</td>
+        <td style="max-width:100px; max-height: 50px;">
+          <button (click)="checkVideo(task)">浏览</button>
+        </td>
+        <td><button (click)="clickRun(task)" [disabled]="task.state === 'cancel'">启动</button></td>
+        <td style="position:relative;">
+          <button (click)="delTask(task)">删除</button>
+        <!--<span style="color: white; font-size: 10px; position:absolute; right:0px; top:0px;" [ngStyle]="{'background':replaceTasktriggerBy(task.task.triggerBy) == '手动' ? 'palevioletred':'#43A047'}">{{replaceTasktriggerBy(task.task.triggerBy)}}</span>-->
+        <span *ngIf="replaceTasktriggerBy(task.task.triggerBy) === '手动'" style="background: palevioletred; color: white; font-size: 10px; position:absolute; right:0px; top:0px;">{{replaceTasktriggerBy(task.task.triggerBy)}}</span>
+        <span *ngIf="replaceTasktriggerBy(task.task.triggerBy) === '自动'" style="background: #43A047; color: white; font-size: 10px; position:absolute; right:0px; top:0px;">{{replaceTasktriggerBy(task.task.triggerBy)}}</span>
+        <span *ngIf="replaceTasktriggerBy(task.task.triggerBy) === '测试'" style="background: #0d10df; color: white; font-size: 10px; position:absolute; right:0px; top:0px;">{{replaceTasktriggerBy(task.task.triggerBy)}}</span>
+
+        </td>
+
+      </tr>
+    </table>
+    <div class="page_select">
+      <button class="btn_page" (click)="pageUp()" [ngStyle]="{'color':this.pageIndex  === 1 ? '#A4ABB3':'#409eff'}">上一页</button>
+      <input type="text" [(ngModel)]="pageIndex" style="width:1.5em; text-align: center">
+      <button class="btn_page" (click)="pageDown()" [ngStyle]="{'color':this.pageIndex < pages  ? '#409eff':'#A4ABB3'}">下一页</button>
+      <span>共{{pages}}页</span>
+    </div>
+  </div>
+</div>
+

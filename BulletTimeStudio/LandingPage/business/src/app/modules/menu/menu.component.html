@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="isHandset ? 'dialog' : 'navigation'"
+    [opened]="">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+        <div *ngFor="let menuItem of menuList;index as i">
+
+            <a mat-list-item [routerLink]="['/menu/'+menuItem.route]"  (click)="closeAndUpdateTitle(drawer,menuItem)">{{menuItem.name}}</a>
+          </div>
+        <!-- <a mat-list-item [routerLink]="['/menu/profit']"  (click)="closeAndUpdateTitle(drawer,'profit')">收入总览</a> -->
+        <a mat-list-item routerLink="/login" (click)="loginout(drawer)">登出</a>           
+      <!-- <a mat-list-item routerLink="/menu/camera" (click)="drawer.close()">Camera</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav_content">
+    <mat-toolbar color="primary" class="navBar">
+      <span class="nav_left">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>{{menu}}</span>
+      </span>
+      <span>你好, {{acc}}</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

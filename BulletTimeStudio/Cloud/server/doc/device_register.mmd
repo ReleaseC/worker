@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant admin
+    participant server
+    participant cam
+    Note right of admin: GoalCam device註冊流程
+    Note over cam, server: chat room: chatBind用來讓device申請做binding
+    cam->>+server: io.emit(deviceId)
+    admin->>+admin: 掃碼, 取得deviceId
+    admin->>+server: bind(siteId, deviceId, param)
+    server->>+cam: io.emit(deviceId, siteId, param)

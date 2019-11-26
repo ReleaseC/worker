@@ -1,0 +1,6 @@
+{
+    "apiServer": "http://localhost:3000",
+    "cameraNum": 17,
+    "siteId": "0001",
+    "mode": "photo"
+}

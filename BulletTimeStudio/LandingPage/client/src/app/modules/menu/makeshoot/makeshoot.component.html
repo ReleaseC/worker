@@ -1,0 +1,26 @@
+
+<div class="container">
+    <li *ngFor="let MPlace of activitylist; let i=index" class="underline">
+        <font class="activity_name">{{MPlace.activity_name}}</font>
+        <div class="btn-block flexFour" aria-label="Basic example">
+            <button type="button" (click)="touchToStart(MPlace.activity_id, i)" class="btn btn-secondary">开始</button>
+            <button type="button" (click)="makeMovie(MPlace.activity_id, i)" class="btn btn-secondary ">拍摄</button>
+            <!-- <button type="button" disabled class="btn btn-secondary statistic"><font color="black">{{i}}/{{MPlace.indexOfSum}}/{{MPlace.num}}</font></button> -->
+            <button type="button" (click)="touchToCancel(MPlace.activity_id, i)" class="btn btn-secondary">取消</button>
+            <!-- <button type="button"  data-toggle="modal" data-target="#exampleModal" (click)="touchToToggleModal()" class="btn btn-secondary statistic"> -->
+                <div style="font-size: 14px;"  color="black">
+                    <span *ngIf="!MPlace.status">未开始</span>
+                    <span *ngIf="MPlace.status&&MPlace.status!='uploaded'">{{replaceMakeShootState(MPlace.status)}}</span>
+                    <a href="javascript:;" *ngIf="MPlace.status==='uploaded'" (click)="toggleqrcode(i)">查看二维码</a>
+                </div>
+            <!-- </button> -->
+        </div>
+        <img class="imgShow" *ngIf="isshow_qrcodeList[i]" src="{{qrcode_urlList[i]}}" alt='未显示图片'>
+    </li>
+</div>
+<div *ngIf="isShowModal" class="block">
+    <button type="button" class="close" (click)="touchToToggleModal()">&times;</button>
+    <div class="modal-center">
+        <img src='' alt='dsadsadsadas' width='100%' height="100%" >
+    </div>
+</div>

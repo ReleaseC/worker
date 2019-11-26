@@ -1,0 +1,866 @@
+.filter {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    display: flex;
+    min-width: 20%;
+    margin-top: 20px;
+    align-items: flex-start;
+    margin-right: 20px;
+    a {
+      font-weight: bold;
+    }
+  }
+  select {
+    width: 70%;
+  }
+  .filter_time {
+    .tip {
+      margin-left: 2px;
+      font-size: 12px;
+      align-self: flex-end;
+    }
+  }
+}
+
+table {
+  margin-top: 10px;
+  .tablehead {
+    font-weight: bold;
+    color: black;
+  }
+  .text-align {
+    width: 100%;
+    text-align: center;
+    display: block;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+}
+
+.bar1 {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  width: 80%;
+  height: 85%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  input {
+    margin-left: 5px;
+  }
+  .title {
+    position: relative;
+    left: 20%;
+    margin-top: 20px;
+    text-align: left;
+    span {
+      font-size: 30px;
+      font-weight: bolder;
+      //margin-top:10%;
+      color: white;
+      //text-align: left;
+      margin-left: 5px;
+    }
+  }
+  .btn1 {
+    position: relative;
+    text-align: center;
+    margin-top: 5%;
+    button {
+      width: 10%;
+    }
+  }
+}
+//.bar1 input{
+//  position:absolute;
+//  left: 200px;
+//  top: 150px
+//}
+.border1 {
+  position: relative;
+  margin-left: 10px;
+  margin-top: 20px;
+  top: 30%;
+  width: 20%;
+  display: inline-block;
+  .input {
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    table {
+      .row{
+        flex-wrap: nowrap;
+      }
+      .mobile {
+        display: none;
+      }
+    }
+  }
+}
+
+//  拍摄设定界面
+@media screen and (min-width: 768px) {
+  .photo_setting {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    .form_setting {
+      position: relative;
+      width: 100%;
+      left: 10%;
+      padding: 2% 5%;
+      border: 1px solid #dbdbdb;
+      .top {
+        width: 80%;
+        margin-bottom: 30px;
+        h3 {
+          text-align: center;
+          font-size: 25px;
+          font-weight: normal;
+          color: #c0c0c0;
+        }
+        button {
+          background: none;
+          outline: none;
+          border: 1px black solid;
+          display: block;
+          width: 70px;
+          height: 40px;
+          margin: 40px auto;
+          border-radius: 35px;
+        }
+        button:active {
+          background: #8968cd;
+          color: #ffffff;
+        }
+      }
+      ul {
+        overflow: hidden;
+        margin: 0px;
+        position: relative;
+        li {
+          float: left;
+          width: 10%;
+          font-size: 17px;
+          list-style: none;
+          p {
+            display: block;
+          }
+          .line {
+            width: 100%;
+            height: 10px;
+            border-radius: 20px;
+            background: grey;
+            margin-top: 24px;
+            border: none;
+            padding: 0;
+            margin-left: 25px;
+            .progress {
+              background-color: #219afb;
+              width: 10%;
+              height: 10px;
+              border-radius: 20px;
+            }
+          }
+        }
+        .last {
+          width: 35%;
+        }
+      }
+      ul::after {
+        content: "";
+        width: 85%;
+        height: 1px;
+        background: #cac4c4;
+        display: block;
+        position: absolute;
+        top: 25px;
+      }
+      .under {
+        padding: 40px 0;
+        .close {
+          position: relative;
+          width: 100%;
+          .btn_logout {
+            background: rgba(0, 221, 221, 1);
+            color: black;
+            padding: 5px 20px;
+            border-radius: 5px;
+            font-size: 15px;
+          }
+          //    input:link{
+
+          //      background: rgba(0, 221, 221, 1)
+          //    }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .photo_setting {
+    width: 100%;
+    .center {
+      text-align: center;
+      .btn_photo {
+        background: none;
+        outline: none;
+        border: 1px black solid;
+        display: block;
+        width: 70px;
+        height: 40px;
+        margin: 40px auto;
+        border-radius: 35px;
+      }
+    }
+    .td {
+      width: 20%;
+      padding: 0;
+      margin: 0;
+      border-right: 1px solid #dbdbdb;
+      font-size: 15px;
+    }
+    progress {
+      width: 77%;
+    }
+    ul {
+      list-style: none;
+      .after {
+        float: left;
+      }
+      .pro {
+        margin-left: 80px;
+      }
+    }
+    .close {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      .btn_logout {
+        background: rgba(0, 221, 221, 1);
+        color: black;
+        padding: 5px 20px;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+/*活动设定界面*/
+.activity_setting {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  .collect_setting {
+    // position: relative;
+    // width: 80%;
+    left: 10%;
+    padding: 2% 5%;
+    border: 1px solid #dbdbdb;
+    table {
+      thead {
+        .btn_add {
+          background-color: transparent;
+          padding: 3px 10px;
+          border-radius: 5px;
+          background: #4ca6ff;
+        }
+      }
+      input {
+        width: 100%;
+        text-align: center;
+      }
+      .btn_delete {
+        background-color: transparent;
+        padding: 3px 10px;
+        border-radius: 5px;
+        color: black;
+        background: red;
+      }
+      .btn_cue {
+        background-color: transparent;
+        padding: 3px 5px;
+        border-radius: 15px;
+        color: black;
+        background: #ffffff;
+        font-size: 15px;
+      }
+    }
+
+    .btn_group {
+      position: relative;
+      margin-top: 2%;
+      button {
+        background-color: transparent;
+        padding: 3px 20px;
+        border-radius: 5px;
+        color: black;
+      }
+      .btn_update {
+        background: rgba(0, 128, 0, 0.8);
+        // border:1px solid green;
+        // box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)
+      }
+      .btn_logout {
+        margin-left: 40px;
+        background: rgba(0, 221, 221, 0.8);
+      }
+      .btn_close {
+        background: #ffffff;
+      }
+      .btn_confirm {
+        margin-left: 40px;
+      }
+    }
+
+    .PromptScreen {
+      position: relative;
+      padding: 2%;
+      width: 60%;
+      left: 18%;
+      border: 1px solid #dbdbdb;
+      margin: 2%;
+      .firstLine {
+        position: relative;
+        text-align: left;
+        input {
+          position: relative;
+          margin-left: 5px;
+          top: 3px;
+          zoom: 140%;
+        }
+      }
+      .qrcode_setting {
+        position: relative;
+        margin-top: 10px;
+        text-align: left;
+        input::-webkit-input-placeholder {
+          color: #aab2bd;
+          font-size: 12px;
+        }
+      }
+      .upload_img {
+        text-align: left;
+        margin-top: 10px;
+        input {
+          width: 50%;
+          margin-left: 10px;
+        }
+        .btn_upload {
+          position: absolute;
+          display: inline-block;
+          padding: 3px;
+          border-radius: 15px;
+          color: #a4abb3;
+          width: 12%;
+          text-align: center;
+          margin-left: 22px;
+          border: 1px solid #a4abb3;
+        }
+        .btn_delete {
+          position: relative;
+          display: inline-block;
+          margin-left: 20%;
+          padding: 3px;
+          border-radius: 15px;
+          color: #a4abb3;
+          width: 12%;
+          text-align: center;
+          border: 1px solid #a4abb3;
+        }
+        .input_img {
+          position: absolute;
+          width: 12%;
+          margin-left: 22px;
+          opacity: 0;
+        }
+        img {
+          position: absolute;
+          width: 16px;
+          margin-top: 6px;
+        }
+        input::-webkit-input-placeholder {
+          color: #aab2bd;
+          font-size: 12px;
+        }
+      }
+
+      .act {
+        animation: rotate 1s linear both infinite;
+        -webkit-animation: rotate 1s linear both infinite;
+      }
+      @keyframes rotate {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes rotate {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+        }
+      }
+
+      @-moz-keyframes rotate {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+        }
+      }
+    }
+
+    .JSON_response {
+      margin: 2%;
+    }
+
+    .title {
+      position: absolute;
+      left: 5%;
+      top: 0%;
+      width: 10%;
+      letter-spacing: 3px;
+      margin-top: -1.5%;
+      font-size: 20px;
+      background: #ebeff5;
+    }
+
+    .trigger_select {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      border: 1px solid #dbdbdb;
+      padding: 2%;
+      margin: 2% 0;
+      div {
+        select {
+          margin-left: 3px;
+        }
+        button {
+          margin-top: 10px;
+          margin-left: 5px;
+          display: inline-block;
+          background-color: transparent;
+          padding: 3px 20px;
+          border-radius: 5px;
+          color: black;
+          background: rgba(0, 128, 222, .8);
+        }
+      }
+      .showAPI {
+        div {
+          position: relative;
+          display: block;
+          width: 40%;
+          left: 30%;
+          text-align: right;
+          margin-top: 10px;
+          input {
+            margin-left: 5px;
+            width: 80%;
+          }
+          button {
+            background-color: transparent;
+            padding: 3px 20px;
+            border-radius: 5px;
+            color: black;
+            background: rgba(0, 128, 222, .8);
+          }
+        }
+      }
+    }
+    .order {
+      margin: 25px auto;
+      input {
+        width: 45%;
+      }
+    }
+
+  }
+}
+
+/*报警界面设定*/
+.monitor_setting {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  hr {
+    margin: 2%;
+  }
+  .monitor {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    padding: 2% 5%;
+    border: 1px solid #dbdbdb;
+    .weekday_select {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      .border_circle {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid red;
+        display: inline-block;
+        padding: 2%;
+        margin-left: 20px;
+      }
+      .border_circle:first-child {
+        border: 1px solid green;
+        margin-left: 0px;
+      }
+    }
+    .weekday_times {
+      margin-top: 20px;
+      div {
+        display: inline-block;
+        font {
+          margin-right: 5px;
+        }
+      }
+      .weekday_times_start {
+        margin-left: 30px;
+        input {
+          width: 120px;
+        }
+      }
+      .weekday_times_end {
+        margin-left: 30px;
+        input {
+          width: 120px;
+        }
+      }
+    }
+    .Simulate {
+      h5 {
+        text-align: left;
+        margin-left: 2%;
+        color: #a4abb3;
+      }
+      .Simulate_time {
+        text-align: left;
+        margin-left: 3%;
+        input {
+          margin-left: 5%;
+        }
+        .Simulate_time_slot {
+          text-align: center;
+          input {
+            width: 120px;
+            margin-left: 5px;
+          }
+          div {
+            display: inline-block;
+            margin-left: 10px;
+          }
+        }
+        .Simulate_time_point {
+          text-align: center;
+          input {
+            width: 120px;
+            margin-left: 5px;
+          }
+          div {
+            display: inline-block;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .title {
+      position: absolute;
+      left: 5%;
+      top: 0%;
+      width: 10%;
+      letter-spacing: 3px;
+      margin-top: -1.5%;
+      font-size: 20px;
+      background: #ebeff5;
+    }
+
+    .btn_group {
+      margin-top: 20px;
+      button {
+        background-color: transparent;
+        padding: 3px 20px;
+        border-radius: 5px;
+        color: black;
+      }
+      .btn_apply {
+        background: rgba(0, 128, 0, 0.8);
+      }
+    }
+  }
+  .inform {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    padding: 2% 5%;
+    margin-top: 3%;
+    border: 1px solid #dbdbdb;
+    .inform_select {
+      text-align: left;
+      margin-left: 8%;
+      img {
+        position: relative;
+        width: 2%;
+        left: -3%;
+        top: 20px;
+      }
+      div {
+        margin-left: 10px;
+      }
+      .same {
+        margin: 0% 2% 2% 4%;
+        div {
+          display: inline-block;
+          input,
+          select {
+            margin-left: 5px;
+            width: 180px;
+            font-size: 15px;
+          }
+        }
+        button {
+          background-color: transparent;
+          padding: 3px 20px;
+          border-radius: 5px;
+          color: black;
+          margin-left: 20px;
+        }
+        .btn_add {
+          background: rgba(0, 128, 0, 0.8);
+        }
+        .btn_delete {
+          background: rgba(243, 6, 6, 0.8);
+        }
+      }
+    }
+    .title {
+      position: absolute;
+      left: 5%;
+      top: 0%;
+      width: 10%;
+      letter-spacing: 3px;
+      margin-top: -1.5%;
+      font-size: 20px;
+      background: #ebeff5;
+    }
+    .btn_logout {
+      background: rgba(0, 221, 221, 0.8)
+    }
+  }
+}
+
+/*后期界面设定*/
+.collect_setting {
+  .mname {
+    margin-left: -350px;
+  }
+  .name {
+    margin-left: 50px;
+  }
+  .stop {
+    position: relative;
+    left: 10%;
+    text-align: left;
+    margin-top: 10px;
+    button {
+      background-color: transparent;
+      padding: 3px 10px;
+      border-radius: 15px;
+      color: black;
+      background: red;
+    }
+  }
+  .btn {
+    button {
+      background-color: transparent;
+      padding: 3px 20px;
+      border-radius: 5px;
+      color: black;
+    }
+    .btn_logout {
+      background: rgba(0, 221, 221, 0.8);
+    }
+  }
+}
+
+/*后期界面设定*/
+.collect_setting {
+  .mould {
+    .name {
+      float: left;
+    }
+    .disc {
+      margin-top: 25px;
+      .desc {
+        margin-left: -172px;
+      }
+    }
+    .mname {
+      float: right;
+      margin-top: -22px;
+      margin-right: 90px;
+    }
+    .add {
+      margin-top: 30px;
+    }
+  }
+  .found {
+    float: right;
+    background: rgba(0, 128, 0, 0.8);
+    padding: 5px;
+    color: #dbdbdb;
+    margin-top: -15px;
+  }
+}
+.largebottom {
+  width: 100%;
+  position: relative;
+  .bg_music {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
+    .btn_upload {
+      display: inline-block;
+      padding: 3px;
+      border-radius: 15px;
+      color: #a4abb3;
+      width: 8%;
+      text-align: center;
+      margin: 0 0 0 25px;
+      border: 1px solid #a4abb3;
+      position: relative;
+      .input_img {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        opacity: 0;
+      }
+    }
+    .checkbox {
+      margin: 5px 10px 0 10px;
+    }
+    .sm_box {
+      width: 60px;
+      margin: 0 10px;
+    }
+  }
+  .bg_mid {
+    width: 100%;
+    margin: 10px 32px;
+    position: relative;
+    text-align: left;
+    .checkbox {
+      margin: 5px 10px 0 10px;
+    }
+    .sm_box {
+      width: 60px;
+      margin: 0 10px;
+    }
+  }
+  .bg_btm {
+    width: 100%;
+    margin: 10px 15px;
+    position: relative;
+    text-align: left;
+    .checkbox {
+      margin: 5px 10px 0 10px;
+    }
+    .sm_box {
+      width: 60px;
+      margin: 0 10px;
+    }
+    .btn_upload {
+      display: inline-block;
+      padding: 3px;
+      border-radius: 15px;
+      color: #a4abb3;
+      width: 8%;
+      text-align: center;
+      margin: 0 0 0 30px;
+      border: 1px solid #a4abb3;
+      position: relative;
+      .input_img {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        opacity: 0;
+      }
+    }
+  }
+  img {
+    position: absolute;
+    width: 16px;
+    margin-top: 6px;
+    margin-left: 5px;
+  }
+}
+.flower {
+  .btn_upload {
+    display: inline-block;
+    padding: 3px;
+    border-radius: 15px;
+    color: #a4abb3;
+    width: 18%;
+    text-align: center;
+    border: 1px solid #a4abb3;
+    position: relative;
+    margin-right: 8px;
+    .input_img {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+  }
+  .inputbox {
+    width: 75% !important;
+  }
+  .inputbox2 {
+    margin-top: 0.85rem;
+    width: 75% !important;
+  }
+  img {
+    position: absolute;
+    width: 16px;
+    margin-top: 6px;
+    margin-left: 1px;
+  }
+}

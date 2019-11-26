@@ -1,0 +1,57 @@
+<div class="result">
+    <video id="video" class="video" loop="loop" preload="auto"  playsinline
+    x5-video-player-type="h5" x5-video-player-fullscreen="true" webkit-playsinline>
+    <source src="{{video_url}}" type="video/mp4"/>
+  </video>
+  <div style="position:absolute;width:70%;height:50%;left:15%;top:20%;" (click)="playPause()"></div>
+  <div class="share_bar1" *ngIf="isShow">
+      <img class="result_back_picture" src="assets/images/result_back_picture.png" alt="图片">
+      <img class="result_picture" src="assets/images/result_picture.png" alt="图片">
+    <img class="result_picture1" src="assets/images/result_picture1.png" alt="图片">
+    <img class="result_picture3" src="assets/images/result_picture3.png" alt="图片">
+    <div class="result_meng"></div>
+  </div>    
+  <div class="icon-play" (click)="playPause()" *ngIf="isPlay">
+      <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="icon-play-number" (click)="count_play_number()" *ngIf="isPlay_number">
+      <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="icon-more" (click)="goback()">
+        <img src="assets/images/more.png" alt="图片" width='35px' height='35px'>
+    </div>
+      <span class="more_txt">更多模板</span>
+    <div class="wrap-icons">
+        <!-- <div class="icon-more" (click)="goback()">
+            <img src="assets/images/more.png" alt="图片" width='35px' height='35px' (click)="Love()">
+        </div>
+          <span class="more_txt">更多模板</span> -->
+        <div class="icon-love">
+          <img src="assets/images/icon-love.png" alt="图片" width='35px' height='35px' (click)="Love()">
+        </div>
+        <div class="icon-love-active" *ngIf="isLove" >
+            <img src="assets/images/icon-love-active.png" alt="图片" width='38px' height='38px' >
+          </div>
+        <span>{{love_number}}</span>
+        <div class="icon-share" (click)="share()">
+            <img src="assets/images/icon_share.png" alt="图片" width='35px' height='35px'>
+        </div>
+        <span>转发</span>
+        <div class="icon-download" (click)="download()">
+            <img src="assets/images/icon_download.png" alt="图片" width='35px' height='35px'>
+          </div>
+        <span>下载</span>
+      </div>
+    <div class="wrap-text">
+      <!-- <div class="user-name"><span class="icon-user"></span>@{{username}}</div> -->
+      <div class="user-des">
+         #时光子弹#定格我的精彩时刻
+      </div>
+    </div>
+    <img *ngIf="isShareimg" class="share_bar" src="assets/images/share2.png" alt="图片" (click)="cancelShare()">
+    <!-- <img class="back_icon" src="assets/images/next.png" alt="图片" [@signal]="signal" (click)="goback()"> -->
+    <!-- <p [@signal]="signal" (click)="goback()">更多精彩模板</p> -->
+  </div>
+
+  
+

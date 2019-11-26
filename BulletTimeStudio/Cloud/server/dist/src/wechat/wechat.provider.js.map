@@ -1,0 +1,1 @@
+{"version":3,"file":"wechat.provider.js","sourceRoot":"","sources":["../../../src/wechat/wechat.provider.ts"],"names":[],"mappings":";;AACA,2DAAuD;AAE1C,QAAA,eAAe,GAAG;IAC7B;QACE,OAAO,EAAE,kBAAkB;QAC3B,UAAU,EAAE,CAAC,QAAQ,EAAE,EAAE,CAAC,QAAQ,CAAC,UAAU,CAAC,KAAK,CAAC,aAAa,EAAE,4BAAY,CAAC;QAChF,MAAM,EAAE,CAAC,SAAS,CAAC;KACpB;CACF,CAAC"}

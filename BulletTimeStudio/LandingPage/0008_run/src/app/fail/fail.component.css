@@ -1,0 +1,101 @@
+.border_background{
+    position: absolute;
+    width:80%;
+    left:10%;
+    height:16%;
+    top:39%;
+    background-color: white;
+    border-radius: 10px;
+}
+.logo1{
+    position: absolute;
+    width:25%;
+    top:6%;
+    left:10%;
+}
+.code{
+    width:26%; 
+    position:absolute;
+    left:37%;
+    top:59%;
+}
+.seconds{
+    position: absolute;
+    width:58%;
+    top:19%;
+    left:21%;
+}
+.slogin{
+    position: absolute;
+    width:52%;
+    top:5%;
+    left:40%;
+}
+.text1{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    top:76%;
+    font-size: 14px;
+    color: white;
+    letter-spacing: 0.7px;
+}
+.text2{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    font-size: 14px;
+    top:89%;
+    color: #3b3b3b;
+    letter-spacing: 0.7px;
+}
+.text3{
+   position: absolute;
+   width:100%;
+   text-align: center;
+   top:42%;
+   color:#b2b2b2;
+   letter-spacing: 2.29px;
+}
+.text4{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top:46%;
+    color:#b2b2b2;
+    letter-spacing: 2.29px;
+}
+/* .text5{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top:48%;
+    color:#b2b2b2;
+    letter-spacing: 2.29px;
+} */
+.text5{
+    position: absolute;
+    width:16%;
+    height:2px;
+    top:51%;
+    background-color:#00aec4; 
+    left:42%;
+}
+.logo2{
+    position: absolute;
+    width:15%;
+    top:85%;
+    left:12%;
+}
+.logo3{
+    position: absolute;
+    width:18%;
+    top:85%;
+    left:42%;
+}
+.logo4{
+    position: absolute;
+    width:13%;
+    top:85%;
+    left:73%;
+}

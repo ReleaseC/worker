@@ -1,0 +1,81 @@
+<div class="data" style="position:relative;text-align:center">
+        <h1>数据统计平台</h1>
+        <!-- 活动名称：<select [(ngModel)]="selAction" (change)="selectAction()">
+          <option value="{{i}}" *ngFor="let x of result;index as i">{{x.name}}</option>
+        </select>
+        项目名称：<select id="programme" [(ngModel)]="selProgramme" (change)="selectProgramme()">
+          <option value="" selected>终点10秒</option> 
+          < <option value="">时光子弹</option> 
+        </select> -->
+        siteId：
+        <select [(ngModel)]="selSiteId">
+          <option [attr.value]="id" *ngFor="let id of siteIdList" [selected]="selSiteId === id">{{id}}</option>
+        </select>
+        开始时间：
+        <input type="date" [(ngModel)]="timeStart" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        <!-- {{start_time}} -->
+        结束时间：
+        <input type="date" [(ngModel)]="timeEnd" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        模板选择：<select id="programme" [(ngModel)]="selTemplateId" (change)="selectTemplateId()">
+            <option selected>template_sum</option>
+            <option>template_1</option>
+            <option>template_2</option>
+              </select>
+        <button class="btn btn-success" (click)="search();getCountList()">查询</button><br>
+        <div id="outer" style="width:100%">
+         <div id="inner">
+           <table border=1 width=100%>
+             <tr>
+               <td>日期</td>
+               <td>视频页面访问</td>
+               <td>播放量</td>
+               <td>点赞量</td>
+               <td>转发量</td>
+               <td>下载量</td>
+               <td>视频产出量</td>
+               <td>当天总收入</td>
+               <!-- <td></td>       -->
+             </tr>
+             <tr *ngFor="let index of ret1,let i=index">
+               <td>{{index.time}}</td>
+               <td>{{index.visit}}</td>
+               <td>{{index.play}}</td>
+               <td>{{index.like}}</td>
+               <td>{{index.share}}</td>
+               <td>{{index.download}}</td>
+               <td>{{index.videonumber}}</td>
+               <td>{{index.pay}}</td>
+               <!-- <td></td>      -->
+             </tr>
+             <tr>
+               <td>总计</td>
+               <td>{{visit_sum_bullet}}</td>
+               <td>{{play_sum_bullet}}</td>
+               <td>{{like_sum_bullet}}</td>
+               <td>{{share_sum_bullet}}</td>
+               <td>{{download_sum_bullet}}</td>
+               <td>{{videonumber_sum_bullet}}</td>
+               <td>{{pay_sum_bullet}}</td>
+             </tr>
+           </table>
+           <p>统计：</p>
+           <P>若无统计结果请多次点击上方"查询"按钮</P>
+           <table  border=1 width=100%>
+             <tr>
+               <td rowspan="2">time</td>
+               <td colspan="2">count</td>
+                <td></td>
+             </tr>
+             <tr>
+               <td>isTicket</td>
+               <td>notTicket</td>
+             </tr>
+             <tr *ngFor="let time of timeArrShow">
+               <td>{{time.time}}</td>
+               <td>{{time?.isTicket}}</td>
+               <td>{{time?.notTicket}}</td>
+             </tr>
+           </table>
+         </div>
+       </div>
+    </div>

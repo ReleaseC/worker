@@ -1,0 +1,46 @@
+
+<div class="result">
+    <video id="video" class="video" loop="loop" preload="auto"  playsinline
+    x5-video-player-type="h5" x5-video-player-fullscreen="true" webkit-playsinline>
+    <source src="{{video_url}}" type="video/mp4"/>
+  </video>
+  <div style="position:absolute;width:70%;height:50%;left:15%;top:20%;" (click)="playPause()"></div>
+  <div *ngIf="isposter">
+  <div class="background"></div>
+  <img class="shining" src="assets/image/shining.png" alt="图片">
+  <img class="logo" src="assets/image/2018.png" alt="图片">
+</div>
+  <div class="icon-play" (click)="playPause()" *ngIf="isPlay">
+      <img src="assets/image/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="icon-play-number" (click)="count_play_number()" *ngIf="isPlay_number">
+      <img src="assets/image/icon-play.png" alt="图片" width='50px' height='50px'>
+    </div>
+    <div class="wrap-icons">
+        <div class="icon-love">
+          <img src="assets/image/icon-love.png" alt="图片" width='35px' height='35px' (click)="Love()">
+        </div>
+        <div class="icon-love-active" *ngIf="isLove" >
+            <img src="assets/image/icon-love-active.png" alt="图片" width='35px' height='35px' >
+          </div>
+        <span>{{love_number}}</span>
+        <div class="icon-share" (click)="share()">
+            <img src="assets/image/icon_share.png" alt="图片" width='35px' height='35px'>
+        </div>
+        <span style="font-weight:100;">转发</span>
+        <!-- <div class="icon-download" (click)="download()">
+          <img src="assets/image/icon_download.png" alt="图片" width='35px' height='35px'>
+      </div>
+      <span>下载</span> -->
+    </div>
+    <div class="wrap-text">
+      <!-- <div class="user-name"><span class="icon-user"></span>@{{username}}</div> -->
+      <div class="user-des">
+         #时光子弹#定格我的精彩时刻
+      </div>
+    </div>
+    <img *ngIf="isshuoming" class="share_bar" src="assets/image/shuoming.png" alt="图片" (click)="cancelshuoming()">
+    <img *ngIf="isShareimg" class="share_bar" src="assets/image/share2.png" alt="图片" (click)="cancelShare()">
+</div>
+
+

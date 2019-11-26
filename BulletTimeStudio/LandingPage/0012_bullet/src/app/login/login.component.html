@@ -1,0 +1,20 @@
+<div class="login">
+  <div class="background"></div>
+  <div class="border_background"></div>
+  <img class="future" src="assets/image/future.png" alt="图片">
+  <img class="shining" src="assets/image/shining.png" alt="图片">
+  <img class="logo" src="assets/image/2018.png" alt="图片">
+  <img class="bullettime" src="assets/image/bullettime.png" alt="图片">
+  <hr class="hr3"/>   
+  <div class="title">
+        {{text5}}
+    </div>
+    <hr class="hr4"/> 
+  <div class="text1">{{text1}}</div>
+  <div *ngIf="ismenban" class="mengban"></div>
+     <img class="img2" *ngIf="isSelfie" src="assets/image/code.jpg" alt="图片">
+     <div *ngIf="istext5" class="text5">长按识别下方二维码</div>
+     <div *ngIf="istext4" class="text4">关注公众号</div>
+  <div class="text3" *ngIf="istext3">领取你的<span>#时光子弹#</span>小视频</div>
+  <img class="bottom" src="assets/image/bottom.png" alt="图片">
+</div>

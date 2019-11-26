@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    margin:15px;
+}
+#btn1{
+    position: absolute;
+    right:0px;
+    bottom:10px;
+}
+#btn2{
+    position: absolute;
+    left:0px;
+    bottom:10px;
+}

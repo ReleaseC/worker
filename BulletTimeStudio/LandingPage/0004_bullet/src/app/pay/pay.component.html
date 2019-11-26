@@ -1,0 +1,17 @@
+<div class="pay" style="position:relative;text-align:center">
+    <h1>商品信息</h1>
+        <div class="border1">
+            <img src="assets/image/wechat_share.png" alt="图片">
+              <div class="tittle">{{tittle}}</div>
+              <span>&yen;</span>
+              <div class="money">{{price}}</div>
+              <div class="number">数量：{{number}}</div>
+        </div>
+        <div (click)="pay()">
+                <div class="pay_btn">前往支付</div>
+        </div>
+        <div (click)="finish()">
+                <div class="finish_btn">支付完成</div>
+        </div>
+ </div>
+

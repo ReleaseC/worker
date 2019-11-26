@@ -1,0 +1,8 @@
+{
+    "deviceId": "deviceId",
+    "from": "deviceId_who",
+    "requestId": "requestId",
+    "param": {
+        "action": "upgrade"
+    }
+}

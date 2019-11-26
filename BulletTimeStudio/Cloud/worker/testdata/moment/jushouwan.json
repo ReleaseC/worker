@@ -1,0 +1,67 @@
+{
+    "_id": "5c983a3d69f63b19d5e9cf07",
+    "task": {
+        "taskId": "1561626034rj_1563524311067",
+        "mode": "video",
+        "type": "common",
+        "local": false,
+        "fileName1": "1541475970_1553480253975_0_A58FE68F_0.mp4",
+        "provider": { "mate": "siiva-oss" },
+        "later_setting":
+            {
+             "source":{
+                "bgm": {"src":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1561626034rj/35.mp3"},
+                "frame":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1557886955xa/template_jinjiang.png",
+                "ground_video":{},
+                "effect_speed":{},
+                "effect_rotate":{},
+                "green_screen":{},
+                "logo":{}
+               },
+                "cut_param":{
+                    "enablebgm":true,
+                    "enableborder":false,
+                    "enablebggreen":false,
+                    "enableeffect_speed":false,
+                    "enableeffect_rotate":false,
+                    "enablegreenscreen":false,
+                    "enableaudio":false,
+                    "enablelogo":false},
+                    "record":[
+                        {
+                            "deviceId":"42B02AC3473C",
+                            "order":0,
+                            "duration":3000,
+                            "begin":0,
+                            "effect":"1",
+                            "paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/go.mov",
+                            "fileName":"1561626034rj_1563524311067_0_42B02AC3473C_0.mp4"
+                            },
+                        {
+                            "deviceId":"065963F2C327",
+                            "order":0,
+                            "duration":4000,
+                            "begin":0,
+                            "effect":"1",
+                            "paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/hai.mov",
+                            "fileName":"1561626034rj_1563524311067_0_065963F2C327_1.mp4"
+                            },
+                        {
+                            "deviceId":"1E91BED08391",
+                            "order":1,
+                            "duration":3000,
+                            "begin":7000,
+                            "effect":"1",
+                            "paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/again.mov",
+                            "fileName":"1561626034rj_1563524311067_0_1E91BED08391_2.mp4"
+                            }
+                        ]
+            }
+    },
+    "activity_id": "1561626034rj",
+    "state": "data.ready",
+    "createdAt": "2019-03-25 10:17:33",
+    "updatedAt": "2019-3-25 10:52:38",
+    "workerId": "192.168.1.131_8000"
+}
+

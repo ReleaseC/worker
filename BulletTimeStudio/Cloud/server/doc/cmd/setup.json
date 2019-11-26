@@ -1,0 +1,64 @@
+{
+  "deviceId": "deviceId",
+  "from": "deviceId_who",
+  // 送SetupCmd的deviceId, 通常是Cloud Admin
+  "requestId": "requestId",
+  // response供caller識別用
+  "param": {
+    "action": "setup",
+    "account": {
+      "type": "phone",
+      // email, phone_code
+      "phone": "phone",
+      "code": "code"
+    },
+    "activity": {
+      "activity_id": "activity_id"
+//      "type":"moment" // 目前type必须要填, 否则会返回 参数解析错误
+    },
+    "video_source": {
+      "source": "ipc",
+      // ipc 或 cam
+      "cam_place": "backcam",
+      // backcam 或 frontcam, optional, source是cam才需要
+      "url": "192.168.10.1",
+      // optional, source是ipc才需要
+      "uid": "uid",
+      // optional, source是ipc且有設定帳密才需要
+      "pwd": "pwd",
+      // optional, source是ipc且有設定帳密才需要
+      "port": 554
+      // optional, source是ipc才需要
+    },
+    "recognition": {
+    //"model": "name of model",
+      "model_name": "name of model", // 名字由model -> model_name,
+      "model_url": "url of model",
+      "version": "version of model",
+      // optional, 保留給不同活動用不同版本的model用
+      "recognition_type": [
+        "type1",
+        "type2",
+        "type3"
+      ]
+      // type是可辨識的項目，不只是class還包括class的組合，如在hello kitty之家，包括了手勢(class)以及是否有人(class的組合), type定義在model的meta.json中，目前還沒有，需再擴充
+    },
+    "record": {
+      "time_before": -7000,
+      // -7+3的範例, 單位為毫秒, before才需要
+//      "time_after": 3000,
+      "duration":10000, // 长度10s, 若为0, 代表拍照片
+      "wait": 5000 // 等待5s, 收到拍摄指令不是立即拍摄而是10后拍摄
+    }
+//    "record": {
+//      "len": "10", // 长度
+//      "next": "8", // 触发后8s(暂时用不上)
+////      "order": "1", // 序列(暂时用不上)
+//      "prev": "2", // 触发前2s
+//      "wait": "3" // 等待长度
+//    }
+  }
+}
+
+
+

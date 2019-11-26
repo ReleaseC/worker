@@ -1,0 +1,17 @@
+<div class="videolist">
+  <div class="videolist_body">
+        <div class="parent">
+                        <!-- <h1>14：00-15:00</h1> -->
+                <div class="border1" *ngFor="let index of videolist,let i=index">
+                        <!-- <img src="assets/images/videoback.jpg" alt="图片" (click)="goVideo('https://siiva.cn-sh2.ufileos.com/soccer_'+index.task.taskId+'.mp4')"> -->
+                        <img src="http://siiva.ufile.ucloud.com.cn/soccer_{{index.task.taskId}}.jpg" alt="图片" (click)="goVideo(index.task.taskId)">
+                        <!-- <img src="http://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg" alt="图片" (click)="goVideo(index.task.taskId)"> -->
+                        <!-- <span>{{index.createdAt.split(" ")[1]}}</span> -->
+                </div>
+                <!-- <h1>15:00-16:00</h1>
+                <div class="border1" *ngFor="let index of videolist1,let i=index">
+                                <img src="https://siiva.cn-sh2.ufileos.com/soccer_{{index.task.taskId}}.jpg" alt="图片" (click)="goVideo(index.task.taskId)">
+                </div>            -->
+        </div>
+</div>
+</div>

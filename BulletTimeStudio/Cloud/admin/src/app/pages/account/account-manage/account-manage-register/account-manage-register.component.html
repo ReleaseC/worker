@@ -1,0 +1,243 @@
+<div class="contain">
+  <!-- <div>
+    <font>account:</font>
+    <input type="text" [(ngModel)]="data.admin">{{data.admin}}
+  </div>
+  <div>
+    <font>password:</font>
+    <input type="text" [(ngModel)]="data.password">
+  </div>
+  <div>
+    <font>role:</font>
+    <div class="role_data">
+      <div class="role_admin">
+        <ul ng-show="false"></ul>
+        <div>
+          <input type="text">
+          <span>√</span>
+        </div>
+      </div>
+      <div class="role_owner"> 
+        <ul></ul>
+        <div>
+          <input type="text">
+          <span>√</span>
+        </div>
+      </div>
+      <div class="role_siteAdmin">
+        <ul></ul>
+        <div>
+            <input type="text">
+            <span>√</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <font>备注:</font>
+    <input type="text">
+  </div>
+  <div>
+    <input type="button" value="提交" (click)="input()">
+  </div> -->
+  <input type="radio"  name="mode" (click)="prient(original_mode.value)" value="0" #original_mode checked>普通模式
+  <input type="radio"  name="mode" (click)="prient(json_mode.value)" value="1" #json_mode style="margin-left:20px;">JSON模式
+  <div *ngIf="isshowOriginalMode">
+  <!-- 公司信息 -->
+    <div class="border">
+      <div class="select_company">
+        <font>选择公司</font>
+          <select [(ngModel)]="selected_companyId" [ngModelOptions]="{standalone: true}"  (change)="chooseCompangId()">
+              <option *ngFor="let company of CompanyList" value="{{company.company_id}}">{{ company.company_name }}</option>
+          </select>
+      </div>
+        <div class="right" [formGroup]="company_form">
+            <div class="companyName">
+                <font>公司名称</font>
+                <input type="text" maxlength='12' placeholder="最长12位文字或数字组合" formControlName="companyName">
+            </div>
+          <div class="summary" style="margin-top:8px;">
+              <font>描述</font>
+              <textarea   formControlName="mark"></textarea>
+          </div>
+          <div class="Name">
+              <font>负责人</font>
+              <input type="text" formControlName="leaderName">
+          </div>
+          <div class="phoneNumber">
+              <font>手机</font>
+              <input type="text" formControlName="leaderPhoneNumber">
+          </div>
+          <div class="Name">
+            <font>小程序名</font>
+            <input type="text" formControlName="mini_name">
+          </div>
+      </div>
+        <div class="btn_group">
+           <button class="btn_add" (click)="Add_company()">添加</button>
+           <button class="btn_revise">修改</button>
+           <button class="btn_delete">删除</button>
+           <!-- <button class="btn_next"(click)="NextStop()">下一步</button> -->
+        </div>
+        <div class="state" *ngIf="isStep1_OK"><img src="assets/images/finish.png" alt=""></div>
+      </div>
+    <!-- <hr/> -->
+    <!-- 项目信息 -->
+    <div class="border">
+        <div class="select_company">
+            <font>选择项目</font>
+            <select [(ngModel)]="selected_projectId" [ngModelOptions]="{standalone: true}" (change)="chooseProjectId()">
+                <option *ngFor="let project of ProjectList" value="{{project.project_id}}">{{ project.project_name }}</option>
+            </select>
+          </div>
+            <div class="right" [formGroup]="project_form">
+                <div class="projectName">
+                    <font>项目名称</font>
+                    <input type="text" maxlength='15' placeholder="最长15位文字或数字组合" formControlName="project_name">
+                </div>
+                <div style="margin-top:8px;margin-left: -12%;">
+                    <font>合作时间至</font>
+                    <input type="text"  formControlName="partner_to">
+                </div>
+                <div style="margin-top:8px;">
+                    <font>收费账户</font>
+                    <input type="text"  formControlName="charge_account">
+                </div>
+              <div style="margin-top:8px;margin-left: -12%;">
+                  <font>项目管理员</font>
+                  <input type="text" formControlName="project_manger">
+              </div>
+              <div style="margin-top:8px;">
+                <font>手机</font>
+                <input type="text" formControlName="phone">  
+              </div>
+              <div style="margin-top:8px;">
+                <font>登陆密码</font>
+                 <input type="text" formControlName="passwd">
+                 <button>重置</button>
+              </div>
+          </div>
+            <div class="btn_group">
+               <button class="btn_add" (click)="Add_project()">添加</button>
+               <button class="btn_revise" (click)="Amend_project()">修改</button>
+               <button class="btn_delete">删除</button>
+            </div>
+            <div class="state" *ngIf="isStep3_OK"><img src="assets/images/finish.png" alt=""></div>
+            <div class="mengban" *ngIf="!isStep1_OK"></div>
+      </div>
+      <!-- <hr/> -->
+      <!-- 账号密码 -->
+      <div class="border account_msg">
+        <div class="select_company">
+            <font>选择账号</font>
+            <select [(ngModel)]="selected_account" [ngModelOptions]="{standalone: true}" (change)="chooseAccount()">
+                <option *ngFor="let account of AccountList">{{ account.phone }}</option>
+            </select>
+          </div>
+      <div class="right" [formGroup]="account_form">
+        <div class="accountNumber" >
+            <font>昵称</font>
+            <input type="text" maxlength='12' placeholder="最长12位文字或数字组合" formControlName="nick_name">
+        </div>
+        <div class="accountNumber" style="margin-top:8px;margin-left: -12%;">
+            <font>账号</font>
+            <input type="text" maxlength='12' placeholder="最长12位文字或数字组合" formControlName="account">
+        </div>
+        <div class="password">
+              <font>密码</font>
+              <input type="text" maxlength='8' placeholder="最长8位文字或数字组合" formControlName="password">
+        </div>
+      </div>
+        <div class="btn_group">
+            <button class="btn_add" (click)="Add_account()">添加</button>
+            <button class="btn_revise">修改</button>
+            <button class="btn_delete">删除</button>
+        </div>
+        <div class="state" *ngIf="isStep2_OK"><img src="assets/images/finish.png" alt=""></div>
+        <div class="mengban" *ngIf="!isStep1_OK"></div>
+    </div>
+    <!-- <hr/> -->
+    <!-- 活动信息 -->
+    <div class="border">
+        <div class="select_company">
+            <font>选择活动</font>
+            <select [(ngModel)]="selected_activityId" [ngModelOptions]="{standalone: true}" (change)="chooseActivityId()">
+                <option *ngFor="let activity of ActivityList" value="{{activity.activity_id}}">{{ activity.activity_name }}</option>
+            </select>
+          </div>
+            <div class="right" [formGroup]="activity_form">
+                <div class="activityName">
+                    <font>活动名</font>
+                    <input type="text" maxlength='15' placeholder="最长15位文字或数字组合" formControlName="activity_name">
+                </div>
+                <div class="summary" style="margin-top:8px;">
+                    <font>描述</font>
+                    <textarea   formControlName="activity_mark"></textarea>
+                </div>
+              <div class="Name">
+                  <font>地点</font>
+                  <input type="text" formControlName="address">
+              </div>
+              <div>
+                <font>经度</font>
+                <input type="text" formControlName="longitude">  
+              </div>
+              <div>
+                <font>纬度</font>
+                 <input type="text" formControlName="latitude">
+              </div>
+              <div class="upload_img">
+                  <font>BANNER</font>
+                  <input type="text" placeholder="宽540px 高280px" formControlName="banner_url">
+                  <input class="input_img" type="file" #Image accept="image/*" value="上传照片" (change)="handleFileInput($event.target.files,'banner')">
+                  <img *ngIf="BannerImg_upload_finish" src="assets/images/finish.png" alt="图片">
+                </div>
+              <div class="upload_img">
+                  <font>主页</font>
+                  <input type="text" placeholder="宽750px 高1334px" formControlName="homepage_url">
+                  <input class="input_img" type="file" #Image accept="image/*" value="上传照片" (change)="handleFileInput($event.target.files,'homepage')">
+                  <img *ngIf="HomeImg_upload_finish" src="assets/images/finish.png" alt="图片">
+                </div>
+          </div>
+            <div class="btn_group">
+               <button class="btn_add" (click)="Add_activity()">添加</button>
+               <button class="btn_revise">修改</button>
+               <button class="btn_delete">删除</button>
+            </div>
+            <div class="state" *ngIf="isStep3_OK"><img src="assets/images/finish.png" alt=""></div>
+            <div class="mengban" *ngIf="!isStep1_OK"></div>
+      </div>
+      <!-- <hr/> -->
+      <!-- 管理员 -->
+      <div class="border">
+          <div class="select_company">
+              <font>管理员</font>
+              <input type="text" [(ngModel)]="data.manager">
+          </div>
+          <div class="right">
+              <div class="summary">
+                  <textarea   [(ngModel)]="data.manager"></textarea>
+              </div>
+           </div>
+           <div class="mengban" *ngIf="!(isStep3_OK&&isStep2_OK)"></div>
+    </div>
+
+    <div class="btn_group_end">
+      <button class="btn_add">应用</button>
+      <button class="btn_revise">确认</button>
+      <button class="btn_delete" (click)="onclose()">取消</button>
+   </div>
+   <div class="line"><button class="btn_bind" (click)="bind()">绑定</button></div>
+  </div>
+
+  <div *ngIf="!isshowOriginalMode" style="position: relative;margin-top: 10px;left:20%;width: 60%;">
+    <textarea type="text" rows="5" [(ngModel)]="param" style="width:100%;height: 300px;"></textarea>
+    <div class="btn_group_end">
+      <button class="btn_send" (click)="sendJSON()">发送</button>
+      <button class="btn_quit" (click)="quitJSON()">清空</button>
+    </div>
+  </div>
+
+
+
+</div>

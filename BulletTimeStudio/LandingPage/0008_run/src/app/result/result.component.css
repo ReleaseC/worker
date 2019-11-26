@@ -1,0 +1,245 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+
+
+
+
+#video{
+    position:absolute;
+    width:100%;
+    height:32.5%;
+    left:0%;
+    top:5%;
+}
+.bar{
+    position:absolute;
+    width:100%;
+    height:32.5%;
+    left:0%;
+    top:5%;
+    background-color: black;
+    opacity:0.5;
+}
+
+.txt{
+    position: absolute;
+    left:8%;
+    top:40%;
+    color:#b0b0b0;
+    letter-spacing: 2.29px;
+}
+.txt1_1{
+font-size:18px;
+    font-weight: bolder;
+    color:black;
+}
+.activityDate{
+    position    :absolute;
+    left:8%;
+    top         :44.3%;
+    font-size   :14px;
+    color       :#b0b0b0;
+    letter-spacing  :1px;
+}
+.activityName{
+    position    :absolute;
+    top         :52%;
+    left:23%;
+    font-size   :14px;
+    color       :#585858;
+    letter-spacing  :2.29px;
+}
+.score{
+    position    :absolute;
+    top         :57%;
+    left:23%;
+    font-size   :14px;
+    color       :#585858;
+    letter-spacing  :2.29px;
+}
+.hr1{
+    position: absolute;
+    width:0.1%;
+    height:2%;
+    left:18%;
+    top:53%;
+    border-radius: 50%;
+    background-color:#b0b0b0;
+}
+
+.hr2{
+    position: absolute;
+    width:0.1%;
+    height:2%;
+    left:18%;
+    top:58%;
+    border-radius: 50%;
+    background-color:#b0b0b0;
+}
+.hr3{
+    position: absolute;
+    width:0.1%;
+    height:2%;
+    left:85%;
+    top:64%;
+    border-radius: 50%;
+    background-color:#b0b0b0; 
+}
+.web_3_1{
+ position: absolute;
+ width:5%;
+ left:8%;
+ top:52%
+}
+.web_3_2{
+    position: absolute;
+    width:5%;
+    left:8%;
+    top:57.5%
+}
+.text1{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    top:85.7%;
+    font-size: 14px;
+    color: #585858;
+    letter-spacing: 0.7px;
+}
+.text2{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    font-size: 14px;
+    top:89%;
+    color: #585858;
+    letter-spacing: 0.7px;
+}
+.code{
+    width:26.7%; 
+    position:absolute;
+    left:36.8%;
+    top:68.8%;
+}
+.love{
+    position: absolute;
+    left:67%;
+    top:63%;
+}
+.love_active{
+    position: absolute;
+    left:67%;
+    top:63%;
+}
+.share_btn{
+        position: absolute;
+        left:89%;
+        top:63%;
+}
+.love_number{
+    position: absolute;
+    left:76%;
+    top:63%;
+    color: #585858;
+}
+/* .share_number{
+    position: absolute;
+    left:85%;
+    top:69%;
+} */
+.share_bar{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0%;
+    top:0%;
+    background-color:	#808080;
+    opacity:0.7;
+    z-index:10;
+}
+.share_pic{
+    position: absolute;
+    right:5%;
+    top:0%;
+    width:45%;
+    /* height:30%; */
+}
+.share_txt{
+    position: absolute;
+    width:70%;
+    left:15%;
+    top:50%;
+    font-size:18px;
+    letter-spacing: 4.19px;
+    color:white;
+    text-align: center;
+}
+.icon-play {
+    position: absolute;
+    left: 52%;
+    top: 21%;
+    opacity:0.9;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transform-origin: center center !important;
+    -moz-transform-origin: center center !important;
+    -ms-transform-origin: center center !important;
+    -o-transform-origin: center center !important;
+    transform-origin: center center !important;
+}
+.icon-play-number{
+    position: absolute;
+    left: 52%;
+    top: 21%;
+    opacity:0.9;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transform-origin: center center !important;
+    -moz-transform-origin: center center !important;
+    -ms-transform-origin: center center !important;
+    -o-transform-origin: center center !important;
+    transform-origin: center center !important;
+}
+.video_bar{
+    position:absolute;
+    width:100%;
+    height:31.5%;
+    left:0%;
+    top:5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+video::-internal-media-controls-download-button {
+    display     :none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow    :hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width       :calc(100% + 50px); 
+}

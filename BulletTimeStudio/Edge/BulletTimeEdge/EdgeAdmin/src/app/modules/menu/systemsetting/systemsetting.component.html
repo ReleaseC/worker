@@ -1,0 +1,49 @@
+<div class="container">
+    <h3>相机设定</h3>
+    <button style="position:absolute;right:0%;top:12%" class="btn btn-success" (click)="update_camera_config()">更新</button>
+    <table class="table table-hover text-nowrap">
+        <tr>
+            <td>ISO</td>
+            <td>快门</td>
+            <td>解析度</td>    
+         </tr>
+         <tr>
+          <td style="width:30%"><mat-select  placeholder="请选择ISO" [(value)]="selected_iso">
+                <mat-option value="100">100</mat-option>
+                <mat-option value="200">200</mat-option>
+                <mat-option value="400">400</mat-option>
+                <mat-option value="800">800</mat-option>
+                <mat-option value="1600">1600</mat-option>
+                <mat-option value="6400">6400</mat-option>
+                <mat-option value="auto">auto</mat-option>
+             </mat-select></td>
+          <td style="width:30%"><mat-select placeholder="请选择快门" [(value)]="selected_shutter">
+                <mat-option value="2s">2s</mat-option>
+                <mat-option value="5s">5s</mat-option>
+                <mat-option value="10s">10s</mat-option>
+                <mat-option value="20s">20s</mat-option>
+                <mat-option value="30s">30s</mat-option>
+                <mat-option value="auto">auto</mat-option>
+             </mat-select></td>
+          <td style="width:30%"><mat-select placeholder="请选择解析度" [(value)]="selected_size">
+                <mat-option value="12MP (4000x3000 4:3) fov:w">12MP (4000x3000 4:3) fov:w</mat-option>
+                <mat-option value="8MP (3840x2160 16:9) fov:w">8MP (3840x2160 16:9) fov:w</mat-option>
+                <mat-option value="7MP (3008x2256 4:3) fov:w">7MP (3008x2256 4:3) fov:w</mat-option>
+                <mat-option value="7MP (3008x2256 4:3) fov:m">7MP (3008x2256 4:3) fov:m</mat-option>
+                <mat-option value="5MP (2560x1920 4:3) fov:m">5MP (2560x1920 4:3) fov:m</mat-option>
+             </mat-select></td>    
+        </tr>
+    </table>
+    <h3>模板</h3>
+    <mat-form-field class="full-width">
+        <mat-select name="sampleType" placeholder="请选择模板">
+           <mat-option value="1">模板一</mat-option>
+           <mat-option value="2">模板二</mat-option>
+           <mat-option value="2">模板三</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <h3>绿屏</h3>
+    <input type="text" class="form-control" [(ngModel)]="color" placeholder="color(预设GREEN)">
+    <input type="text" class="form-control" [(ngModel)]="similarity" placeholder="similarity(预设0.15)">
+    <input type="text" class="form-control" [(ngModel)]="blend" placeholder="blend(预设0.1)">
+</div>

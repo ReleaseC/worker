@@ -1,0 +1,18 @@
+<div class="firstpage">
+        <div class="swiper-container">
+                <div class="swiper-wrapper">
+                        <div class="swiper-slide" *ngFor="let index of banner_list,let i=index"><img src="{{index}}" alt="图片" width="100%" height="100%"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+        </div>
+        <!-- <div class="middle-col"></div> -->
+        <div class="activities">
+                <div class="activity" *ngFor="let index of activity_list,let i=index" (click)="goActivity(index.activity_id)">
+                     <div class="banner">
+                        <img src="{{index.banner}}" alt="图片" width=100% height="100%">
+                     </div>
+                     <div class="activityName">{{index.activity_name}}</div>
+                     <div class="mark">{{index.mark}}</div>
+                </div>
+        </div>
+</div>

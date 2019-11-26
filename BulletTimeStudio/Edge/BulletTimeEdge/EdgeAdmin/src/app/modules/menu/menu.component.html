@@ -1,0 +1,52 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="isHandset ? 'dialog' : 'navigation'"
+    [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+    [opened]="">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="['/menu/installation']"  (click)="closeAndUpdateTitle(drawer,'installation')">安装指南</a>
+        <a mat-list-item [routerLink]="['/menu/calibration']"  (click)="closeAndUpdateTitle(drawer,'calibration')">校正指南</a>
+        <a mat-list-item [routerLink]="['/menu/devicemanager']"   (click)="closeAndUpdateTitle(drawer,'devicemanager')">设备管理</a>
+        <a mat-list-item [routerLink]="['/menu/photomanager']"  (click)="closeAndUpdateTitle(drawer,'photomanager')">拍摄管理</a>
+        <a mat-list-item [routerLink]="['/menu/systemsetting']"  (click)="closeAndUpdateTitle(drawer,'systemsetting')">系统设定</a>  
+        <a mat-list-item routerLink="/login" (click)="drawer.close()">登出</a>           
+      <a mat-list-item routerLink="/menu/camera" (click)="drawer.close()">Camera</a>
+      <!-- <a mat-list-item routerLink="/menu/task" (click)="drawer.close()">Tasks</a> -->
+      <!-- <a mat-list-item routerLink="/menu/test" (click)="drawer.close()">Test</a>       -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav_content">
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{menu}}</span>
+      <!-- <button mat-raised-button (click)="subscribeToNotifications()">subscribe</button> -->
+      <!-- <mat-form-field>
+      <mat-select id="select">
+        <mat-option>站台1</mat-option>
+        <mat-option>站台2</mat-option>
+      </mat-select>
+      </mat-form-field> -->
+      <span class="chooseId">选择siteId：</span>
+      <select id="site" [(ngModel)]="selAction" (change)="selectAction()" style="color:black">
+        <!-- <option value="0013" selected>0013</option> -->
+        <option [value]="site.siteId" *ngFor="let site of idMatchName" style="color:black">{{site.siteName}}</option>
+      </select>
+      <!-- <button (click)="getS()">获取参数</button> -->
+        <!-- <div class="light_red"></div>
+        <div class="light_green"></div> -->
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  <!-- <app-installation [data]="selAction"></app-installation>
+  <app-systemsetting [data]="selAction"></app-systemsetting> -->
+</mat-sidenav-container>

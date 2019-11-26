@@ -1,0 +1,24 @@
+<div style="position:absolute;width:100%;height:99.94%;left:0%;top:0%;z-index:-1;text-align:center;">
+    <!-- <div class="webcam" style="position: relative;left:0%;top:0%;">
+        <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onCamSuccess($event)" (onError)="onCamError($event)"></ack-webcam>
+    </div> -->
+    <!-- <button id='stop' (click)="pause_play()" (keydown)="onKeyPress($event)">暂停拍摄</button> -->
+    <!-- <button id='start' (click)="start_play()">开始拍摄</button> -->
+    <input id='stop'  type="button" value="暂停拍摄" (click)="pause_play()">
+    <input id='start'  type="button" value="开始拍摄"  (click)="start_play()" >
+    <!-- <input type="text" class="form-control" id="declareValue" #declare (keydown)="onKeyPress($event)" > -->
+    
+    <div class='bar1' style='position:relative;width:100%;top:0%;text-align:center;'>
+        <div *ngIf="isSelfie" class="text">
+            <img src="assets/image/time.jpg" alt="">
+            <div [@signal]="signal" class='time'>{{time}}</div>
+        </div>
+        <audio *ngIf="isMp3" src="assets/mp3/broadcast.mp3" autoplay="autoplay"></audio>
+
+        
+    </div>
+
+
+   
+</div>  
+

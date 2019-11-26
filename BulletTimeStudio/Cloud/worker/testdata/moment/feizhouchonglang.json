@@ -1,0 +1,76 @@
+{
+    "_id": "5c983a3d69f63b19d5e9cf07",
+    "task": {
+        "taskId": "1561626062to_1563437932878",
+        "mode": "video",
+        "type": "common",
+        "local": false,
+        "fileName1": "1541475970_1553480253975_0_A58FE68F_0.mp4",
+        "provider": { "mate": "siiva-oss" },
+        "later_setting":
+            {
+             "source":{
+                "bgm": {"src":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1561626062to/35.mp3"},
+                "frame":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/mome/guide_assets/1557886955xa/template_jinjiang.png",
+                "ground_video":{},
+                "effect_speed":{},
+                "effect_rotate":{},
+                "green_screen":{},
+                "logo":{}
+               },
+                "cut_param":{
+                    "enablebgm":true,
+                    "enableborder":false,
+                    "enablebggreen":false,
+                    "enableeffect_speed":false,
+                    "enableeffect_rotate":false,
+                    "enablegreenscreen":false,
+                    "enableaudio":false,
+                    "enablelogo":false},
+                    "record":[
+                        {
+                            "deviceId":"3EA7130E300A",
+                            "order":0,
+                            "duration":3000,
+                            "begin":0,
+                            "effect":"1",
+                            "paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/start_car.mov",
+                            "fileName":"1561626062to_1563437932878_0_3EA7130E300A_0.mp4"
+                            },
+                        {
+                            "deviceId":"32F9712EA4F8",
+                            "order":0,
+                            "duration":4000,
+                            "begin":0,
+                            "effect":"1",
+                            "paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/amazing.mov",
+                            "fileName":"1561626062to_1563437932878_0_32F9712EA4F8_1.mp4"
+                            },
+                        {
+                            "deviceId":"32F9712EA4F8",
+                            "order":1,
+                            "duration":3000,
+                            "begin":7000,
+                            "effect":"1",
+                            "paste_mov":"",
+                            "fileName":"1561626062to_1563437932878_0_CED719B6C6F7_2.mp4"
+                            },
+                        {
+                            "deviceId":"CED719B6C6F7",
+                            "order":2,
+                            "duration":2000,
+                            "begin":11000,
+                            "effect":"3",
+                            "paste_mov":"https://siiva-video.oss-cn-hangzhou.aliyuncs.com/heart.mov",
+                            "fileName":"1561626062to_1563437932878_0_CED719B6C6F7_2.mp4"
+                            }
+                        ]
+            }
+    },
+    "activity_id": "1561626062to",
+    "state": "data.ready",
+    "createdAt": "2019-03-25 10:17:33",
+    "updatedAt": "2019-3-25 10:52:38",
+    "workerId": "192.168.1.131_8000"
+}
+

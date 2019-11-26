@@ -1,0 +1,14 @@
+img{
+    position: absolute;
+    top:10%;
+    left:40%;
+    width:20%;
+}
+.text{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    letter-spacing: 4.19px;
+    font-size:28px;
+    top:60%;
+}

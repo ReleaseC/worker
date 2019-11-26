@@ -1,0 +1,37 @@
+<div class="homepage">
+    <div class="home_body">
+        <!-- 主页面 -->
+        <div id="firstpage">
+            <div class="banner">
+                <img src="assets/images/HelloKitty_banner.jpg" alt="图片">
+            </div>
+            <div class="middle-col">
+                <div class="menu"><span>凯蒂猫之家</span></div>
+            </div>
+            <div class="videolist" *ngIf="isshowVideolist">
+                <div class="showText" *ngIf="isshowText_unfinish">您的视频正在处理，请耐心等待...</div>
+                <div class="border1" *ngFor="let index of HK_videolist,let i=index">
+                    <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg" alt="封面图" (click)="goVideo(index.activity_id,index.task.taskId,index.createdAt)">
+                    <!-- <div class="play_number_count"> -->
+                        <!-- <div class="icon-play">
+                        <img src="assets/images/icon-play-border.png" alt="图片"> 
+                        </div>
+                        <div class="play_number">{{index.task.play}}</div>  -->
+                    <!-- </div>  -->
+                </div> 
+                <div class="showText" *ngIf="isshowText">您的视频已过期，即将为您展示案例视频...</div>
+           </div>
+           <div class="videolist" *ngIf="!isshowVideolist">
+            <div class="border1">
+                <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_1541382417zs_1542952105464.jpg" alt="封面图" (click)="goVideo('1541382417','1541382417zs_1542952105464','demo')">
+            </div> 
+            <div class="border1">
+                <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_1541382417zs_1542958757310.jpg" alt="封面图" (click)="goVideo('1541382417','1541382417zs_1542958757310','demo')">
+            </div> 
+        </div>
+
+      
+    </div>
+
+
+</div>

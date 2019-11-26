@@ -1,0 +1,60 @@
+#outer {
+  position: relative;
+  margin-top: 20px;
+}
+
+.text {
+  /*word-wrap: break-word;*/
+  /* border:1px solid black;
+  border-collapse: collapse;
+  border-left:none; */
+}
+
+.text-align {
+  width: 100%;
+  /*text-align: center;*/
+  display: block;
+}
+
+h2 {
+  position: relative;
+  text-align: center;
+  margin-top: 30px
+}
+
+
+.filter {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.myForm {
+  position: absolute;
+  margin-left: -15px;
+}
+
+.filter_state {
+  /*width: 188%;*/
+  /*margin-right: 0px;*/
+  float: right;
+}
+
+.clearfix {
+  clear:both;
+}
+
+table {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.one_row {
+  width: 25%;
+}
+
+.page_select {
+  float: right;
+}
+
+

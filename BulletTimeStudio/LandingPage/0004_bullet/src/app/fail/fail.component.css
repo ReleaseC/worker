@@ -1,0 +1,39 @@
+/* .border_background{
+    position: absolute;
+    width:90%;
+    left:5%;
+    height:21%;
+    top:39%;
+    background-color: white;
+    border-radius: 10px;
+} */
+.code{
+    width:26.7%; 
+    position:absolute;
+    left:36.8%;
+    top:67.8%;
+}
+
+.text3{
+   position: absolute;
+   width:98%;
+   text-align: center;
+   top:44%;
+   color:#b3b3b6;
+}
+.text4{
+    position: absolute;
+    width:97%;
+    text-align: center;
+    top:50%;
+    color:#b3b3b6;
+
+}
+.img1{
+    position: absolute;
+    top:13%;
+    width:60%;
+    left:20%;
+  }
+
+

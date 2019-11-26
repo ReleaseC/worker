@@ -1,0 +1,19 @@
+/* mome_ubuntu, 心跳 */
+{
+  "deviceId": "04D8AF92",
+  "param": {
+    "action": "heartbeat",
+    "app_name":"mome_ubuntu",
+    "app_version": "2.0.1.20191212.1012",
+    "power": 50, // 电量(int)0-100, %
+    "is_charging": true, // 是否充电
+    "temperature": 40, // 温度(int)
+    "free_disk": 388, // 磁盘空间, 单位M(int),
+    "ttl": 932, // 运行时间, 单位s(int)
+    "device_name": "3399ubuntu16.04",
+    "timestamp": "2019-12-12 12:12:13",
+    "err_msg": "找不到相机",
+    "err_code": "002"
+  }
+}
+

@@ -1,0 +1,20 @@
+{
+  "task": {
+    "siteId": "1543378752rt",
+    "taskId": "1543378752rt_1543386972740",
+    "output": "51088434",
+    "triggerBy": "handshake_event",
+    "cameraNum": 1,
+    "mode": "movie",
+    "fileName1": "1543378752rt_1543386972740_0_9C522FE0.mp4",
+    "type": "moment",
+    "version": "",
+    "param": {
+      "light": 0,
+      "rmturn": false,
+      "rmborder": false,
+      "rmbgm": false
+    }
+  },
+  "activity_id": "1543378752en"
+}

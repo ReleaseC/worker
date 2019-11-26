@@ -1,0 +1,78 @@
+<div class="result">
+  <video id="video" #videoplayer poster="assets/images/first.png" src="{{video_url}}" loop="loop">
+  </video>
+   <div class="video_bar" (click)="playPause()"></div>
+   <div *ngIf="isbar" class="bar"></div>
+  <div class="icon-play" (click)="playPause()" *ngIf="isPlay">
+    <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+  </div>
+  <div class="icon-play-number" (click)="count_playnumber()" *ngIf="isPlay_number">
+    <img src="assets/images/icon-play.png" alt="图片" width='50px' height='50px'>
+  </div>
+  <div class="txt"><span class="txt1_1">{{uname}}</span>的冲刺时刻</div>
+  <div class="activityDate">2018.5.13</div>
+  <img class="web_3_1" alt="图片"  src="assets/images/web_3_1.png">
+  <img class="line3" src="assets/images/line1.png" alt="图片">
+  <img class="line4" src="assets/images/line1.png" alt="图片">
+  <img class="line1" src="assets/images/line1.png" alt="图片">
+  <img class="line2" src="assets/images/line2.png" alt="图片">
+  <div class="activityName">2018大连国际马拉松赛</div>
+  <img class="web_3_2" alt="图片"  src="assets/images/web_3_2.png">
+  <div class="score">{{time}}</div>
+
+
+  <img class="code" alt="图片" src="assets/images/code.jpg">
+   <div class="text1">下载工行融e联</div>
+   <div class="text2">关注融e联内公众号大连马拉松赛</div>
+   <div class="text3">查看精彩冲线视频</div>
+   <img class="love" src="assets/images/love.png" alt="图片" width='25px' height='23px' (click)="love()">
+   <img *ngIf="islove"  class="love_active"  src="assets/images/love_active.png" alt="图片" width='25px' height='23px'>
+   <img  class="share_btn"  src="assets/images/share_btn.png" alt="图片" width='28px' height='24px' (click)="share()">
+   <div class="love_number">{{love_number}}</div>
+   <img class="download1" src="assets/images/download.png" alt="图片" width='28px' height='25px' (click)="textdownload()">
+   <img *ngIf="isgotodownload" class="download1" src="assets/images/download.png" alt="图片" width='28px' height='25px' (click)="gotodownload()">
+   <img *ngIf="isgotopc" class="download1" src="assets/images/download.png" alt="图片" width='28px' height='25px' (click)="gotopc()">
+   <div *ngIf="isshareimg" class="share_bar" (click)="cancelShare()">
+     <img  src="assets/images/share2.png" alt="图片" width=100%>
+  </div>
+  <!-- <button (click)="download()">下载测试</button> -->
+  <div *ngIf="is_weixin" class="shuoming">
+    <div class="d_bar1" (click)="cancel_weixin()"></div>
+    <!-- <div style="position:absolute;left:8%;font-size:17px;color:aliceblue;top:50%;">方法二：长按链接复制，到电脑下载 </div> --> 
+     <!-- <textarea style="position:absolute;width:80%;height:10%;left:8%;top:55%;color:#bdbdbd;background:#dbdbdb;font-size:20px;padding:7px">{{video_url}}</textarea> -->
+     <div class="border_background"></div>
+     <img class="end" src="assets/images/end.png" alt="图片">
+     <hr class="hr3_weixin"/>   
+     <div class="title_weixin">
+           温馨提示
+       </div>
+       <hr class="hr4_weixin"/> 
+     <div class="text3_weixin">请到融e联下载</div>
+   </div>
+<!-- 邮件形式 -->
+  <!-- <div *ngIf="isshuoming1" style="position:absolute;z-index:2;width:100%;height:100%;">
+    <div class="d_bar" (click)="cancel_email()"></div>
+    <div class="back_white"></div>
+    <form id="form" name="myForm">
+      <img class="number" src="assets/images/email.png">
+      <input type="text" class="form-control" name="number" id="number" placeholder="请输入您的邮箱">
+      <hr class="hr1"/> 
+      <div style='position:absolute;left:20%;top:105px;font-size:15px;width:60%'>提示：您的短视频稍后会以邮件形式发送到您</div>
+    </form>
+    <div class="btn1" (click)="submit()">提交</div>
+  </div> -->
+
+  <div *ngIf="is_ios" class="shuoming">
+    <div class="d_bar2" (click)="cancel_ios()"></div>
+     <div class="border_background"></div>
+     <img class="end" src="assets/images/end.png" alt="图片">
+     <hr class="hr3_ios"/>   
+     <div class="title_ios">
+           温馨提示
+       </div>
+       <hr class="hr4_ios"/> 
+     <div class="text3_ios">本视频不支持iphone手机下载</div>
+     <div class="text4_ios">请使用安卓系统或者复制链接去电脑</div>
+     <div class="text5_ios">端浏览器下载</div>
+   </div>
+</div>

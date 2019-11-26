@@ -1,0 +1,28 @@
+<!-- <select [(ngModel)]="selectAccount" (change)="showAccount()"> 
+    <option [value]=""></option>
+    <option *ngFor="let arr of accountArr" [value]="arr.account">{{arr.account}}</option>
+</select> -->
+<select [(ngModel)]="selectSiteId" (change)="showAccount()"> 
+    <option [value]=""></option>
+    <option *ngFor="let arr of siteListArr" [value]="arr.siteId">{{arr.siteName}}</option>
+</select>
+<select [(ngModel)]="selectRegion" (change)="showAccount()"> 
+    <option [value]=""></option>
+    <option *ngFor="let arr of regionArr" [value]="arr">{{arr}}</option>
+</select>
+<button (click)="doAccountMatchSite()">更新</button>
+
+<table border="1" >
+  <tr>
+    <!-- <td>Account</td> -->
+    <td>Site ID</td>
+    <td>Site Name</td>
+    <td>Region</td>
+  </tr>
+  <tr *ngFor="let arr of siteMatchArr">
+    <!-- <td>{{arr.account}}</td> -->
+    <td>{{arr.siteId}}</td>
+    <td>{{arr.siteName}}</td>
+    <td>{{arr.region}}</td>
+  </tr>
+</table>

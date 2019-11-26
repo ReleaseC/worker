@@ -1,0 +1,113 @@
+body{
+  margin:0;
+  padding:0;
+}
+*{
+  margin:0;
+  padding:0;
+}
+.advertise{
+  position: absolute;
+  width:100%;
+  height:100%;
+  left:0%;
+  top:0%;
+}
+.videolist{
+  position: relative;
+  left:0%;
+  top:0%;
+  width:100%;
+  /* height:100%; */
+  background: #dbdbdb;
+  /* border:1px solid red; */
+  /* background-color: rgb(26,20,56); */
+  /* overflow: scroll; */
+}
+.border1{
+  position: relative;
+  background:	#dbdbdb;
+  width: 33.3%;
+  left:0%;
+  top:0%;
+  margin:0;
+  padding:0;
+  display: inline-block;
+  vertical-align: middle;
+  /* border:1px solid red; */
+}
+.border_img{
+  position: relative;
+  width:100%;
+  height:auto;
+}
+video{
+  position: absolute;
+  width:100%;
+  height:auto;
+  display: inline-block;
+}
+.banner{
+  position:relative;
+  left:0%;
+  top:0%;
+  width:100%;
+}
+.video_ID{
+  position: absolute;
+  top:8%;
+  width:30%;
+  left:5%;
+  height:30px;
+  text-align: center;
+  background: #bdbdbd;
+  opacity: 0.8;
+  border:1px solid grey;
+  font-size: 18px;
+}
+.video_ID span{
+  font-weight: bolder;
+  line-height: 30px;
+}
+.qrcode{
+  position: absolute;
+  width:40%;
+  left:82%;
+  /* bottom:10%; */
+  top:8%;
+}
+.address{
+  position: absolute;
+  left:15%;
+  top:70%;
+  font-size: 20px;
+  color:white;
+  opacity:0;
+}
+.cute{
+  position: absolute;
+  left:6%;
+  top:18%;
+  width:12%;
+}
+.transiltion{
+  position: absolute;
+  width:100%;
+  top:0%;
+  left:100%;
+  opacity: 0.5;
+  height:auto;
+}
+.animate{animation: translate_act 2s linear both;-webkit-animation: translate_act 2s linear both;}
+@keyframes translate_act {
+  0%{ -webkit-transform: translateX(0);transform:translateX(0);-moz-transform:translateX(0);-o-transform:translateX(0);}    
+  100%{ -webkit-transform: translateX(-200%);transform:translateX(-200%);-moz-transform:translateX(-200%);-o-transform:translateX(-200%);}
+}
+
+
+.rotate{animation: rotate_act 1s linear both;-webkit-animation: rotate_act 1s linear both;}
+@keyframes rotate_act {
+0%{ -webkit-transform: rotate(0deg);opacity:0;transform:rotate(0deg);-moz-transform:rotate(0deg);-o-transform:rotate(0deg);}    
+100%{ -webkit-transform: rotate(720deg);opacity:1;transform:rotate(720deg);-moz-transform:rotate(720deg);-o-transform:rotate(720deg);}
+}
+

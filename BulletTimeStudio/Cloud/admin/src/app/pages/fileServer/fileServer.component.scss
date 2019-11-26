@@ -1,0 +1,39 @@
+.filter {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+> div {
+  display: flex;
+  min-width: 20%;
+  margin-top: 20px;
+  align-items: flex-start;
+  margin-right: 20px;
+a {
+  font-weight: bold
+}
+}
+select{
+  width:70%;
+}
+.filter_time {
+.tip {
+  margin-left: 2px;
+  font-size: 12px;
+  align-self: flex-end;
+}
+}
+}
+table{
+  margin-top:10px;
+.tablehead{
+  font-weight: bold;
+  color: black;
+}
+.text-align{
+  width: 100%;
+  text-align: center;
+  display: block;
+  word-wrap:break-word;
+  word-break:break-all;
+}
+}

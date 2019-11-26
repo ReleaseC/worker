@@ -1,0 +1,60 @@
+<div class="templet">
+    <!-- <img class="result_back" src="assets/images/result_back.png" alt="图片"> -->
+    <div class="top_nav">
+     <div class="title">模板</div>
+    </div>
+
+    <div class="templet_body">
+        <div class="templet1">
+            <img class="templet_picture" src="assets/images/templet1.jpg" alt="图片">
+            <img class="templet_picture_free" src="assets/images/free.png" alt="图片">
+            <div class="border_button" (click)="gototemplet1()">点击观看</div>
+            <p class="templet_checkbox"><input id="muban1" type="checkbox" name="selOne">模板1</p>
+        </div>
+        <div class="templet2">
+            <img class="templet_picture" src="assets/images/templet2.jpg" alt="图片">
+            <img *ngIf="ispay2" class="templet_picture_pay" src="assets/images/pay.png" alt="图片">
+            <div class="border_button" (click)="gototemplet2()">点击预览</div>
+            <div class="money">￥5</div>
+            <p class="templet_checkbox"><input id="muban2" type="checkbox" name="selOne">模板2</p>
+        </div>
+        <!-- <div class="templet3">
+            <img class="templet_picture" src="assets/images/templet3.jpg" alt="图片">
+            <img *ngIf="ispay3" class="templet_picture_pay" src="assets/images/pay.png" alt="图片">
+            <div class="border_button" (click)="gototemplet3()">点击预览</div>
+            <div class="money">￥5</div>
+            <p class="templet_checkbox"><input id="muban3" type="checkbox" name="selOne">模板3</p>
+        </div>
+        <div class="templet4">
+            <img class="templet_picture" src="assets/images/templet4.jpg" alt="图片">
+            <img *ngIf="ispay4" class="templet_picture_pay" src="assets/images/pay.png" alt="图片">
+            <div class="border_button"  (click)="gototemplet4()">点击预览</div>
+            <div class="money">￥5</div>
+            <p class="templet_checkbox"><input id="muban4" type="checkbox" name="selOne">模板4</p>
+        </div> 
+        <div class="templet5">
+            <img class="templet_picture" src="assets/images/templet5.jpg" alt="图片">
+            <img *ngIf="ispay5" class="templet_picture_pay" src="assets/images/pay.png" alt="图片">
+            <div class="border_button"  (click)="gototemplet5()">点击预览</div>
+            <div class="money">￥5</div>
+            <p class="templet_checkbox"><input id="muban5" type="checkbox" name="selOne">模板5</p>
+        </div>
+        <div class="templet6">
+            <img class="templet_picture" src="assets/images/templet6.jpg" alt="图片">
+            <img *ngIf="ispay6" class="templet_picture_pay" src="assets/images/pay.png" alt="图片">
+            <div class="border_button"  (click)="gototemplet6()">点击预览</div>
+            <div class="money">￥5</div>
+            <p class="templet_checkbox"><input id="muban6" type="checkbox" name="selOne">模板6</p>
+        </div> -->
+    </div>
+   
+   
+    <div class="bottom_nav">
+    <p class="p6"><input id="total" type="checkbox">全选</p>
+    <p class="p7">付费下载无水印版</p>
+    <div (click)="purchase()">
+         <div class="pay_btn">确认购买</div>
+    </div>
+  </div>
+
+</div>

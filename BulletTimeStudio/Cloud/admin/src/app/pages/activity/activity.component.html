@@ -1,0 +1,661 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+
+  <!-- 活动首页 -->
+  <div *ngIf="isshow_homepage">
+    <div class="filter">
+      <div>
+        <span>公司：</span>
+        <select [(ngModel)]="selCompany" (change)="onCompanySelected()">
+          <option *ngFor="let company of companyList" [selected]="company.company_id===selCompanyId">
+            {{ company.company_name }}
+          </option>
+        </select>
+      </div>
+
+    </div>
+    <!-- <div class="activity_add_event" (click)="Add_activity()"><span>新增活动</span><img src="assets/images/add.png" alt="图片"></div> -->
+    <table class="table table-hover table-striped" style="width:100%;text-align:center;">
+      <tr class="row">
+        <td class="col-sm-2 text-align">名称</td>
+        <td class="col-sm-2 text-align mobile">创建时间</td>
+        <!--<td class="col-sm-2 text-align">描述</td>-->
+        <td class="col-sm-1 text-align mobile">地址</td>
+        <td class="col-sm-1 text-align mobile">banner</td>
+        <td class="col-sm-1 text-align mobile">测试文件</td>
+        <td class="col-sm-1 text-align mobile">操作</td>
+        <td class="col-sm-1 text-align">设定</td>
+        <td class="col-sm-1 text-align mobile">后期</td>
+        <td class="col-sm-1 text-align mobile">监测设定</td>
+        <td class="col-sm-1 text-align">拍摄</td>
+      </tr>
+
+      <tr class="row" *ngFor="let activity of activityList;index as i">
+        <td class="col-sm-2 text-align">{{activity.activity_name}}</td>
+        <td class="col-sm-2 text-align mobile">{{activity.create_time}}</td>
+        <!--<td class="col-sm-2 text-align">{{activity.mark}}</td>-->
+        <td class="col-sm-1 text-align mobile">{{activity.address}}</td>
+        <td class="col-sm-1 text-align mobile">
+          <img style="width: 50px; height: 30px" src="{{activity.banner}}">
+        </td>
+        <td class="col-sm-1 text-align mobile">
+          <button type="button" class="btn_preview" (click)="upload_test(activity)">上传测试</button>
+        </td>
+        <td class="col-sm-1 text-align mobile">
+          <button (click)="delActivity(activity)">删除</button>
+        </td>
+        <td class="col-sm-1 text-align">
+          <button (click)="setupActivity(activity.activity_id)">设定</button>
+        </td>
+        <td class="col-sm-1 text-align mobile">
+          <button (click)="setlaterStage(activity.activity_id)">后期</button>
+        </td>
+        <td class="col-sm-1 text-align mobile">
+          <button (click)="setupMonitor(activity.activity_id)">报警</button>
+        </td>
+        <td class="col-sm-1 text-align">
+          <button (click)="goMakeMoviePage(activity.activity_id)">拍摄</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 活动报警设定 -->
+  <div *ngIf="isshow_SetupMonitor" class="monitor_setting">
+    <div class="monitor">
+      <div class="weekday_select">
+        <div class="border_circle" *ngFor="let index of weekdays;let i=index" (click)="click_weekday(i+1)">
+          {{index}}
+        </div>
+      </div>
+      <div class="weekday_times">
+        <div>
+          <input type="checkbox" (click)="chooseHeartbeat($event.target.checked,'heartbeat')">心跳
+        </div>
+        <div class="weekday_times_start">
+          <font>开始</font>
+          <label class="example-input-wrapper">
+            <input placeholder="begin" [(ngModel)]="weekday_times_begin" [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5">
+            <owl-date-time [pickerType]="'timer'" #dt5></owl-date-time>
+          </label>
+        </div>
+        <div class="weekday_times_end">
+          <font>结束</font>
+          <label class="example-input-wrapper">
+            <input placeholder="end" [(ngModel)]="weekday_times_end" [owlDateTimeTrigger]="dt6" [owlDateTime]="dt6">
+            <owl-date-time [pickerType]="'timer'" #dt6></owl-date-time>
+          </label>
+        </div>
+      </div>
+      <hr>
+      <div class="Simulate">
+        <h5>模拟</h5>
+        <div class="Simulate_time">
+          <input type="radio" name="time_type" (click)="checkTimeType(time_slot.value)" value="slot" #time_slot>时段
+          <div class="Simulate_time_slot">
+            <div>
+              <font>开始</font>
+              <label class="example-input-wrapper">
+                <input placeholder="begin" [(ngModel)]="Simulate_time_begin" [owlDateTimeTrigger]="dt7"
+                  [owlDateTime]="dt7">
+                <owl-date-time [pickerType]="'timer'" #dt7></owl-date-time>
+              </label>
+            </div>
+            <div>
+              <font>结束</font>
+              <label class="example-input-wrapper">
+                <input placeholder="end" [(ngModel)]="Simulate_time_end" [owlDateTimeTrigger]="dt8" [owlDateTime]="dt8">
+                <owl-date-time [pickerType]="'timer'" #dt8></owl-date-time>
+              </label>
+            </div>
+            <div>
+              <font>每隔(分)</font>
+              <input type="number" [(ngModel)]="interval">
+            </div>
+          </div>
+          <input type="radio" name="time_type" (click)="checkTimeType(time_point.value)" value="point" #time_point>时间
+          <div class="Simulate_time_point">
+            <div>
+              <font>时间点1</font>
+              <label class="example-input-wrapper">
+                <input placeholder="time1" [(ngModel)]="time1" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1">
+                <owl-date-time [pickerType]="'timer'" #dt1></owl-date-time>
+              </label>
+            </div>
+            <div>
+              <font>时间点2</font>
+              <label class="example-input-wrapper">
+                <input placeholder="time2" [(ngModel)]="time2" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2">
+                <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+              </label>
+            </div>
+            <div>
+              <font>时间点3</font>
+              <label class="example-input-wrapper">
+                <input placeholder="time3" [(ngModel)]="time3" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3">
+                <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn_group">
+        <button class="btn_apply" (click)="makesureSetupMonitor()">应用</button>
+      </div>
+      <div class="title">报警</div>
+    </div>
+    <div class="inform">
+      <div class="inform_select">
+        <span>添加 </span>
+        <img src="assets/images/L.png" alt="图片">
+        <div class="same">
+          <div>
+            <font>短信</font>
+            <input type="text" [(ngModel)]="message_add">
+          </div>
+          <div>
+            <font>邮箱</font>
+            <input type="text" [(ngModel)]="email_add">
+          </div>
+          <button class="btn_add" (click)="addInform()">添加</button>
+        </div>
+        <span>删除</span>
+        <img src="assets/images/L.png" alt="图片">
+        <div class="same">
+          <div>
+            <font>短信</font>
+            <select [(ngModel)]="message_delete" (change)="chooseMessage()">
+              <option *ngFor="let message of messageList">{{ message}}</option>
+            </select>
+          </div>
+          <div>
+            <font>邮箱</font>
+            <select [(ngModel)]="email_delete" (change)="chooseEmail()">
+              <option *ngFor="let email of emailList">{{email }}</option>
+            </select>
+          </div>
+          <button class="btn_delete" (click)="deleteInform()">添加</button>
+        </div>
+      </div>
+      <div class="title">通知</div>
+    </div>
+    <div class="stop">
+      <button (click)="stopMonitor()">暂停</button>
+      至当天24点
+    </div>
+    <div class="btn">
+      <button class="btn_logout" (click)="cancel_Monitor()">退出</button>
+    </div>
+  </div>
+
+  <!-- 活动采集盒设定 -->
+  <div *ngIf="ishow_set_activity" class="activity_setting">
+    <div class="collect_setting">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <td style="width: 25%">deviceId/备注</td>
+          <!-- <td style="width: 15%;">备注</td> -->
+          <!-- <td style="width: 10%">机位</td> -->
+          <td style="width: 15%">长度(s)</td>
+          <td style="width: 15%;padding: 12px 0px">触发前(s)</td>
+          <!-- <td style="width: 10%;padding: 12px 0px">采集后(s)</td> -->
+          <td style="width: 15%;padding: 12px 0px">等待长度(s)</td>
+          <!-- <td style="width: 10%">序列</td> -->
+          <td style="width: 20%">触发方式</td>
+          <td>提示</td>
+          <td style="width: 15%">
+            <button class="btn_add" (click)="Add_device()">添加</button>
+          </td>
+        </thead>
+        <tr *ngFor="let device of deviceList;index as i">
+          <td>
+            <select [(ngModel)]="device.deviceId" (change)="chooseDeviceId(i)" style="width: 100%;font-size: 13px;">
+              <option *ngFor="let deviceId of deviceList_backup" [selected]="device.deviceId==deviceId.deviceId"
+                value={{deviceId.deviceId}}>
+                {{ deviceId.deviceId }}/{{deviceId.mark}}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="device.collect.duration">
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="device.collect.time_before">
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="device.collect.wait">
+          </td>
+          <td>
+            <select [(ngModel)]="device.trigger_type.trigger_type_name" (change)="chooseTriggerModel(i)"
+              (click)="click(i)" style="width: 60%;font-size: 13px">
+              <marquee direction="left" behavior="scroll" scrollamount="10" scrolldelay="200"></marquee>
+              <option value="manual" [selected]="device.trigger_type.trigger_type_name=='manual'">人工触发
+              </option>
+              <option value="auto" [selected]="device.trigger_type.trigger_type_name=='auto'">自动辨识
+              </option>
+              <option value="api" [selected]="device.trigger_type.trigger_type_name=='api'">API触发</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn_cue" (click)="set_PromptScreen(device.deviceId)">提示</button>
+          </td>
+          <td>
+            <button class="btn_delete" (click)="delete_device(i)">删除</button>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <input style="margin-right: 3px;" type="radio" name="mode" (click)="checkMode(random_mode.value)" value="random"
+          [checked]="collect_style=='random'" #random_mode>随机
+        <input style="margin-right: 3px;margin-left:20px;" type="radio" name="mode"
+          (click)="checkMode(async_mode.value)" value="async" #async_mode [checked]="collect_style=='async'">线性
+        <input style="margin-right: 3px;margin-left:20px;" type="radio" name="mode" (click)="checkMode(sync_mode.value)"
+          value="sync" #sync_mode [checked]="collect_style=='sync'">同步
+        <font style="margin-right: 3px;margin-left: 18px">次数</font>
+        <input style="margin-left:10px;width: 5%;text-align:center" type="number" [(ngModel)]="shoot_count">
+        <input style="margin-right: 3px;margin-left:30%;" type="radio" name="screen"
+          (click)="checkScreen(Vertical_mode.value)" value="vertical" #Vertical_mode checked>竖屏
+        <input style="margin-right: 3px;margin-left:20px;" type="radio" name="screen"
+          (click)="checkScreen(Horizontal_mode.value)" value="horizontal" #Horizontal_mode>横屏
+      </div>
+      <div style="margin-top:10px;">
+        <div class="order">
+          <font style="margin-left:20px;">开始指令</font>
+          <input style="margin-left:10px;" type="text" [(ngModel)]="start_signal">
+        </div>
+        <div class="order">
+          <font style="margin-left:20px;">结束指令</font>
+          <input style="margin-left:10px;" type="text" [(ngModel)]="end_signal">
+        </div>
+        <!-- 触发方式设定 -->
+        <div class="trigger_select" *ngIf="isshow_Trigger">
+          <div style="display: inline" *ngIf="!isshow_APITrigger">
+            <font>辨识模型</font>
+            <select [(ngModel)]="myModel" (change)="chooseModel('init')" style="width: 20%">
+              <option *ngFor="let model of modelList" value="{{model.model}}">{{ model.name }}</option>
+            </select>
+            <div style="display: inline-block;margin-left: 5px">
+              <span *ngFor="let action of this.myModelActions">
+                <input type="checkbox" (click)="chooseAction(action.act)"
+                  [checked]="mySelActs.indexOf(action.act)>-1">{{action.name}}
+              </span>
+            </div>
+            <button (click)="verifyTrigger('auto')">确认</button>
+          </div>
+          <div class="showAPI" *ngIf="isshow_APITrigger">
+            <div>API触发</div>
+            <div>
+              <font>开始</font>
+              <input type="text" [(ngModel)]="api_start_cmd">
+            </div>
+            <div>
+              <font>结束</font>
+              <input type="text" [(ngModel)]="api_end_cmd">
+            </div>
+            <div>
+              <font>本机</font>
+              <input type="text" [(ngModel)]="api_local_cmd">
+            </div>
+            <div>
+              <button (click)="verifyTrigger('api')">确认</button>
+            </div>
+          </div>
+        </div>
+        <!-- 提示屏幕设定 -->
+        <div class="PromptScreen" *ngIf="isshow_PromptScreen">
+          <div class="firstLine">
+            <font>视频流</font>
+            <input type="checkbox">
+          </div>
+          <div class="upload_img">
+            <font>提示</font>
+            <input type="text" [(ngModel)]="prompt_url" placeholder="可上传MP3、MP4、JPG、PNG">
+            <img *ngIf="isshowact_prompt" class="act" src="assets/images/waiting.png" alt="图片">
+            <img *ngIf="isuploadprompt" src="assets/images/finish.png" alt="图片">
+            <div class="btn_upload">上传</div>
+            <input class="input_img" type="file" #Image accept="image/*,video/*,audio/*" value="上传文件"
+              (change)="handleFileInput($event.target.files,'prompt')">
+            <div class="btn_delete">删除</div>
+          </div>
+          <div class="upload_img">
+            <font>开始</font>
+            <input type="text" [(ngModel)]="begin_url" placeholder="可上传MP3、MP4、JPG、PNG">
+            <img *ngIf="isshowact_begin" class="act" src="assets/images/waiting.png" alt="图片">
+            <img *ngIf="isuploadbegin" src="assets/images/finish.png" alt="图片">
+            <div class="btn_upload">上传</div>
+            <input class="input_img" type="file" #Image accept="image/*,video/*,audio/*" value="上传文件"
+              (change)="handleFileInput($event.target.files,'begin')">
+            <div class="btn_delete">删除</div>
+          </div>
+          <div class="upload_img">
+            <font>进度</font>
+            <input type="text" [(ngModel)]="progress_url" placeholder="可上传MP3、MP4、JPG、PNG">
+            <img *ngIf="isshowact_progress" class="act" src="assets/images/waiting.png" alt="图片">
+            <img *ngIf="isuploadprogress" src="assets/images/finish.png" alt="图片">
+            <div class="btn_upload">上传</div>
+            <input class="input_img" type="file" #Image accept="image/*,video/*,audio/*" value="上传文件"
+              (change)="handleFileInput($event.target.files,'progress')">
+            <div class="btn_delete">删除</div>
+          </div>
+          <div class="upload_img">
+            <font>结束</font>
+            <input type="text" [(ngModel)]="end_url" placeholder="可上传MP3、MP4、JPG、PNG">
+            <img *ngIf="isshowact_end" class="act" src="assets/images/waiting.png" alt="图片">
+            <img *ngIf="isuploadend" src="assets/images/finish.png" alt="图片">
+            <div class="btn_upload">上传</div>
+            <input class="input_img" type="file" #Image accept="image/*,video/*,audio/*" value="上传文件"
+              (change)="handleFileInput($event.target.files,'end')">
+            <div class="btn_delete">删除</div>
+          </div>
+          <div class="qrcode_setting">
+            <font>二维码</font>
+            <input style="margin-right: 3px;margin-left: 10px;" type="radio" name="qrcode"
+              (click)="checkQrcode(qrcode_true.value)" value="true" #qrcode_true [checked]="isshowQRcode">有
+            <input style="margin-left: 5px;" type="text" placeholder="二维码规则">
+            <input style="margin-right: 3px;margin-left:15px;" type="radio" name="qrcode"
+              (click)="checkQrcode(qrcode_false.value)" value="false" #qrcode_false [checked]="!isshowQRcode">无
+          </div>
+          <div class="upload_img">
+            <font>等待</font>
+            <input style="width:40px" type="text" [(ngModel)]="prompt_wait">s
+          </div>
+          <div class="btn_group">
+            <button class="btn_close" (click)="confirm_prompt()">确认</button>
+            <button class="btn_close" (click)="close()">关闭</button>
+          </div>
+        </div>
+        <div class="JSON_response" *ngIf="isshow_response">
+          <font style="display:inherit">采集盒设定反馈</font>
+          <textarea style="width: 300px;height: 250px;  word-break: break-all">{{mome_res}}</textarea>
+        </div>
+        <div class="btn_group">
+          <button class="btn_update" (click)="update_deviceList()">更新</button>
+          <button class="btn_logout" (click)="logout()">关闭</button>
+        </div>
+        <div class="title">采集</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 活动后期设定 -->
+  <div *ngIf="isshow_later_stage" class="activity_setting">
+    <div class="collect_setting">
+      <div>
+        <button class="found" (click)="addfound()">＋创建模板</button>
+      </div>
+      <div class="mould">
+        <div *ngIf="isshowdisc">
+          <div class="name">
+            <font>名称</font>
+            <input type="text" [(ngModel)]="name">
+          </div>
+          <div class="disc">
+            <font class="desc">描述</font>
+            <input type="text" [(ngModel)]="desc">
+          </div>
+        </div>
+        <div class="mname" *ngIf="isshowtmpsel">
+          <font>模板名称</font>
+          <select style="margin-left:15px;font-size:13px;margin-right:15px;" (change)="choosetmpId($event.target.value)">
+            <option>--创建模板--</option>
+            <option *ngFor="let tmpId of templateName;index as i">{{tmpId}}</option>
+          </select>
+        </div>
+        <button (click)="addSetting()" class="add" *ngIf="isshowdisc">添加</button>
+        <button (click)="deltemplate()" *ngIf="isshowdel">删除</button>
+      </div>
+      <table class="table table-bordered" *ngIf="isshow_table">
+        <thead>
+          <tr>
+
+            <td rowspan="2" style="width: 20%">段落</td>
+            <td rowspan="2" style="width: 10%">长度(s)</td>
+            <td rowspan="2" style="width: 8%">起点(s)/序号</td>
+            <td rowspan="2" style="width:  7%">前几秒</td>
+            <td rowspan="2" style="width: 5%">API</td>
+            <td rowspan="2" style="width: 15%">特效模板</td>
+            <td  colspan="4" style="width: 25%">特效
+            </td>
+            <td rowspan="2" style="width: 10%">
+              <button (click)="add()">添加</button>
+              <select (change)="choosetype($event.target.value)">
+                <option>--请选择--</option>
+                <option *ngFor="let sel of choose;index as i1">{{sel.value}}</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            
+              <td>速度</td>
+              <td>亮度(-1.0-1.0)</td>
+              <td>对比度(-2.0-2.0)</td>
+              <td>饱和度(0-3.0)</td>
+          </tr>
+
+        </thead>
+        <tr *ngFor="let device of later_device;index as i">
+          <td>
+            <select [(ngModel)]="device.order" (change)="chooseOrder(i)" style="width: 100%;font-size: 13px;">
+              <option *ngFor="let deviceId of later_deviceList_backup;index as i1"
+                [selected]="device.order == deviceId.order" value={{deviceId.order}}>
+                {{ deviceId.deviceId }}/{{deviceId.mark}}/{{i1}}
+              </option>
+            </select>
+            <div class="flower" *ngIf="device.everytype=='flower'">
+              <div class="btn_upload">上传
+                <input class="input_img" type="file" #Image accept="image/*,video/*" value="上传片花"
+                  (change)="handleFileInput($event.target.files,i)">
+              </div>
+              <input type="text" [(ngModel)]="device.paste" class="inputbox">
+              <img *ngIf="device.isshow_paste" class="act" src="assets/images/waiting.png" alt="图片">
+              <img *ngIf="device.isuploadpaste" src="assets/images/finish.png" alt="图片">
+            </div>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="device.duration">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="device.begin">
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="device.fewseconds">
+          </td>
+          <td>
+            <select [(ngModel)]="device.API" (change)="chooseAPI($event.target.value,i)">
+              <option>--请选择--</option>
+              <option>HIT</option>
+            </select>
+          </td>
+          <td>
+              <span class="flower">
+                  <div class="btn_upload" style="display: inline;">上传
+                    <input class="input_img" type="file" #Image accept="image/*,video/*" value="上传模板"
+                      (change)="handleFileInput($event.target.files,i, 'paste_mov')">
+                  </div>
+                  <input type="text" [(ngModel)]="device.paste_mov" class="inputbox2">
+                  <img *ngIf="device.isshow_paste_mov" class="act" src="assets/images/waiting.png" alt="图片">
+                  <img *ngIf="device.isuploadpaste_mov" src="assets/images/finish.png" alt="图片">
+                </span>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="device.effect">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="device.brightness">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="device.contrast">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="device.saturation">
+          </td>
+          <td>
+            <button class="btn_delete" (click)="delete(i)">删除</button>
+          </td>
+        </tr>
+      </table>
+      <div class="largebottom" *ngIf="isshow_table">
+        <div class="bg_music">
+          <font>背景音乐</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checkbgm" ng-checked="checkbgm==true">
+          <input type="text" [(ngModel)]="bgmusic_url">
+          <img *ngIf="isshowact_bgm" class="act" src="assets/images/waiting.png" alt="图片">
+          <img *ngIf="isuploadbgm" src="assets/images/finish.png" alt="图片">
+          <div class="btn_upload">上传
+            <input class="input_img" type="file" #Image accept="audio/*" value="上传音乐"
+              (change)="handleFileInput($event.target.files,'bgmusic')">
+          </div>
+          <div class="btn_upload" (click)="delsource('music',bgmusic_url)">删除</div>
+          <input type="text" class="sm_box" [(ngModel)]="bgmvolume">
+          <font>音量(db)</font>
+        </div>
+        <div class="bg_music">
+          <font>边框图片</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checkframe" ng-checked="checkframe==true">
+          <input type="text" [(ngModel)]="borderpic_url">
+          <img *ngIf="isshowact_border" class="act" src="assets/images/waiting.png" alt="图片">
+          <img *ngIf="isuploadborder" src="assets/images/finish.png" alt="图片">
+          <div class="btn_upload">上传
+            <input class="input_img" type="file" #Image accept="image/*" value="上传图片"
+              (change)="handleFileInput($event.target.files,'borderpic')">
+          </div>
+          <div class="btn_upload" (click)="delsource('border',borderpic_url)">删除</div>
+          <input type="checkbox" class="checkbox">
+          <font>自配</font>
+        </div>
+        <div class="bg_music">
+          <font>绿屏背景</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checkgv" ng-checked="checkgv==true">
+          <input type="text" [(ngModel)]="bgvideo_url">
+          <img *ngIf="isshowact_bg" class="act" src="assets/images/waiting.png" alt="图片">
+          <img *ngIf="isuploadbg" src="assets/images/finish.png" alt="图片">
+          <div class="btn_upload">上传
+            <input class="input_img" type="file" accept="image/*,video/*" value="上传视频"
+              (change)="handleFileInput($event.target.files,'bgvideo')">
+          </div>
+          <div class="btn_upload" (click)="delsource('background',bgvideo_url)">删除</div>
+          <input type="text" class="sm_box" [(ngModel)]="gvvolume">
+          <font>音量(db)</font>
+        </div>
+        <div class="bg_music">
+          <font>速度效果</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checkeffect_speed" ng-checked="checkeffect_speed==true">
+          <font>起点</font>
+          <input type="text" class="sm_box" [(ngModel)]="start">
+          <font>时长</font>
+          <input type="text" class="sm_box" [(ngModel)]="duration">
+          <font>倍速</font>
+          <input type="text" class="sm_box" [(ngModel)]="speed">
+        </div> 
+        <div class="bg_music">
+          <font>旋转效果</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checkeffect_rotate" ng-checked="checkeffect_rotate==true">
+          <font>角度</font>
+          <input type="text" class="sm_box" [(ngModel)]="rotate">
+          <font>(可填入0,1,2,3)</font>
+        </div> 
+        <div class="bg_mid">
+          <font>绿屏</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checkgs" ng-checked="checkgs==true">
+          <font>颜色</font>
+          <input type="text" class="sm_box" [(ngModel)]="color">
+          <font>相似度</font>
+          <input type="text" class="sm_box" [(ngModel)]="similar">
+          <font>混合</font>
+          <input type="text" class="sm_box" [(ngModel)]="mix">
+        </div>
+        <div class="bg_mid">
+          <font>收音</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checkaudio" ng-checked="checkaudio==true">
+          <font>音量(db)</font>
+          <input type="text" class="sm_box" [(ngModel)]="audio">
+        </div>
+        <div class="bg_btm">
+          <font>LOGO</font>
+          <input type="checkbox" class="checkbox" [(ngModel)]="checklogo" ng-checked="checklogo==true">
+          <input type="text" [(ngModel)]="logo">
+          <img *ngIf="isshowact_logo" class="act" src="assets/images/waiting.png" alt="图片">
+          <img *ngIf="isuploadlogo" src="assets/images/finish.png" alt="图片">
+          <div class="btn_upload">上传
+            <input class="input_img" type="file" #Image accept="image/*" value="上传照片"
+              (change)="handleFileInput($event.target.files,'logo')">
+          </div>
+          <input type="text" class="sm_box" [(ngModel)]="x">
+          <font>位置(x)</font>
+          <input type="text" class="sm_box" [(ngModel)]="y">
+          <font>位置(y)</font>
+        </div>
+      </div>
+      <div class="btn_group" *ngIf="isshow_table">
+        <button class="btn_update" (click)="update_laterStage()">应用</button>
+        <button class="btn_confirm" (click)="confirm_laterStage()">确认</button>
+        <button class="btn_logout" (click)="logout_latersetting()">关闭</button>
+      </div>
+      <div class="title">活动后期</div>
+    </div>
+  </div>
+  <!-- 拍摄界面 -->
+  <div *ngIf="isshow_Photo" class="photo_setting">
+    <div class="form_setting border-0">
+      <div class="top">
+        <div class="row">
+          <div class="col-sm-12 center">
+            <h3>拍摄遥控器</h3>
+            <button class="btn_photo" (click)="makeMovie()">拍摄</button>
+          </div>
+        </div>
+        <table class="table table-hover" style="width:100%;text-align:center;">
+          <tr class="row">
+            <td class="col-sm-2 text-align">deviceId</td>
+            <td class="col-sm-1 text-align">长度</td>
+            <td class="col-sm-2 text-align">触发</td>
+            <td class="col-sm-3 text-align">进度</td>
+            <td class="col-sm-2 text-align">状态</td>
+            <td class="col-sm-2 text-align">信息</td>
+          </tr>
+          <tr class="row" *ngFor="let device of deviceList;index as i">
+            <td class="col-sm-2 text-align">{{device.deviceId}}</td>
+            <td class="col-sm-1 text-align">{{device.collect.duration}}</td>
+            <td class="col-sm-2 text-align">{{device.trigger_type.trigger_type_name}}</td>
+            <td class="col-sm-3  text-align">
+              <progress value="{{device.width}}" max='100' width="70%"></progress>
+              {{device.width}}%
+            </td>
+            <td class="col-sm-2 text-align">{{replaceMakeShootState(device.status) }}</td>
+            <td class="col-sm-2 text-align">{{device.reason}}</td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="under">
+        <!-- <ul>
+          <li class="after">
+            <p>时间</p>
+            <p>17:55</p>
+            <p>17:58</p>
+            <p>17:59</p>
+            <p>18:00</p>
+          </li>
+          <li class="pro">
+            <p>进度</p>
+            <p>上传</p>
+            <p>完成</p>
+            <p>中断</p>
+            <p>完成</p>
+          </li>
+        </ul> -->
+        <!-- <div class="img_qrcode"> -->
+        <img src="{{qrcode_url}}" alt="图片">
+       <!-- </div>  -->
+        <div class="close">
+           <button class="btn_logout" (click)="endMovie()">结束拍摄</button>
+          <button class="btn_logout" (click)="closePhoto()">关闭</button>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

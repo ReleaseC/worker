@@ -1,0 +1,45 @@
+<h4 style="text-align:center">采集盒压力测试</h4>
+<button class="leave" (click)="leave()">离开</button>
+<div class="container">
+    <div class="activity">
+        <table class="table table-bordered" style="text-align:center">
+            <thead>
+                <td style="width:40%">活动</td>
+                <td style="width:10%">次数</td>
+                <td style="width:10%">等待(秒)</td>
+                <td style="width:10%"></td>
+                <td style="width:10%">进度</td>
+                <td style="width:10%">失败</td>
+                <td style="width:10%">
+                    <button (click)="add_activity()">添加</button>
+                </td>
+            </thead>
+            <tr *ngFor="let test of activity_test;index as i">
+                <select class="select" (change)="chooseActivityId(i)" [(ngModel)]="test.activity_id">
+                    <option *ngFor="let activity of activityList;"
+                        [selected]="test.activity_id==activity.activity_id" value={{activity.activity_id}}>
+                        {{activity.activity_name}}</option>
+                </select>
+                <td><input type="text" [(ngModel)]="test.count"></td>
+                <td><input type="text" [(ngModel)]="test.wait"></td>
+                <td>
+                    <button (click)="begin_test(i)">开始</button>
+                </td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>
+                    <button (click)="delete_activity(i)">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="result">
+        <span style="font-size:20px;">结果LOG</span>
+        <button (click)="reset_result()">重置</button>
+        <button (click)="save_result()">保存</button>
+        <div style="margin-top:20px;">
+            <textarea cols="130" rows="20" [(ngModel)]="result"></textarea>
+        </div>
+    </div>
+
+</div>

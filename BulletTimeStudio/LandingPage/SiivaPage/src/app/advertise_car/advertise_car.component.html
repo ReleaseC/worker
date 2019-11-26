@@ -1,0 +1,16 @@
+<div class="advertise">
+    <div class="videolist">
+        <div class="border1" *ngFor="let index of videolist,let i=index">
+         <video class="video"  data-src="http://localhost:22222?file_name=1541732870qz/task/{{index.taskId}}/{{index.taskId}}.mp4"  preload="auto"  autoplay="autoplay" loop="loop">
+        </video>
+        <img class="border_img" src="assets/images/border.png" alt="图片">
+        <img class="cute" src="assets/images/cute.png" alt="图片">
+        <!-- <div class="{{isRotate ?'address rotate':'address'}}">{{address}}</div> -->
+        <!-- <div class="{{isAnimate ?'transiltion animate':'transiltion'}}"><img src="assets/videos/transition.png" width="100%" alt="图片"></div> -->
+        <!-- <img src="assets/videos/qrcode.jpg" alt="圖片"> -->
+         <!-- <div class="video_ID">视频ID：<span>{{index.taskId.substring(index.taskId.length-6)}}</span></div> -->
+         <div class="video_ID"><span>{{index.time}}</span></div>
+         <qrcode class="qrcode" [qrdata]="'https://ui.siiva.com/SiivaPage/#/pay?activity_id=1541732870qz&taskId='+index.taskId" [size]="80" [level]="'M'"></qrcode>
+        </div> 
+  </div>
+  </div>

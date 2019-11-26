@@ -1,0 +1,18 @@
+table tr:nth-child(1){
+  background-color:#FFFFFF;
+  color: #000000;
+}
+// table tr:nth-child(2n+3){
+//     background-color:#07c734;
+//     color: #FFFFFF;
+
+// }
+// table tr:nth-child(2n+2){
+//     background-color:#FFFFFF;
+//     color: #000000;
+// }
+
+input[type="checkbox"]{
+  width: 30px; /*Desired width*/
+  height: 30px; /*Desired height*/
+}

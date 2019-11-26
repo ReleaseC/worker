@@ -1,0 +1,169 @@
+<div class="homepage">
+    <!-- <div class="background" *ngIf="isshow_navleft" (click)="cancel_selection()"></div> -->
+    <!-- <div class="nav_right">
+        <div id=allmap></div>
+        <div class="activity_time">
+             <span>活动时间</span>
+             <input type="date" class="form-control" [(ngModel)]="activityTime" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        </div>
+        <div class="hr1"></div> 
+        <div class="activity_place">
+             <span>活动地点</span>
+             <div class="btn_single_confirm"><span>{{activityPlace}}</span></div>
+             <img class="refresh_pic" src="assets/images/refresh.png" alt="图片" >
+             <div class="position">定位</div>
+             <div class="btn_group_place">
+                <div class="btn_single" id='btn_place_{{i}}' *ngFor="let index of activity_address_list,let i=index" (click)="selectPlace(index,i)">
+                        <span>{{index}}</span>
+                </div>      
+             </div>
+        </div>
+        <div class="hr1"></div>  
+        <div class="activity_name">
+             <span>活动名称</span>
+             <div class="btn_group">
+                <div class="btn_single" id='btn_name_{{i}}' *ngFor="let index of activity_name_list,let i=index" (click)="selectName(index.activity_id,i)">
+                        <span>{{index.activity_name}}</span>
+                </div>      
+             </div>
+        </div>  
+        <div class="hr1"></div>
+        <div class="activity_age">
+             <span>年龄区间</span>
+        </div> 
+        <div class="hr1"></div> 
+        <div class="activity_btn">
+            <div class="btn_refresh" (click)="reset()"><span class="btn_txt">重置</span></div>
+            <div class="btn_confirm" (click)="confirm()"><span class="btn_txt">确认</span></div>
+        </div>      
+    </div> -->
+    <div class="home_body">
+        <!-- 主页面 -->
+        <div id="firstpage" *ngIf="isShow_firstpage" (scroll)="scroll('firstpage')">
+            <div class="banner">
+                <img src="{{banner_img}}" alt="">
+                <div class="title" *ngIf="isshowTitle">{{activityName}}</div>
+                <div class="description" *ngIf="isshowMark">{{description}}</div>
+            </div>
+            <div class="middle-col">
+                <div class="play_number">
+                    <img src="assets/images/play_number.png" alt="图片">
+                    <span style="color:rgb(95, 95, 95)">{{play_number}}</span>
+                </div>
+                <div class="ip_number">
+                        <img src="assets/images/ip_number.png" alt="图片">
+                        <span style="color:rgb(95, 95, 95)">{{ip_number}}</span>
+                </div>
+                <div class="video_number">
+                        <img src="assets/images/video_number.png" alt="图片">
+                        <span style="color:rgb(95, 95, 95)">{{video_number}}</span>
+                </div>
+                <!-- <div class="icon-filter" (click)="select()">
+                        <img src="assets/images/filter.png" alt="图片">
+                        <span style="color:rgb(218, 218, 218)">筛选</span>
+                </div> -->
+                <div class="icon-search" (click)="goUploadPhoto()" *ngIf="isshow_findme">
+                        <img src="assets/images/search.png" alt="图片">
+                        <span style="color:rgb(218, 218, 218)">找我</span>
+                </div>
+            </div>
+            <div class="videolist">
+                <div class="border1" style.width="{{index.task.horizontal?'100%':'50%'}}" id="{{index.task.taskId}}" *ngFor="let index of videolist,let i=index">
+                  <ngui-in-view style.min-height="{{height_value}}">
+                    <img *ngIf src="{{index.createdAt>'2018-12-04 14:15:04'||index.activity_id=='1541382417'?'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_'+index.task.taskId+'_min.jpg':'https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_'+index.task.taskId+'.jpg'}}" alt="" (click)="goVideo(index.activity_id,index.task.taskId,i)">
+                </ngui-in-view>
+                    <div class="play_number_count">
+                        <div class="icon-play">
+                        <img src="assets/images/icon-play-border.png" alt="图片"> 
+                        </div>
+                        <div class="play_number">{{index.play}}</div> 
+                    </div> 
+                </div> 
+           </div>
+        </div>
+
+        <!-- 我的页面 -->
+        <div id="mypage" *ngIf="!isShow_firstpage" (scroll)="scroll('mypage')">
+               <div class="banner">
+                    <img src="assets/images/background_mypage.png" alt="图片">
+                    <div class="face">
+                       <img id="face_demo" src="assets/images/face_demo.png" alt="图片">
+                       <img src="assets/images/pic_border.png" alt="图片">
+                       <img id="face_headimg" src="{{headimgurl}}" alt="图片">
+                       <!-- <img id="face_demo" src="assets/images/face_demo.png" alt="图片"> -->
+                       <span>{{nikeName}}</span>
+                    </div>
+                </div>
+                <div class="middle-col">
+                        <div class="myvideos" (click)="getmyvideos()">
+                            <span [style.color]="isclicked_myvideos?'rgb(255, 255, 255)':'rgb(130, 140, 145)'">{{collectvideos_number}} 收藏</span>
+                        </div>
+                        <div class="likevideos"  (click)="getlikevideos()">
+                            <span [style.color]="isclicked_likevideos?'rgb(255, 255, 255)':'rgb(130, 140, 145)'">{{likevideos_number}} 赞过</span>
+                        </div>
+                </div>
+                <div class="myvideolist">
+                        <!-- <div class="face_search_pic" *ngIf="isclicked_myvideos" (click)="goUploadPhoto()">
+                              <img class="box" src="assets/images/box.png" alt="图片">
+                              <div class="face_search">
+                                 <img src="assets/images/face_search.png" width="7%" alt="图片">
+                                 <span>立即查找</span>
+                              </div> 
+                       </div> -->
+                       <div class="myvideoslist" *ngIf="isclicked_myvideos">
+                               <div class="border1" [style.width]="border1_width" *ngFor="let index of collectVideolist,let i=index">
+                                        <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg" alt="图片" (click)="goVideo(index.activity_id,index.task.taskId,i)">
+                                </div>
+                       </div>
+                       <div class="likevideoslist" *ngIf="isclicked_likevideos">
+                                <div class="border1" [style.width]="border1_width" *ngFor="let index of likeVideolist,let i=index">
+                                        <img src='https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg' alt="图片" (click)="goVideo(index.activity_id,index.task.taskId,i)">
+                                </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+    <!-- <div class="scroll_text">
+        正在定位到您上次浏览位置...    
+    </div> -->
+
+
+   <div class="homepage_bottom" *ngIf="isshow_homepage_bottom">
+       <div class="icon">
+            <div class="icon-all">
+                <img src="assets/images/icon-all-1.png" alt="图片">
+                <span class="icon-text" style="color:rgb(101, 128, 237)">全部</span>
+            </div> 
+            <div class="icon-all" *ngIf="isShow_iconall_L" (click)="getallvideos()">
+                    <img src="assets/images/icon-all-2.png" alt="图片">
+                    <span class="icon-text" style="color:rgb(218, 218, 218)">全部</span>
+            </div>
+            <div class="icon-updown" *ngIf="isShow_icondown_H" (click)="sortByDESCtoASC()">
+                    <img src="assets/images/icon-down-1.png" alt="图片">
+                    <span class="icon-text" style="color:rgb(101, 128, 237)">降序</span>
+            </div>
+            <div class="icon-updown" *ngIf="isShow_icondown_L" (click)="sortByDESC()">
+                    <img src="assets/images/icon-down-2.png" alt="图片">
+                    <span class="icon-text" style="color:rgb(218, 218, 218)">降序</span>
+            </div>
+            <div class="icon-updown" *ngIf="isShow_iconup_H" (click)="sortByASCtoDESC()">
+                    <img src="assets/images/icon-up-1.png" alt="图片">
+                    <span class="icon-text" style="color:rgb(101, 128, 237)">升序</span>
+            </div>
+            <div class="icon-updown" *ngIf="isShow_iconup_L" (click)="sortByASC()">
+                    <img src="assets/images/icon-up-2.png" alt="图片">
+                    <span class="icon-text" style="color:rgb(218, 218, 218)">升序</span>
+            </div>
+            <div class="icon-me">
+                    <img src="assets/images/icon-me-1.png" alt="图片">
+                    <span class="icon-text" style="color:rgb(101, 128, 237)">我的</span>
+            </div>
+            <div class="icon-me" *ngIf="isShow_iconme_L" (click)="getmyvideo()">
+                    <img src="assets/images/icon-me-2.png" alt="图片">
+                    <span class="icon-text" style="color:rgb(218, 218, 218)">我的</span>
+            </div>
+       </div>
+   </div>
+   <div class="icon_fresh" (click)="Fresh()"><img src="assets/images/fresh.png" width=100% alt="图片"></div>
+   <div class="icon_scrolltotop" (click)="scrollToTop()"><img src="assets/images/scrolltotop.png" width=100% alt="图片"></div>
+</div>

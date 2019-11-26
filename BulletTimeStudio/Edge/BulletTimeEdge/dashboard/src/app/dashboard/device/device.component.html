@@ -1,0 +1,20 @@
+<!-- <div>
+    [{{device['index']}}] {{device['id']}} 
+        <ngx-mat-numberpicker [default]='getIndex()' (onChange)='onIndexChanged($event)'></ngx-mat-numberpicker>
+        <img [src]='getPreview()'><img/>
+</div> -->
+<table>
+    <tr>
+        [{{device['index']}}] {{device['id']}} <br/>
+        real={{device['xy_all_real']}}<br/>
+        interpolated={{device['xy_all_interpolated']}}<br/>
+        <ngx-mat-numberpicker [default]='getIndex()' (onChange)='onIndexChanged($event)'></ngx-mat-numberpicker> 
+    </tr>
+    <tr>
+        <canvas [hidden]="isImg" [width]='WIDTH' [height]='HEIGHT' #layout></canvas>
+    </tr>
+    <tr>
+        <img [hidden]="!isImg" [src]='getPreview()' [width]='WIDTH' [height]='HEIGHT'>
+        <!-- 电量：<span>{{battery['index']}}</span> -->
+    </tr>
+</table>

@@ -1,0 +1,58 @@
+<div class="homepage">
+    <div class="home_body">
+        <!-- 主页面 -->
+        <div id="firstpage">
+            <div class="banner">
+                <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/1541382417.jpg" alt="">
+            </div>
+            <div class="middle-col">
+                <!-- <div class="menu"><span>杭州安吉凯蒂猫</span></div> -->
+                <div class="menu1" (click)="show_csd()"><img src="assets/images/custom.png" alt="图片"><span>客服</span></div>
+                <!-- <div class="menu" (click)="checkAddress('car')"><span [style.color]="isclicked_car?'rgb(255, 255, 255)':'rgb(130, 140, 145)'">环游世界小汽车</span></div>
+                <div class="menu" (click)="checkAddress('bullettime')"><span [style.color]="isclicked_bullettime?'rgb(255, 255, 255)':'rgb(130, 140, 145)'">时光子弹</span></div>   -->
+            </div>
+            <!-- <div *ngIf="isclicked_hellokitty"> -->
+                <div class="videolist" *ngIf="isshowVideolist_hellokitty">
+                    <div class="border1" style.width="{{index.activity_id=='1541382418'?'50%':'100%'}}" *ngFor="let index of HK_videolist,let i=index">
+                        <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg" alt="封面图" (click)="goVideo(index.activity_id,index.task.taskId)">
+                        <div class="undone" *ngIf="index.state !== 'complete'"><img id="ongoing" src="assets/images/ongoing.png" alt="图片"></div>
+                    </div> 
+               </div>
+               <div class="videolist" *ngIf="!isshowVideolist_hellokitty">
+                    <div class="showText">未找到您的拍摄记录</div>
+                    <div class="showText">我们在“凯蒂猫之家”等待您来拍摄并领取短视频</div>
+              </div>
+            <!-- </div> -->
+            <!-- <div *ngIf="isclicked_car">
+                    <div class="videolist" *ngIf="isshowVideolist_car">
+                        <div class="border1" *ngFor="let index of HK_videolist,let i=index">
+                            <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg" alt="封面图" (click)="goVideo(index.activity_id,index.task.taskId)">
+                            <div class="undone" *ngIf="index.state !== 'complete'"><img id="ongoing" src="assets/images/ongoing.png" alt="图片"></div>
+                        </div> 
+                   </div>
+                   <div class="videolist" *ngIf="!isshowVideolist_car">
+                        <div class="showText">未找到您的拍摄记录</div>
+                        <div class="showText">我们在“环游世界小汽车”等待您来拍摄并领取短视频</div>
+                  </div>
+            </div> -->
+            <!-- <div *ngIf="isclicked_bullettime">
+                    <div class="videolist" *ngIf="isshowVideolist_bullettime">
+                        <div class="border1" *ngFor="let index of HK_videolist,let i=index">
+                            <img src="https://siiva-video-public.oss-cn-hangzhou.aliyuncs.com/soccer_{{index.task.taskId}}.jpg" alt="封面图" (click)="goVideo(index.activity_id,index.task.taskId)">
+                            <div class="undone" *ngIf="index.state !== 'complete'"><img id="ongoing" src="assets/images/ongoing.png" alt="图片"></div>
+                        </div> 
+                   </div>
+                   <div class="videolist" *ngIf="!isshowVideolist_bullettime">
+                        <div class="showText">未找到您的拍摄记录</div>
+                        <div class="showText">我们在“时光子弹”拍摄区等待您来拍摄并领取短视频</div>
+                  </div>
+            </div>      -->
+            <div class="csd" *ngIf="isshow_csd">
+                <img class="icon_close" src="assets/images/close.png" alt="图片" (click)="cancle_csd()">
+                <div>若超过2小时还未收到视频<br>请微信联系客服</div>
+                <img class="code" src="assets/images/alan_weixin.jpg" alt="图片">
+            </div>
+    </div>
+
+</div>
+</div>
