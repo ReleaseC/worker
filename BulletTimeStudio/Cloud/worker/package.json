@@ -21,7 +21,7 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "commander": "^2.19.0",
-    "config": "^1.29.2",
+    "config": "^3.3.8",
     "csv-parse": "^2.0.0",
     "express": "^4.16.2",
     "ffmpeg-concat": "^1.0.11",
